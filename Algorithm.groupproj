@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{D53E5B12-74D0-4337-821A-75D0783EFB0F}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Project2\Algothtm.Library.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Project1\Algorithm.WinForm.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Algothtm_Library">
+        <MSBuild Projects="Project2\Algothtm.Library.cbproj"/>
+    </Target>
+    <Target Name="Algothtm_Library:Clean">
+        <MSBuild Projects="Project2\Algothtm.Library.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Algothtm_Library:Make">
+        <MSBuild Projects="Project2\Algothtm.Library.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Algorithm_WinForm">
+        <MSBuild Projects="Project1\Algorithm.WinForm.cbproj"/>
+    </Target>
+    <Target Name="Algorithm_WinForm:Clean">
+        <MSBuild Projects="Project1\Algorithm.WinForm.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Algorithm_WinForm:Make">
+        <MSBuild Projects="Project1\Algorithm.WinForm.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Algothtm_Library;Algorithm_WinForm"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Algothtm_Library:Clean;Algorithm_WinForm:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Algothtm_Library:Make;Algorithm_WinForm:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
