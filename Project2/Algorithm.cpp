@@ -86,6 +86,7 @@ extern "C"
 		//
 		return 0;
 	}
+    //
 	int Dijkstra::minDistance(vector<int> dist, vector<bool> sptSet, int p_vertexSize)
 	{
 		// Initialize min value
@@ -343,7 +344,6 @@ extern "C"
 		//
 		return hipotemuza;
 	}
-
 	//
 	string Dijkstra::GenerateRandomMatrix(const char* vertexString, int** graph ,int p_vertexSize)
 	{
@@ -484,13 +484,6 @@ extern "C"
 		for (int i = 0; i < p_vertexSize; i++) {
 		   graph[i] = new int[p_vertexSize];
 		}
-		/*
-		std::vector<std::vector<int>> graph(p_vertexSize, std::vector<int>(p_vertexSize));
-		for (int i = 0; i < p_vertexSize; i++) {
-			for (int j = 0; j < p_vertexSize; j++) {
-				graph[i][j]        = 0;
-			}
-		}*/
 		//
 		string _vertexMatrix = GenerateRandomMatrix(_vertexArrayString.c_str(), graph, p_vertexSize);
 		//

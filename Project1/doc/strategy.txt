@@ -35,21 +35,21 @@
 
      	-- [_] upgrade to c++.
 
-        -- [_] C# MULITPLE ENTRY POINTS
+        -- [x] C# MULITPLE ENTRY POINTS
 
                -- [_] CHATGTP : ¿Can I have multiple entry points using C# DLLIMPORT?
 
-        -- [_] URL
+        -- [x] URL
 
                -- [_] http://localhost:83/demos/GenerateRandomVertex?p_vertexSize=23&p_sourcePoint=0
 
                -- [_] http://localhost:83/demos/GenerateRandomVertex_cpp?p_vertexSize=23&p_sourcePoint=0
 
-        -- [_] // DLL_EXPORT char* Algorithm::Dijkstra(char* input)
+        -- [x] // DLL_EXPORT char* Algorithm::Dijkstra(char* input)
 
-        -- [_] // let p_url    = `${this._prefix}demos/GenerateRandomVertex?p_vertexSize=${vertexSize}&p_sourcePoint=${sourcePoint}`;
+        -- [x] // let p_url    = `${this._prefix}demos/GenerateRandomVertex?p_vertexSize=${vertexSize}&p_sourcePoint=${sourcePoint}`;
 
-        -- [_] /*
+        -- [x] /*
                 [Microsoft.AspNetCore.Mvc.HttpGet("GenerateRandomVertex")]
                 public string GenerateRandomVertex(ushort p_vertexSize, ushort p_sourcePoint)
                 {
