@@ -31,6 +31,8 @@
 -- [_] DIJSTRA (DISTANCIA MAS CORTA
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+        -- [_] Add to source control.
+
 	-- [_] Don't forget to deallocate the memory when you're done
 
      	-- [_] upgrade to c++.
