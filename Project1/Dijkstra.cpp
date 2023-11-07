@@ -343,7 +343,6 @@ using namespace std;
 		//
 		return hipotemuza;
 	}
-
 	//
 	string Dijkstra::GenerateRandomMatrix(const char* vertexString, int** graph ,int p_vertexSize)
 	{
@@ -494,5 +493,4 @@ using namespace std;
 		//
 		return s_statusMessage;
 	}
-
 
