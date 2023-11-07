@@ -6,7 +6,7 @@
 #include "Unit1.h"
 #include <iostream>
 #include <string>
-#include "algorithm.h"
+#include "Dijkstra.h"
 
 using namespace std;
 

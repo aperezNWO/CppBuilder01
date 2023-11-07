@@ -128,7 +128,7 @@
         <CppCompile Include="Algorithm.cpp">
             <BuildOrder>7</BuildOrder>
         </CppCompile>
-        <None Include="Algorithm.h">
+        <None Include="algorithm.h">
             <BuildOrder>8</BuildOrder>
         </None>
         <CppCompile Include="Algorithm.WinForm.cpp">
@@ -138,6 +138,14 @@
             <BuildOrder>1</BuildOrder>
             <PCH>true</PCH>
         </PCHCompile>
+        <CppCompile Include="Dijkstra.cpp">
+            <BuildOrder>10</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="Dijkstra.h">
+            <ContainerId>CCompiler</ContainerId>
+            <Suffix>_0</Suffix>
+            <BuildOrder>11</BuildOrder>
+        </CppCompile>
         <None Include="doc\strategy.txt"/>
         <None Include="iterativeList.h">
             <BuildOrder>8</BuildOrder>
