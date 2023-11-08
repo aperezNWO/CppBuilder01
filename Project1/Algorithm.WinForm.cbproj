@@ -171,9 +171,6 @@
             <BuildOrder>3</BuildOrder>
             <IgnorePath>true</IgnorePath>
         </None>
-        <None Include="..\..\SortBenchMark.h">
-            <BuildOrder>13</BuildOrder>
-        </None>
         <FormResources Include="Unit1.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
