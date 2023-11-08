@@ -121,3 +121,36 @@ void __fastcall TForm1::cmdCallDLLClick(TObject *Sender)
 //---------------------------------------------------------------------------
 
 
+void __fastcall TForm1::cmdSortBenchMarkClick(TObject *Sender)
+{
+	//
+	HINSTANCE CppMyDll;
+	typedef char*(__stdcall * pfGetSort)(int, char*);
+	pfGetSort fGetSort;
+
+	//
+	if ((CppMyDll = LoadLibraryW(L"Algothtm.Library.dll")) == NULL) {
+		//
+		ShowMessage(L"Cannot load DLL!");
+		return;
+	}
+	if ((fGetSort = (pfGetSort)GetProcAddress(CppMyDll, "SortBenchMark_GetSort")) == NULL) {
+		//
+		ShowMessage(L"Cannot find DLL function!");
+		return;
+	}
+	else
+	{
+	   //
+	   int   p_sortAlgorithm     = 1;
+	   char* p_unsortedList      = (char*)"3|6|18|7|4|10|2|24|5|11|15|16|23|22|17|14|21|9|13|1|0|12|8|20|19";
+	   //
+	   char* result = fGetSort(p_sortAlgorithm, p_unsortedList);
+	   //
+	   lblSortBenchMark->Caption = UnicodeString(result).c_str();
+	   //
+	   FreeLibrary(CppMyDll);
+	 }
+};
+//---------------------------------------------------------------------------
+

@@ -15,10 +15,13 @@ __published:	// IDE-managed Components
 	TLabel *lblGetRandomVertex;
 	TButton *cmdGetRandomVertex;
 	TButton *cmdCallDLL;
+	TButton *cmdSortBenchMark;
+	TLabel *lblSortBenchMark;
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall cmdGetRandomVertexClick(TObject *Sender);
 	void __fastcall cmdCallDLLClick(TObject *Sender);
+	void __fastcall cmdSortBenchMarkClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);

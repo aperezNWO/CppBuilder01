@@ -1,16 +1,15 @@
-﻿#ifndef Dijkstra_H // include guard
+﻿///////////////////////////////////////////////////////////////////////////
+// DIJTRA ALGORITHM
+///////////////////////////////////////////////////////////////////////////
+
+#ifndef Dijkstra_H // include guard
 #define Dijkstra_H
 #endif
-
 
 #include "iterativeList.h"
 #include "recursiveList.h"
 #include <sstream>
 #include <iostream>
-///////////////////////////////////////////////////////////////////////////
-// DIJTRA ALGORITHM
-///////////////////////////////////////////////////////////////////////////
-
 #include <sstream>
 #include <vector>
 #include <random>
@@ -35,7 +34,7 @@
 		  string          GenerateRandomMatrix(const char* vertexString, int** graph ,int p_vertexSize);
 		  string          GetRandomPoints(int p_vertexSize, int p_sourcePoint);
 	  public :
-		  vector<int>    dist;         // The output array.  dist[i] will hold the shortest
+		  vector<int>    dist;        // The output array.  dist[i] will hold the shortest
 		  vector<string> path;
 		  std::random_device rd_1;    // Seed the generator with a random value om a hardware device
 		  std::mt19937       mt_1;

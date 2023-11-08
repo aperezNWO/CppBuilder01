@@ -6,7 +6,6 @@
 #define Algorithm_H
 #endif
 
-
 #define DLL_EXPORT __declspec(dllexport) __stdcall
 #pragma once
 
