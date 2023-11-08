@@ -139,11 +139,10 @@
             <PCH>true</PCH>
         </PCHCompile>
         <CppCompile Include="Dijkstra.cpp">
+            <Suffix>_0</Suffix>
             <BuildOrder>10</BuildOrder>
         </CppCompile>
         <CppCompile Include="Dijkstra.h">
-            <ContainerId>CCompiler</ContainerId>
-            <Suffix>_0</Suffix>
             <BuildOrder>11</BuildOrder>
         </CppCompile>
         <None Include="doc\strategy.txt"/>
@@ -156,6 +155,9 @@
         <None Include="recursiveList.h">
             <BuildOrder>6</BuildOrder>
         </None>
+        <CppCompile Include="SortBenchMark.cpp">
+            <BuildOrder>12</BuildOrder>
+        </CppCompile>
         <CppCompile Include="Unit1.cpp">
             <Form>Form1</Form>
             <FormType>dfm</FormType>
