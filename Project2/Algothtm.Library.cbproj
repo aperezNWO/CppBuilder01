@@ -156,6 +156,9 @@
         <CppCompile Include="SortBenchMark.cpp">
             <BuildOrder>8</BuildOrder>
         </CppCompile>
+        <None Include="SortBenchMark.h">
+            <BuildOrder>10</BuildOrder>
+        </None>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

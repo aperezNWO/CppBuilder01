@@ -139,12 +139,11 @@
             <PCH>true</PCH>
         </PCHCompile>
         <CppCompile Include="Dijkstra.cpp">
-            <Suffix>_0</Suffix>
             <BuildOrder>10</BuildOrder>
         </CppCompile>
-        <CppCompile Include="Dijkstra.h">
-            <BuildOrder>11</BuildOrder>
-        </CppCompile>
+        <None Include="Dijkstra.h">
+            <BuildOrder>12</BuildOrder>
+        </None>
         <None Include="doc\strategy.txt"/>
         <None Include="iterativeList.h">
             <BuildOrder>8</BuildOrder>
