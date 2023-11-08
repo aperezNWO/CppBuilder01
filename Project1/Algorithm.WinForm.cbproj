@@ -64,8 +64,8 @@
         <Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
         <UWP_CppLogo44>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_44.png</UWP_CppLogo44>
         <UWP_CppLogo150>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_150.png</UWP_CppLogo150>
-        <IncludePath>D:\Usuarios\Alejandro\root\dev\_DEVOPS\Cpp\cppBuilder\02\;$(IncludePath)</IncludePath>
-        <ILINK_LibraryPath>D:\Usuarios\Alejandro\root\dev\_DEVOPS\Cpp\cppBuilder\02\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <IncludePath>..\..\;D:\Usuarios\Alejandro\root\dev\_DEVOPS\Cpp\cppBuilder\02\;$(IncludePath)</IncludePath>
+        <ILINK_LibraryPath>..\..\;D:\Usuarios\Alejandro\root\dev\_DEVOPS\Cpp\cppBuilder\02\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
         <SanitizedProjectName>Algorithm_WinForm</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
@@ -157,6 +157,9 @@
         <CppCompile Include="SortBenchMark.cpp">
             <BuildOrder>12</BuildOrder>
         </CppCompile>
+        <None Include="SortBenchMark.h">
+            <BuildOrder>14</BuildOrder>
+        </None>
         <CppCompile Include="Unit1.cpp">
             <Form>Form1</Form>
             <FormType>dfm</FormType>
@@ -167,6 +170,9 @@
             <Exclude>True</Exclude>
             <BuildOrder>3</BuildOrder>
             <IgnorePath>true</IgnorePath>
+        </None>
+        <None Include="..\..\SortBenchMark.h">
+            <BuildOrder>13</BuildOrder>
         </None>
         <FormResources Include="Unit1.dfm"/>
         <BuildConfiguration Include="Base">
