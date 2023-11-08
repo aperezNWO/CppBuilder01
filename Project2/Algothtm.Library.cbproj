@@ -153,9 +153,6 @@
         <None Include="recursiveList.h">
             <BuildOrder>4</BuildOrder>
         </None>
-        <CppCompile Include="____SortBenchMark.cpp">
-            <BuildOrder>8</BuildOrder>
-        </CppCompile>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
