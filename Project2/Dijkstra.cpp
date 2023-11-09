@@ -369,22 +369,23 @@ using namespace std;
 			{
 
 				// Create a random number generator engine
-				this->mt_3                 = std::mt19937(rd_3());
+				this->mt_3           = std::mt19937(rd_3());
 				std::uniform_int_distribution<int> distribution(0, 1);
 				int randomValue      = distribution(mt_3);
-
 
 				// Create a random number generator engine
 				//std::default_random_engine gen(std::chrono::system_clock::now().time_since_epoch().count());
 				//std::uniform_int_distribution<int> distribution(0, 1);
 				//int randomValue      = distribution(gen);
 
+				//
 				int hipotemuza       = 0;
+
 				//--------------------------------------------------------------
 				// EN VALORES POSITIVOS LLENAR LA MATRIZ CON DISTANCIAS
 				//--------------------------------------------------------------
 
-				if (randomValue <= 2)
+				if (randomValue == 1)
 				{
 					//
 					hipotemuza = GetHipotemuza(vertexString, index_x, index_y);

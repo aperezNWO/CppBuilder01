@@ -14,7 +14,7 @@
 #include <vector>
 #include <random>
 #include <string>
-
+#include <cstdlib>
 
    class Dijkstra
    {
