@@ -15,6 +15,7 @@
 #include <limits.h>
 #include <iomanip>
 #include <memory>
+#include <chrono>
 #include "Dijkstra.h"
 
 using namespace std;
@@ -217,11 +218,15 @@ using namespace std;
 	   for (short i = 0; i <= count - 2; i++)
 	   {
 		   // Create a random number generator engine
-		   this->mt_1  = std::mt19937(rd_1());
+		   this->mt_1               = std::mt19937(rd_1());
 		   std::uniform_int_distribution<int> dist(0, count - i);
+		   int j              = dist(mt_1); /*rand.Next(count - i)*/;
 
 		   //
-		   int j = dist(mt_1); /*rand.Next(count - i)*/;
+		   //std::default_random_engine gen(std::chrono::system_clock::now().time_since_epoch().count());
+		   //std::uniform_int_distribution<int> distribution(0, count - i);
+		   //int j = distribution(gen);
+
 		   //
 		   if (j > 0)
 		   {
@@ -233,12 +238,16 @@ using namespace std;
 	   //
 	   for (short i = count - 1; i >= 1; i--)
 	   {
-		   //
-		   this->mt_2  = std::mt19937(rd_2());
-		   //
+		   // Seed the generator with a random value om a hardware device
+		   this->mt_2         = std::mt19937(rd_2());
 		   std::uniform_int_distribution<int> dist(0, i + 1);
+		   int j              = dist(mt_2);
+
 		   //
-		   int j  = dist(mt_2);//*rand.Next(i + 1)/0;
+		   //std::default_random_engine gen(std::chrono::system_clock::now().time_since_epoch().count());
+		   //std::uniform_int_distribution<int> distribution(0, i + 1);
+		   //int j = distribution(gen);
+
 		   //
 		   if (j != i)
 		   {
@@ -358,17 +367,24 @@ using namespace std;
 			//
 			for (int index_y = (index_x + 1); index_y < p_vertexSize; index_y++)
 			{
-				// Create a random number generator engine
-				this->mt_3  = std::mt19937(rd_3());
-				std::uniform_int_distribution<int> dist(0, 1);
 
-				int randomValue      = dist(mt_3);
+				// Create a random number generator engine
+				this->mt_3                 = std::mt19937(rd_3());
+				std::uniform_int_distribution<int> distribution(0, 1);
+				int randomValue      = distribution(mt_3);
+
+
+				// Create a random number generator engine
+				//std::default_random_engine gen(std::chrono::system_clock::now().time_since_epoch().count());
+				//std::uniform_int_distribution<int> distribution(0, 1);
+				//int randomValue      = distribution(gen);
+
 				int hipotemuza       = 0;
 				//--------------------------------------------------------------
 				// EN VALORES POSITIVOS LLENAR LA MATRIZ CON DISTANCIAS
 				//--------------------------------------------------------------
 
-				if (randomValue == 1)
+				if (randomValue <= 2)
 				{
 					//
 					hipotemuza = GetHipotemuza(vertexString, index_x, index_y);

@@ -36,15 +36,15 @@
 	  public :
 		  vector<int>    dist;        // The output array.  dist[i] will hold the shortest
 		  vector<string> path;
+		  vector<vector<int>> graph;
 		  //
 		  std::random_device rd_1;    // Seed the generator with a random value om a hardware device
-		  std::random_device rd_2;    // Seed the generator with a random value om a hardware device
-		  std::random_device rd_3;    // Seed the generator with a random value om a hardware device
-          //
 		  std::mt19937       mt_1;
+		  //
+		  std::random_device rd_2;
 		  std::mt19937       mt_2;
+		  //
+		  std::random_device rd_3;      // Seed the generator with a random value om a hardware device
 		  std::mt19937       mt_3;
-		  //int** graph;
-          std::vector<std::vector<int>> graph;
    };
 

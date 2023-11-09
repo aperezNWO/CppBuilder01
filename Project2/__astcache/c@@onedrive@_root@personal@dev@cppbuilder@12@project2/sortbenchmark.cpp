@@ -1,4 +1,4 @@
-﻿#include "SortBenchMark.h"
+#include "SortBenchMark.h"
 
 	//
 	SortBenchMark::SortBenchMark(char* p_randomValues, int p_arraySize)
