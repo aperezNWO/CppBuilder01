@@ -7,6 +7,9 @@
 #endif
 
 #include <string>
+#include <vector>
+#include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -21,7 +24,11 @@ class SortBenchMark
 	   string	GetSort(int p_sortAlgoritm ,char* p_unsortedList);
 	   void     BubbleSort();
 	   void     QuickSort();
+	   void     Quick_Sort(vector<int> arr, int left, int right);
+	   int      Partition(vector<int> arr, int left, int right);
 	public  :
+	   vector<int> arreglo;
+	   vector<string> sortSteps;
 	   char* randomValues;
 	   int   arraySize;
 };
