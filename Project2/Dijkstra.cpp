@@ -218,6 +218,7 @@ using namespace std;
 	   for (short i = 0; i <= count - 2; i++)
 	   {
 		   // Create a random number generator engine
+		   std::random_device rd_1;    // Seed the generator with a random value om a hardware device
 		   this->mt_1               = std::mt19937(rd_1());
 		   std::uniform_int_distribution<int> dist(0, count - i);
 		   int j              = dist(mt_1); /*rand.Next(count - i)*/;
@@ -239,6 +240,7 @@ using namespace std;
 	   for (short i = count - 1; i >= 1; i--)
 	   {
 		   // Seed the generator with a random value om a hardware device
+		   std::random_device rd_2;
 		   this->mt_2         = std::mt19937(rd_2());
 		   std::uniform_int_distribution<int> dist(0, i + 1);
 		   int j              = dist(mt_2);
@@ -369,6 +371,7 @@ using namespace std;
 			{
 
 				// Create a random number generator engine
+				std::random_device rd_3;      // Seed the generator with a random value om a hardware device
 				this->mt_3           = std::mt19937(rd_3());
 				std::uniform_int_distribution<int> distribution(0, 1);
 				int randomValue      = distribution(mt_3);
