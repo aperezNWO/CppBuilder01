@@ -90,7 +90,7 @@ using namespace std;
 		//
 		return 0;
 	}
-    //
+	//
 	int Dijkstra::minDistance(vector<int> dist, vector<bool> sptSet, int p_vertexSize)
 	{
 		// Initialize min value
@@ -103,12 +103,12 @@ using namespace std;
 		return min_index;
 	}
 	//
-	string Dijkstra::GetDijkstra(vector<string> vertex, int** graph, int p_vertexSize, int p_sampleSize, int p_sourcePoint)
+	string Dijkstra::GetDijkstra(vector<string> vertex, int p_vertexSize, int p_sampleSize, int p_sourcePoint)
 	{
 		//
 		string status;
 		// Driver Code
-		SetDijkstra(graph, p_sourcePoint, p_vertexSize);
+		SetDijkstra(p_sourcePoint, p_vertexSize);
 		//
 		string integerFormat = "00";
 		//
@@ -151,21 +151,9 @@ using namespace std;
 	// Function that implements Dijkstra's single source
 	// shortest path algorithm for a graph represented using
 	// adjacency matrix representation
-	void Dijkstra::SetDijkstra(int** graph, int src, int V)
+	void Dijkstra::SetDijkstra(int src, int V)
 	{
-		//
-		//dist = new int[V];
-		//
-		//path = new vector<string>;
-        //
-		// distance from src to i
-		//
-		//bool sptSet[V];    // sptSet[i] will be true if vertex i is
 		vector<bool> sptSet; // sptSet[i] will be true if vertex i is
-
-		// included in shortest
-		// path tree or shortest distance from src to i is
-		// finalized
 
 		// Initialize path
 		// Initialize all distances as INFINITE and stpSet[] as false
@@ -175,12 +163,6 @@ using namespace std;
 			sptSet.push_back(false);
 			path.push_back(string(""));
 		}
-
-		/*
-		for (int i = 0; i < V; i++)  {
-			dist[i]   = INT_MAX;
-			sptSet[i] = false;
-		}*/
 
 		// Distance of source vertex from itself is always 0
 		dist[src] = 0;
@@ -212,7 +194,7 @@ using namespace std;
 					//path[v] = path[u] + string.Format("[{0},{1}]≡", u,v);
 					stringstream ss;
 					string       pathSeparator  = "≡";
-                    //
+					//
 					ss << "[" << u << ";" << v << "]" << pathSeparator;
 					path[v] = path[u] + ss.str().c_str();
 				}
@@ -227,7 +209,6 @@ using namespace std;
 
 	   for (short i = 0; i < count; i++)
 	   {
-			//deck[i] = i;
 			deck.push_back(i);
 	   }
 
@@ -235,6 +216,7 @@ using namespace std;
 	   //
 	   for (short i = 0; i <= count - 2; i++)
 	   {
+		   // Create a random number generator engine
 		   this->mt_1  = std::mt19937(rd_1());
 		   std::uniform_int_distribution<int> dist(0, count - i);
 
@@ -251,13 +233,12 @@ using namespace std;
 	   //
 	   for (short i = count - 1; i >= 1; i--)
 	   {
-		   //std::mt19937 mt_2(rd_2());
-
-		   // Create a random number generator engine
-		   this->mt_1  = std::mt19937(rd_1());
+		   //
+		   this->mt_2  = std::mt19937(rd_2());
+		   //
 		   std::uniform_int_distribution<int> dist(0, i + 1);
 		   //
-		   int j  = dist(mt_1);//*rand.Next(i + 1)/0;
+		   int j  = dist(mt_2);//*rand.Next(i + 1)/0;
 		   //
 		   if (j != i)
 		   {
@@ -343,21 +324,29 @@ using namespace std;
 		float hipotemuza = Pitagorean(coord_x, coord_y);
 
 		//
-		// LogModel.Log(string.Format("DIJSTRA_DEMO. GENERATE_RANDOM_MATRIX : ({0},{1}) ({2}, {3}) = {4} ", coord_source[0], coord_source[1], coord_dest[0], coord_dest[1], hipotemuza));
-
-		//
 		return hipotemuza;
 	}
 	//
-	string Dijkstra::GenerateRandomMatrix(const char* vertexString, int** graph ,int p_vertexSize)
+	string Dijkstra::GenerateRandomMatrix(const char* vertexString, int p_vertexSize)
 	{
+		// CREAR MATRIZ
+		//--------------------------------------------------------------
+		// Resize the matrix to the desired number of rows
+		this->graph.resize(p_vertexSize);
+		// Resize each row to the desired number of columns
+		for (int i = 0; i < p_vertexSize; i++) {
+			this->graph[i].resize(p_vertexSize);
+		}
+
 		//--------------------------------------------------------------
 		// LA PARTE DIAGONAL DE LA MATRIZ SIEMPRE SERA 0
 		// lA DISTANCIA ENTRE UN PUNTO Y EL MISMO SIEMPRE ES CERO
 		//--------------------------------------------------------------
-		for (int index = 0; index < p_vertexSize; index++)
+		for (int index_x = 0; index_x < p_vertexSize; index_x++)
 		{
-			graph[index][index] = 0;
+			for (int index_y = 0; index_y < p_vertexSize; index_y++) {
+				this->graph[index_x][index_y] = 0;
+			}
 		}
 
 		//--------------------------------------------------------------
@@ -370,10 +359,10 @@ using namespace std;
 			for (int index_y = (index_x + 1); index_y < p_vertexSize; index_y++)
 			{
 				// Create a random number generator engine
-				this->mt_1  = std::mt19937(rd_1());
+				this->mt_3  = std::mt19937(rd_3());
 				std::uniform_int_distribution<int> dist(0, 1);
 
-				int randomValue      = dist(mt_1);
+				int randomValue      = dist(mt_3);
 				int hipotemuza       = 0;
 				//--------------------------------------------------------------
 				// EN VALORES POSITIVOS LLENAR LA MATRIZ CON DISTANCIAS
@@ -386,8 +375,8 @@ using namespace std;
 				}
 
 				//
-				graph[index_x][index_y] = hipotemuza;
-				graph[index_y][index_x] = hipotemuza;
+				this->graph[index_x][index_y] = hipotemuza;
+				this->graph[index_y][index_x] = hipotemuza;
 			}
 		}
 
@@ -413,8 +402,8 @@ using namespace std;
 					{
 						//
 						int hipotemuza          = static_cast<int>(std::round(GetHipotemuza(vertexString, index_x, index_y)));
-						graph[index_x][index_y] = hipotemuza;
-						graph[index_y][index_x] = hipotemuza;
+						this->graph[index_x][index_y] = hipotemuza;
+						this->graph[index_y][index_x] = hipotemuza;
 					}
 				}
 			}
@@ -478,18 +467,10 @@ using namespace std;
 			//
 			_vertexArrayString += vertexItem;
 		}
-
-		//--------------------------------------------------------------
-		// CREAR MATRIZ
-		//--------------------------------------------------------------
-		int** graph = new int*[p_vertexSize];
-		for (int i = 0; i < p_vertexSize; i++) {
-		   graph[i] = new int[p_vertexSize];
-		}
 		//
-		string _vertexMatrix = GenerateRandomMatrix(_vertexArrayString.c_str(), graph, p_vertexSize);
+		string _vertexMatrix = GenerateRandomMatrix(_vertexArrayString.c_str(), p_vertexSize);
 		//
-		string vertexList    = GetDijkstra(StringSplit(_vertexArrayString.c_str(),"|",false), graph, p_vertexSize, p_sampleSize, p_sourcePoint);
+		string vertexList    = GetDijkstra(StringSplit(_vertexArrayString.c_str(),"|",false), p_vertexSize, p_sampleSize, p_sourcePoint);
 		//
 		string        separator_1("~");
 		stringstream  ss_statusMessage;

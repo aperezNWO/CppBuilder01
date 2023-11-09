@@ -16,7 +16,12 @@ using namespace std;
 class SortBenchMark
 {
 	public  :
-	   SortBenchMark();
+	   SortBenchMark(char* p_randomValues, int p_arraySize);
 	   ~SortBenchMark();
 	   string	GetSort(int p_sortAlgoritm ,char* p_unsortedList);
+	   void     BubbleSort();
+	   void     QuickSort();
+	public  :
+	   char* randomValues;
+	   int   arraySize;
 };
