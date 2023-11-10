@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'ALGORIITMOS DE DISTANCIA MAS CORTA'
-  ClientHeight = 125
-  ClientWidth = 901
+  ClientHeight = 122
+  ClientWidth = 889
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -52,5 +52,14 @@ object Form1: TForm1
     Caption = 'Call DLL SortBenchMark'
     TabOrder = 2
     OnClick = cmdSortBenchMarkClick
+  end
+  object cmdGetSortBenchMark: TButton
+    Left = 152
+    Top = 92
+    Width = 161
+    Height = 25
+    Caption = '[Get Sort Benchmark]'
+    TabOrder = 3
+    OnClick = cmdGetSortBenchMarkClick
   end
 end

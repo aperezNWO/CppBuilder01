@@ -7,6 +7,7 @@
 #include <iostream>
 #include <string>
 #include "Dijkstra.h"
+#include "SortBenchMark.h"
 
 using namespace std;
 
@@ -15,36 +16,21 @@ using namespace std;
 #pragma resource "*.dfm"
 TForm1 *Form1;
 
-//extern "C" double __declspec(dllexport) __stdcall _setAlgorithm(unsigned long algorithmCode);
-
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
 	: TForm(Owner)
 {
-
+	 //
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::FormCreate(TObject *Sender)
 {
-   /* TODO (#3#): Iterative List */
-   //IterativeList i;
-   //i.Set(20);
-   //Label1->Caption = UnicodeString(i.getTrace()).c_str();
-   //Label1->Caption = UnicodeString( _setAlgorithm(1) ).c_str();
-
-   /* TODO (#4#): Recursive List */
-   //RecursiveList r;
-   //r.Set(20);
-   //Label2->Caption = UnicodeString(r.getTrace()).c_str();
-
-   //Label2->Caption = UnicodeString( _setAlgorithm(2) ).c_str();
+	  //
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TForm1::Button1Click(TObject *Sender)
 {
-	// https://blogs.embarcadero.com/create-and-use-static-library-lib-and-dynamic-dlls-in-c-builder/
-
 	HINSTANCE CppMyDll;
 	typedef char*(__stdcall * pfSum)(int, int, char*);
 	pfSum Sum;
@@ -120,7 +106,6 @@ void __fastcall TForm1::cmdCallDLLClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-
 void __fastcall TForm1::cmdSortBenchMarkClick(TObject *Sender)
 {
 	//
@@ -152,5 +137,27 @@ void __fastcall TForm1::cmdSortBenchMarkClick(TObject *Sender)
 	   FreeLibrary(CppMyDll);
 	 }
 };
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::cmdGetSortBenchMarkClick(TObject *Sender)
+{
+	   //
+	   int   ARRAY_SIZE          = 25;
+	   int   p_sortAlgorithm     = 1;
+	   char* p_unsortedList      = (char*)"3|6|18|7|4|10|2|24|5|11|15|16|23|22|17|14|21|9|13|1|0|12|8|20|19";
+	   int   p_sortAlgoritm      = 1;
+
+	   //
+	   std::unique_ptr<SortBenchMark> uniquePtr = std::make_unique<SortBenchMark>(
+				  p_unsortedList
+				, ARRAY_SIZE
+	   );
+
+	   //
+	   string result = uniquePtr->GetSort(p_sortAlgoritm).c_str();
+
+	   //
+	   lblSortBenchMark->Caption = result.c_str();
+}
 //---------------------------------------------------------------------------
 

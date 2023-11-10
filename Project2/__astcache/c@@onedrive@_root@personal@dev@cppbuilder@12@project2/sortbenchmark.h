@@ -9,7 +9,9 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <fstream>
 #include <sstream>
+#include <algorithm>
 
 using namespace std;
 
@@ -21,14 +23,17 @@ class SortBenchMark
 	public  :
 	   SortBenchMark(char* p_randomValues, int p_arraySize);
 	   ~SortBenchMark();
-	   string	GetSort(int p_sortAlgoritm ,char* p_unsortedList);
-	   void     BubbleSort();
-	   void     QuickSort();
-	   void     Quick_Sort(vector<int> arr, int left, int right);
-	   int      Partition(vector<int> arr, int left, int right);
+	   vector<string> StringSplit(const char* p_inputString, std::string p_delimiter);
+       int            SaveToFile(string p_value);
+	   string	      GetSort(int p_sortAlgoritm);
+	   void           QuickSort();
+	   int            partition(int arr[],int low,int high);
+	   void           quickSort(int arr[],int low,int high);
+	   void           BubbleSort();
 	public  :
-	   vector<int> arreglo;
-	   vector<string> sortSteps;
+	   vector<int>      arreglo;
+	   vector<string>   arreglo_str;
+	   vector<string>   sortSteps;
 	   char* randomValues;
 	   int   arraySize;
 };
