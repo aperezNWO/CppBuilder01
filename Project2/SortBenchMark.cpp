@@ -65,6 +65,28 @@
 
 			return 0;
 	}
+	void SortBenchMark::SaveStep(int arr[])
+	{
+		//----------------------------------------------------
+		// IMPRIMIR PASO INTERMEDIO
+		//-----------------------------------------------------
+		//
+		string tempValues = "";
+		for (int index = 0; index < this->arraySize; index++)
+		{
+		  //
+		  stringstream  ss;
+		  //
+		  string separator = (index == 0) ? "" : "<br/>";
+		  ss << separator << arr[index];
+		  //
+		  string _tempValues  = ss.str();
+		  //
+		  tempValues          += _tempValues;
+		}
+		//
+		this->sortSteps.push_back(tempValues);
+	}
 	//
 	string SortBenchMark::GetSort(int p_sortAlgorithm)
 	{
@@ -115,32 +137,15 @@
 		for (int i = 0; i < this->arraySize; i++) {
 			  _arreglo[i] = arreglo[i];
 		}
-
 		//----------------------------------------------------
 		// INGRESAR A RECURSION
 		//-----------------------------------------------------
 		quickSort(_arreglo,0 , this->arraySize - 1);
 
 		//----------------------------------------------------
-		// IMPRIMIR VALOR FINAL
+		// IMPRIMIR VALOES FINALES
 		//-----------------------------------------------------
-		//
-		string tempValues = "";
-		//
-		for (int index = 0; index < this->arraySize; index++)
-		{
-		  //
-		  stringstream  ss;
-		  //
-		  string separator = (index == 0) ? "" : "<br/>";
-		  ss << separator << _arreglo[index];
-		  //
-		  string _tempValues  = ss.str();
-		  //
-		  tempValues          += _tempValues;
-		}
-		//
-		this->sortSteps.push_back(tempValues);
+		SaveStep(_arreglo);
 	}
 	//
 	int SortBenchMark::partition(int arr[],int low,int high)
@@ -159,30 +164,12 @@
 			//Increment index of smaller element
 			i++;
 			std::swap(arr[i],arr[j]);
-
-				//----------------------------------------------------
-				// IMPRIMIR PASO INTERMEDIO
-				//-----------------------------------------------------
-				//
-				string tempValues = "";
-				for (int index = 0; index < this->arraySize; index++)
-				{
-				  //
-				  stringstream  ss;
-				  //
-				  string separator = (index == 0) ? "" : "<br/>";
-				  ss << separator << arr[index];
-				  //
-				  string _tempValues  = ss.str();
-				  //
-				  tempValues          += _tempValues;
-				}
-				//
-				this->sortSteps.push_back(tempValues);
+			SaveStep(arr);
 		  }
 	  }
 	  //
 	  std::swap(arr[i+1],arr[high]);
+	  SaveStep(arr);
 	  //
 	  return (i+1);
 	}

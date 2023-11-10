@@ -24,7 +24,8 @@ class SortBenchMark
 	   SortBenchMark(char* p_randomValues, int p_arraySize);
 	   ~SortBenchMark();
 	   vector<string> StringSplit(const char* p_inputString, std::string p_delimiter);
-       int            SaveToFile(string p_value);
+	   int            SaveToFile(string p_value);
+       void           SaveStep(int arr[]);
 	   string	      GetSort(int p_sortAlgoritm);
 	   void           QuickSort();
 	   int            partition(int arr[],int low,int high);
