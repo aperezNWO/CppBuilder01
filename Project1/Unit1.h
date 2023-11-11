@@ -18,6 +18,9 @@ __published:	// IDE-managed Components
 	TButton *cmdSortBenchMark;
 	TLabel *lblSortBenchMark;
 	TButton *cmdGetSortBenchMark;
+	TLabel *lblRegExManager;
+	TButton *cmdRegExManagerDLL;
+	TButton *cmdRegExManager;
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall cmdGetRandomVertexClick(TObject *Sender);

@@ -10,6 +10,7 @@
 #include "Algorithm.h"
 #include "Dijkstra.h"
 #include "SortBenchMark.h"
+#include "RegExManager.h"
 
 	Algorithm::Algorithm()
 	{
@@ -164,6 +165,7 @@
 		{
 			//
 			std::unique_ptr<Dijkstra> uniquePtr = std::make_unique<Dijkstra>();
+			//
 			return uniquePtr->GetRandomPoints(p_vertexSize, p_sourcePoint).c_str();
 		};
 
@@ -180,5 +182,13 @@
 			);
 			return uniquePtr->GetSort(p_sortAlgoritm).c_str();
 		};
-
+		// http://localhost:83/demos/_RegExEval?p_tagSearch=company&p_textSearch=bmg
+        // REGULAR EXPRESSIONS
+		DLL_EXPORT const char*  RegExManager_RegExEval(char* p_tagSearch, char* p_textSearch)
+		{
+			//
+			std::unique_ptr<RegExManager> uniquePtr = std::make_unique<RegExManager>();
+			//
+			return uniquePtr->RegExEval(p_tagSearch, p_textSearch).c_str();
+		}
 	}

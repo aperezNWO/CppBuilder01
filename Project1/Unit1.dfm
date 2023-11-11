@@ -2,7 +2,7 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'ALGORIITMOS DE DISTANCIA MAS CORTA'
-  ClientHeight = 122
+  ClientHeight = 221
   ClientWidth = 889
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -18,6 +18,8 @@ object Form1: TForm1
     Width = 63
     Height = 13
     Caption = '[PENDIENTE]'
+    Color = clBtnText
+    ParentColor = False
   end
   object lblSortBenchMark: TLabel
     Left = 8
@@ -25,6 +27,17 @@ object Form1: TForm1
     Width = 63
     Height = 13
     Caption = '[PENDIENTE]'
+    Color = clBlack
+    ParentColor = False
+  end
+  object lblRegExManager: TLabel
+    Left = 8
+    Top = 130
+    Width = 63
+    Height = 13
+    Caption = '[PENDIENTE]'
+    Color = clBlack
+    ParentColor = False
   end
   object cmdGetRandomVertex: TButton
     Left = 152
@@ -61,5 +74,21 @@ object Form1: TForm1
     Caption = '[Get Sort Benchmark]'
     TabOrder = 3
     OnClick = cmdGetSortBenchMarkClick
+  end
+  object cmdRegExManagerDLL: TButton
+    Left = 8
+    Top = 157
+    Width = 138
+    Height = 25
+    Caption = 'Call DLL RegExManager'
+    TabOrder = 4
+  end
+  object cmdRegExManager: TButton
+    Left = 152
+    Top = 157
+    Width = 161
+    Height = 25
+    Caption = '[RegExEval]'
+    TabOrder = 5
   end
 end

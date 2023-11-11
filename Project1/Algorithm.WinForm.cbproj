@@ -144,6 +144,7 @@
         <None Include="Dijkstra.h">
             <BuildOrder>12</BuildOrder>
         </None>
+        <None Include="doc\RegExManager_output.txt"/>
         <None Include="doc\strategy.txt"/>
         <None Include="iterativeList.h">
             <BuildOrder>8</BuildOrder>
@@ -153,6 +154,12 @@
         </None>
         <None Include="recursiveList.h">
             <BuildOrder>6</BuildOrder>
+        </None>
+        <CppCompile Include="RegExManager.cpp">
+            <BuildOrder>14</BuildOrder>
+        </CppCompile>
+        <None Include="RegExManager.h">
+            <BuildOrder>15</BuildOrder>
         </None>
         <CppCompile Include="SortBenchMark.cpp">
             <BuildOrder>12</BuildOrder>
@@ -280,6 +287,12 @@
                 <DeployFile LocalName=".\Win32\Debug\Algorithm.WinForm.tds" Configuration="Debug" Class="DebugSymbols">
                     <Platform Name="Win32">
                         <RemoteName>Algorithm_WinForm.tds</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="doc\RegExManager_output.txt" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
