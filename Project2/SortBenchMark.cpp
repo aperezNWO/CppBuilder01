@@ -146,6 +146,18 @@
 		// IMPRIMIR VALOES FINALES
 		//-----------------------------------------------------
 		SaveStep(_arreglo);
+
+		//----------------------------------------------------
+		// REMOVER VALORES REPETIDOS
+		//-----------------------------------------------------
+		// Sort the vector to bring duplicates together
+		//std::sort(this->sortSteps.begin(), this->sortSteps.end());
+
+		// Use std::unique to move duplicates to the end
+		auto last = std::unique(this->sortSteps.begin(), this->sortSteps.end());
+
+		// Erase the duplicates from the vector
+		this->sortSteps.erase(last, this->sortSteps.end());
 	}
 	//
 	int SortBenchMark::partition(int arr[],int low,int high)
