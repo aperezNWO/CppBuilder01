@@ -21,9 +21,6 @@
 	   public :
 		  Dijkstra();
 		  ~Dijkstra();
-		  int             OpenFile();
-		  int             SetFile_int(int* array, int arraySize, char* fileName);
-		  int             SetFile_char(char** array, int arraySize, char* fileName);
 		  int             minDistance(vector<int> dist, vector<bool> sptSet, int p_vertexSize);
 		  string          GetDijkstra(vector<string> vertex, int p_vertexSize, int p_sampleSize, int p_sourcePoint);
 		  void            SetDijkstra(int src, int vertexSize);

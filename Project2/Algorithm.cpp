@@ -61,7 +61,44 @@
 
 			return 0;
 	}
-
+	//
+	int Algorithm::SetFile_int(int* array, int arraySize, char* fileName)
+	{
+		// declaration of file pointer
+		FILE* fp = NULL;
+		// declaration of variable
+		int x;
+		// opening of file
+		fopen_s(&fp, fileName, "w+");
+		// checking of error
+		if (!fp)
+			return 1;
+		// giving content
+		for (int i = 0; i < arraySize; i++)
+			fprintf(fp, "%d\n", array[i]);
+		// closing of file
+		fclose(fp);
+		//
+		return 0;
+	}
+	//
+	int Algorithm::SetFile_char(char** array, int arraySize, char* fileName)
+	{
+		// declaration of file pointer
+		FILE* fp = NULL;
+		// opening of file
+		fopen_s(&fp, fileName, "w+");
+		// checking of error
+		if (!fp)
+			return 1;
+		// giving content
+		for (int i = 0; i < arraySize; i++)
+			fprintf(fp, "%s\n", array[i]);
+		// closing of file
+		fclose(fp);
+		//
+		return 0;
+	}
 	///////////////////////////////////////////////////////////////////////////
 	// ENTRY POINTS
 	///////////////////////////////////////////////////////////////////////////
