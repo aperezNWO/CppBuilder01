@@ -17,6 +17,7 @@
 #include <memory>
 #include <chrono>
 #include "Dijkstra.h"
+#include "Algorithm.h"
 
 using namespace std;
 
@@ -32,6 +33,37 @@ using namespace std;
 	Dijkstra::~Dijkstra()
 	{
 		 //
+	}
+	//
+	//
+	vector<string> Dijkstra::StringSplit(const char* p_inputString, std::string p_delimiter, bool adjust)
+	{
+		//
+		std::string s(p_inputString);
+		//
+		std::vector<std::string> outputArr;
+		size_t pos = 0;
+		std::string token;
+		//
+		while ((pos = s.find(p_delimiter)) != std::string::npos) {
+			token = s.substr(0, pos);
+			s.erase(0, pos + p_delimiter.length());
+			outputArr.push_back(token);
+		}
+		outputArr.push_back(s);
+		// Printing Array to see the results
+		int outputArrSize = outputArr.size();
+		for ( int i=0;i<outputArrSize;i++){
+				//
+				if ( adjust == true) {
+					std::string coordinate = outputArr[i];
+					coordinate.replace(coordinate.find("["),1,"");
+					coordinate.replace(coordinate.find("]"),1,"");
+					outputArr[i] = coordinate;
+				}
+		}
+		//
+		return outputArr;
 	}
 	//
 	int Dijkstra::minDistance(vector<int> dist, vector<bool> sptSet, int p_vertexSize)
@@ -144,61 +176,6 @@ using namespace std;
 		}
 	}
 	//
-	vector<int> Dijkstra::FisherYates(int count)
-	{
-	   //
-	   //int* deck    = new int[count];
-	   vector<int> deck;
-
-	   for (short i = 0; i < count; i++)
-	   {
-			deck.push_back(i);
-	   }
-
-
-	   //
-	   for (short i = 0; i <= count - 2; i++)
-	   {
-		   // Create a random number generator engine
-		   std::random_device rd_1;    // Seed the generator with a random value om a hardware device
-		   this->mt_1               = std::mt19937(rd_1());
-		   std::uniform_int_distribution<int> dist(0, count - i);
-		   int j              = dist(mt_1); /*rand.Next(count - i)*/;
-
-		   //
-		   //std::default_random_engine gen(std::chrono::system_clock::now().time_since_epoch().count());
-		   //std::uniform_int_distribution<int> distribution(0, count - i);
-		   //int j = distribution(gen);
-
-		   //
-		   if (j > 0)
-		   {
-			   int curVal  = deck[i];
-			   deck[i]     = deck[i + j];
-			   deck[i + j] = curVal;
-		   }
-	   }
-	   //
-	   for (short i = count - 1; i >= 1; i--)
-	   {
-		   // Seed the generator with a random value om a hardware device
-		   std::random_device rd_2;
-		   this->mt_2         = std::mt19937(rd_2());
-		   std::uniform_int_distribution<int> dist(0, i + 1);
-		   int j              = dist(mt_2);
-
-		   //
-		   if (j != i)
-		   {
-			   int curVal = deck[i];
-			   deck[i]    = deck[j];
-			   deck[j]    = curVal;
-		   }
-	   }
-	   //
-	   return deck;
-	}
-	//
 	float Dijkstra::Pitagorean(float coord_x, float coord_y)
 	{
 		//
@@ -215,36 +192,6 @@ using namespace std;
 		return pitagorean;
 	}
 	//
-	vector<string> Dijkstra::StringSplit(const char* p_inputString, std::string p_delimiter, bool adjust)
-	{
-		//
-		std::string s(p_inputString);
-		//
-		std::vector<std::string> outputArr;
-		size_t pos = 0;
-		std::string token;
-		//
-		while ((pos = s.find(p_delimiter)) != std::string::npos) {
-			token = s.substr(0, pos);
-			s.erase(0, pos + p_delimiter.length());
-			outputArr.push_back(token);
-		}
-		outputArr.push_back(s);
-		// Printing Array to see the results
-		int outputArrSize = outputArr.size();
-		for ( int i=0;i<outputArrSize;i++){
-				//
-				if ( adjust == true) {
-					std::string coordinate = outputArr[i];
-					coordinate.replace(coordinate.find("["),1,"");
-					coordinate.replace(coordinate.find("]"),1,"");
-					outputArr[i] = coordinate;
-				}
-		}
-		//
-		return outputArr;
-	}
-	//
 	float Dijkstra::GetHipotemuza(const char*vertexString, int index_x, int index_y)
 	{
 
@@ -252,7 +199,7 @@ using namespace std;
 		//   string split
 		//--------------------------------------------------------------
 		std::string   p_delimiter = "|";
-		vector<string> outputArr   = StringSplit(vertexString,p_delimiter,true);
+		vector<string> outputArr  = StringSplit(vertexString,p_delimiter,true);
 
 		std::string  coord_source   = outputArr[index_y];
 		std::string  coord_dest     = outputArr[index_x];
