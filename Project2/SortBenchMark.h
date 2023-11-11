@@ -6,25 +6,19 @@
 #define SortBenchMark_H
 #endif
 
-#include <string>
-#include <vector>
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <algorithm>
+#include "algorithm.h"
 
 using namespace std;
 
 #pragma hdrstop
 #pragma argsused
 
-class SortBenchMark
+class SortBenchMark	 :
+	public Algorithm
 {
 	public  :
 	   SortBenchMark(char* p_randomValues, int p_arraySize);
 	   ~SortBenchMark();
-	   vector<string> StringSplit(const char* p_inputString, std::string p_delimiter);
-	   int            SaveToFile(string p_value);
        void           SaveStep(int arr[]);
 	   string	      GetSort(int p_sortAlgoritm);
 	   void           QuickSort();

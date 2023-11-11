@@ -22,49 +22,7 @@
 	{
 		 //
 	};
-	//
-	vector<string> SortBenchMark::StringSplit(const char* p_inputString, std::string p_delimiter)
-	{
-		//
-		std::string s(p_inputString);
-		//
-		std::vector<std::string> outputArr;
-		size_t pos = 0;
-		std::string token;
-		//
-		while ((pos = s.find(p_delimiter)) != std::string::npos) {
-			token = s.substr(0, pos);
-			s.erase(0, pos + p_delimiter.length());
-			outputArr.push_back(token);
-		}
-		outputArr.push_back(s);
-		//
-		return outputArr;
-	}
-	//
-	int SortBenchMark::SaveToFile(string p_value)
-	{
-		const char* filename = "SortBenchMark.txt";
-
-			// Open the file for appending
-			std::ofstream outputFile;
-			outputFile.open(filename, std::ios::app);
-
-			if (!outputFile.is_open()) {
-				std::cerr << "Error opening file for appending." << std::endl;
-				return 1;
-			}
-
-			// Write some content to the file
-			outputFile << p_value << "\n";
-
-			// Close the file
-			outputFile.close();
-
-			//std::cout << "Content appended to the file." << std::endl;
-
-			return 0;
-	}
+    //
 	void SortBenchMark::SaveStep(int arr[])
 	{
 		//----------------------------------------------------
@@ -109,12 +67,12 @@
 				  stringstream  ss;
 				  //
 				  //string separator = "■";
-		          string separator = "~";
+				  string separator = "~";
 				  ss << separator << "<br/>" << *sortStep << "<br/>";
 				  //
 				  string _tempValues  = ss.str();
 				  //
-				  SaveToFile(_tempValues.c_str());
+				  //this->SaveToFile(_tempValues.c_str(),"SortBenchMark.txt");
 				  //
 				  sortedList          += _tempValues;
 
@@ -126,8 +84,6 @@
 	//
 	void SortBenchMark::QuickSort()
 	{
-		//Quick_Sort(arreglo, 0, this->arraySize - 1);
-
 		//----------------------------------------------------
 		// CONFIGURAR VALORES INICIALES
 		//-----------------------------------------------------
@@ -150,8 +106,6 @@
 		//----------------------------------------------------
 		// REMOVER VALORES REPETIDOS
 		//-----------------------------------------------------
-		// Sort the vector to bring duplicates together
-		//std::sort(this->sortSteps.begin(), this->sortSteps.end());
 
 		// Use std::unique to move duplicates to the end
 		auto last = std::unique(this->sortSteps.begin(), this->sortSteps.end());
@@ -185,7 +139,7 @@
 	  //
 	  return (i+1);
 	}
-	// The Quicksort function Implement
+	//
 	void SortBenchMark::quickSort(int arr[],int low,int high)
 	{
 	  // when low is less than high

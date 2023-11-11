@@ -246,11 +246,6 @@ using namespace std;
 		   int j              = dist(mt_2);
 
 		   //
-		   //std::default_random_engine gen(std::chrono::system_clock::now().time_since_epoch().count());
-		   //std::uniform_int_distribution<int> distribution(0, i + 1);
-		   //int j = distribution(gen);
-
-		   //
 		   if (j != i)
 		   {
 			   int curVal = deck[i];

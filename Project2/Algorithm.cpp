@@ -7,10 +7,60 @@
 // https://blogs.embarcadero.com/create-and-use-static-library-lib-and-dynamic-dlls-in-c-builder/
 ///////////////////////////////////////////////////////////////////////////
 
-#include "Dijkstra.h"
 #include "Algorithm.h"
+#include "Dijkstra.h"
 #include "SortBenchMark.h"
-#include <memory>
+
+	Algorithm::Algorithm()
+	{
+		 //
+	}
+	//
+	Algorithm::~Algorithm()
+	{
+
+	}
+	//
+	vector<string> Algorithm::StringSplit(const char* p_inputString, std::string p_delimiter)
+	{
+		//
+		std::string s(p_inputString);
+		//
+		std::vector<std::string> outputArr;
+		size_t pos = 0;
+		std::string token;
+		//
+		while ((pos = s.find(p_delimiter)) != std::string::npos) {
+			token = s.substr(0, pos);
+			s.erase(0, pos + p_delimiter.length());
+			outputArr.push_back(token);
+		}
+		outputArr.push_back(s);
+		//
+		return outputArr;
+	};
+	//
+	int Algorithm::SaveToFile(string p_value, const char* filename)
+	{
+			// Open the file for appending
+			std::ofstream outputFile;
+			outputFile.open(filename, std::ios::app);
+
+			if (!outputFile.is_open()) {
+				std::cerr << "Error opening file for appending." << std::endl;
+				return 1;
+			}
+
+			// Write some content to the file
+			outputFile << p_value << "\n";
+
+			// Close the file
+			outputFile.close();
+
+			//std::cout << "Content appended to the file." << std::endl;
+
+			return 0;
+	}
 
 	///////////////////////////////////////////////////////////////////////////
 	// ENTRY POINTS
