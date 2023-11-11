@@ -32,4 +32,3 @@ class SortBenchMark	 :
 	   char* randomValues;
 	   int   arraySize;
 };
-
