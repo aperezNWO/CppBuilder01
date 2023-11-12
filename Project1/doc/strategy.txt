@@ -23,6 +23,10 @@
 -- [_] DIJSTRA (DISTANCIA MAS CORTA
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+        -- [_] cpp winform
+
+        -- [_] cpp config.
+
         -- [_] https://en.cppreference.com/w/cpp/container    (with examples)
 
         -- [_] https://cplusplus.com/reference/stl/           (with examples)
