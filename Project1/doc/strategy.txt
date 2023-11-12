@@ -23,21 +23,7 @@
 -- [_] DIJSTRA (DISTANCIA MAS CORTA
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        -- [_] cpp winform
-
-        -- [_] cpp config.
-
-        -- [_] https://en.cppreference.com/w/cpp/container    (with examples)
-
-        -- [_] https://cplusplus.com/reference/stl/           (with examples)
-
-	-- [_] Don't forget to deallocate the memory when you're done
-
-	-- [_] Dijkstra.cpp / Dijkstra.h
-
-     	-- [_] upgrade to c++.
-
-               -- [_] matrices as vectores.
+	-- [x] Dijkstra.cpp / Dijkstra.h
 
         -- [x] Add to source control.
 
@@ -350,6 +336,18 @@
         }
         */
 
+        -- [_] cpp winform
+
+        -- [_] https://en.cppreference.com/w/cpp/container    (with examples)
+
+        -- [_] https://cplusplus.com/reference/stl/           (with examples)
+
+	-- [_] Don't forget to deallocate the memory when you're done
+
+     	-- [_] upgrade to c++.
+
+               -- [_] matrices as vectores.
+
 ////////////////////////////////////////////////////////////////////////////////
 -- [_] C++ TIC TAC TOE
 ////////////////////////////////////////////////////////////////////////////////
@@ -365,14 +363,18 @@
 -- [_] C++ SORT ALGORITHM
 ////////////////////////////////////////////////////////////////////////////////
 
--- [_]  http://localhost:83/demos/_GetSort?p_sortAlgoritm=2&p_unsortedList=22|4|20|0|24|3|7|11|5|9|19|6|2|23|15|1|10|13|17|12|8|16|18|21|14
+-- [x]  http://localhost:83/demos/_GetSort?p_sortAlgoritm=2&p_unsortedList=22|4|20|0|24|3|7|11|5|9|19|6|2|23|15|1|10|13|17|12|8|16|18|21|14
 
--- [_]  Sort Steps.
-
+-- [x]  Sort Steps.
 
 ■<br/>14<br/>4<br/>20<br/>0<br/>24<br/>3<br/>7<br/>11<br/>5<br/>9<br/>19<br/>6<br/>2<br/>23<br/>15<br/>1<br/>10<br/>13<br/>17<br/>12<br/>8<br/>16<br/>18<br/>21<br/>22<br/>
 ■<br/>14<br/>4<br/>20<br/>0<br/>22<br/>3<br/>7<br/>11<br/>5<br/>9<br/>19<br/>6<br/>2<br/>23<br/>15<br/>1<br/>10<br/>13<br/>17<br/>12<br/>8<br/>16<br/>18<br/>21<br/>24<br/>
 
+////////////////////////////////////////////////////////////////////////////////
+-- [_] C++ REGEX
+////////////////////////////////////////////////////////////////////////////////
+
+-- [_] cpp config.
 
 ////////////////////////////////////////////////////////////////////////////////
 

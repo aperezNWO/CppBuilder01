@@ -131,6 +131,7 @@
         <None Include="algorithm.h">
             <BuildOrder>8</BuildOrder>
         </None>
+        <None Include="Algorithm.ini"/>
         <CppCompile Include="Algorithm.WinForm.cpp">
             <BuildOrder>0</BuildOrder>
         </CppCompile>
@@ -287,6 +288,12 @@
                 <DeployFile LocalName=".\Win32\Debug\Algorithm.WinForm.tds" Configuration="Debug" Class="DebugSymbols">
                     <Platform Name="Win32">
                         <RemoteName>Algorithm_WinForm.tds</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Algorithm.ini" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

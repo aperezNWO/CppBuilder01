@@ -7,6 +7,7 @@
 //
 RegExManager::RegExManager()
 {
+	this->ReadConfigFile();
 	this->GetXml();
 }
 //
@@ -17,12 +18,13 @@ RegExManager::~RegExManager()
 //
 int RegExManager::GetXml()
 {
-	//C:\Users\pablo.perez\dev\iis\mcsd\wwwroot\xml\cdcatalog.xml
-
+	// C:\Users\pablo.perez\dev\iis\mcsd\wwwroot\xml\cdcatalog.xml
 	// Specify the relative path to the file in the subdirectory
-	//std::string filePath = "subdirectory/myfile.txt";
-	//string filePath         = "wwwroot/xml/cdcatalog.xml";
-	string filePath         = "cdcatalog.xml";
+	// std::string filePath = "subdirectory/myfile.txt";
+	// string filePath      = "wwwroot/xml/cdcatalog.xml";
+	// string filePath      = "cdcatalog.xml";
+
+	string filePath        = this->configMap["XMLPATH"];
 
 	// Open the file
 	std::ifstream inputFile(filePath);
