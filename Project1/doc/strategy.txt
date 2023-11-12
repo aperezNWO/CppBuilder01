@@ -23,6 +23,10 @@
 -- [_] DIJSTRA (DISTANCIA MAS CORTA
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+        -- [_] https://en.cppreference.com/w/cpp/container    (with examples)
+
+        -- [_] https://cplusplus.com/reference/stl/           (with examples)
+
 	-- [_] Don't forget to deallocate the memory when you're done
 
 	-- [_] Dijkstra.cpp / Dijkstra.h

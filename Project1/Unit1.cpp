@@ -8,6 +8,7 @@
 #include <string>
 #include "Dijkstra.h"
 #include "SortBenchMark.h"
+#include "RegExManager.h"
 
 using namespace std;
 
@@ -161,5 +162,49 @@ void __fastcall TForm1::cmdGetSortBenchMarkClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TForm1::cmdRegExManagerClick(TObject *Sender)
+{
+	   //
+	   std::unique_ptr<RegExManager> uniquePtr = std::make_unique<RegExManager>(
+	   );
+	   //
+	   char *p_tagSearch  = (char*)"Company";
+	   char *p_textSearch = (char*)"BMG";
+	   string result = uniquePtr->RegExEval(p_tagSearch, p_textSearch);
+	   //
+	   this->lblRegExManager->Caption = result.c_str();
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::cmdRegExManagerDLLClick(TObject *Sender)
+{
+	//
+	HINSTANCE CppMyDll;
+	typedef char*(__stdcall * pfRegExEval)(char* , char*);
+	pfRegExEval fRegExEval;
 
+	//
+	if ((CppMyDll = LoadLibraryW(L"Algothtm.Library.dll")) == NULL) {
+		//
+		ShowMessage(L"Cannot load DLL!");
+		return;
+	}
+	if ((fRegExEval = (pfRegExEval)GetProcAddress(CppMyDll, "RegExManager_RegExEval")) == NULL) {
+		//
+		ShowMessage(L"Cannot find DLL function!");
+		return;
+	}
+	else
+	{
+	   //
+	   char *p_tagSearch  = (char*)"Company";
+	   char *p_textSearch = (char*)"BMG";
+	   //
+	   string result = fRegExEval(p_tagSearch, p_textSearch);
+	   //
+	   this->lblRegExManager->Caption = result.c_str();
+	   //
+	   FreeLibrary(CppMyDll);
+	 }
+}
+//---------------------------------------------------------------------------
 

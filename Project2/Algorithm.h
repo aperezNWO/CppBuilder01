@@ -14,6 +14,7 @@
 #include <algorithm>
 #include <memory>
 #include <random>
+#include <regex>
 
 #define DLL_EXPORT __declspec(dllexport) __stdcall
 #pragma once

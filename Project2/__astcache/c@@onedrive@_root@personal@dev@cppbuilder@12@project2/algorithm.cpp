@@ -1,4 +1,4 @@
-///////////////////////////////////////////////////////////////////////////
+﻿///////////////////////////////////////////////////////////////////////////
 // CLASS DIJKSTRA - METHOD IMPLEMENTATIONS
 ///////////////////////////////////////////////////////////////////////////
 
@@ -10,6 +10,7 @@
 #include "Algorithm.h"
 #include "Dijkstra.h"
 #include "SortBenchMark.h"
+#include "RegExManager.h"
 
 	Algorithm::Algorithm()
 	{
@@ -61,7 +62,99 @@
 
 			return 0;
 	}
+	//
+	int Algorithm::SetFile_int(int* array, int arraySize, char* fileName)
+	{
+		// declaration of file pointer
+		FILE* fp = NULL;
+		// declaration of variable
+		int x;
+		// opening of file
+		fopen_s(&fp, fileName, "w+");
+		// checking of error
+		if (!fp)
+			return 1;
+		// giving content
+		for (int i = 0; i < arraySize; i++)
+			fprintf(fp, "%d\n", array[i]);
+		// closing of file
+		fclose(fp);
+		//
+		return 0;
+	}
+	//
+	int Algorithm::SetFile_char(char** array, int arraySize, char* fileName)
+	{
+		// declaration of file pointer
+		FILE* fp = NULL;
+		// opening of file
+		fopen_s(&fp, fileName, "w+");
+		// checking of error
+		if (!fp)
+			return 1;
+		// giving content
+		for (int i = 0; i < arraySize; i++)
+			fprintf(fp, "%s\n", array[i]);
+		// closing of file
+		fclose(fp);
+		//
+		return 0;
+	}
+	//
+	vector<int> Algorithm::FisherYates(int count)
+	{
+	   //
+	   //int* deck    = new int[count];
+	   vector<int> deck;
 
+	   for (short i = 0; i < count; i++)
+	   {
+			deck.push_back(i);
+	   }
+
+
+	   //
+	   for (short i = 0; i <= count - 2; i++)
+	   {
+		   // Create a random number generator engine
+		   std::random_device rd_1;    // Seed the generator with a random value om a hardware device
+		   this->mt_1               = std::mt19937(rd_1());
+		   std::uniform_int_distribution<int> dist(0, count - i);
+		   int j              = dist(mt_1); /*rand.Next(count - i)*/;
+
+		   //
+		   //std::default_random_engine gen(std::chrono::system_clock::now().time_since_epoch().count());
+		   //std::uniform_int_distribution<int> distribution(0, count - i);
+		   //int j = distribution(gen);
+
+		   //
+		   if (j > 0)
+		   {
+			   int curVal  = deck[i];
+			   deck[i]     = deck[i + j];
+			   deck[i + j] = curVal;
+		   }
+	   }
+	   //
+	   for (short i = count - 1; i >= 1; i--)
+	   {
+		   // Seed the generator with a random value om a hardware device
+		   std::random_device rd_2;
+		   this->mt_2         = std::mt19937(rd_2());
+		   std::uniform_int_distribution<int> dist(0, i + 1);
+		   int j              = dist(mt_2);
+
+		   //
+		   if (j != i)
+		   {
+			   int curVal = deck[i];
+			   deck[i]    = deck[j];
+			   deck[j]    = curVal;
+		   }
+	   }
+	   //
+	   return deck;
+	}
 	///////////////////////////////////////////////////////////////////////////
 	// ENTRY POINTS
 	///////////////////////////////////////////////////////////////////////////
@@ -72,6 +165,7 @@
 		{
 			//
 			std::unique_ptr<Dijkstra> uniquePtr = std::make_unique<Dijkstra>();
+			//
 			return uniquePtr->GetRandomPoints(p_vertexSize, p_sourcePoint).c_str();
 		};
 
@@ -88,5 +182,13 @@
 			);
 			return uniquePtr->GetSort(p_sortAlgoritm).c_str();
 		};
-
+		// http://localhost:83/demos/_RegExEval?p_tagSearch=company&p_textSearch=bmg
+        // REGULAR EXPRESSIONS
+		DLL_EXPORT const char*  RegExManager_RegExEval(char* p_tagSearch, char* p_textSearch)
+		{
+			//
+			std::unique_ptr<RegExManager> uniquePtr = std::make_unique<RegExManager>();
+			//
+			return uniquePtr->RegExEval(p_tagSearch, p_textSearch).c_str();
+		}
 	}

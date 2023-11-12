@@ -6,8 +6,12 @@
 #define RegExManager_H
 #endif
 
-
 #include "algorithm.h"
+
+using namespace std;
+
+#pragma hdrstop
+#pragma argsused
 
 class RegExManager :
 	public Algorithm
@@ -15,5 +19,8 @@ class RegExManager :
 	public :
 		 RegExManager();
 		 ~RegExManager();
-         string RegExEval(char* p_tagSearch, char* p_textSearch);
+		 int    GetXml();
+		 string RegExEval(char* p_tagSearch, char* p_textSearch);
+	public :
+         vector<string> xmlItems;
 };

@@ -14,6 +14,7 @@
 #include <algorithm>
 #include <memory>
 #include <random>
+#include <regex>
 
 #define DLL_EXPORT __declspec(dllexport) __stdcall
 #pragma once
@@ -32,6 +33,7 @@ class Algorithm
 			int            SaveToFile(string p_value, const char* filename);
 			int            SetFile_int(int* array, int arraySize, char* fileName);
 			int            SetFile_char(char** array, int arraySize, char* fileName);
+			int            DeleteFile(const char* filePath);
 			vector<int>    FisherYates(int count);
 	   public :
        	  //

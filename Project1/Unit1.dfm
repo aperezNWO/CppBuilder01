@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'ALGORIITMOS DE DISTANCIA MAS CORTA'
-  ClientHeight = 221
-  ClientWidth = 889
+  ClientHeight = 220
+  ClientWidth = 885
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -82,6 +82,7 @@ object Form1: TForm1
     Height = 25
     Caption = 'Call DLL RegExManager'
     TabOrder = 4
+    OnClick = cmdRegExManagerDLLClick
   end
   object cmdRegExManager: TButton
     Left = 152
@@ -90,5 +91,6 @@ object Form1: TForm1
     Height = 25
     Caption = '[RegExEval]'
     TabOrder = 5
+    OnClick = cmdRegExManagerClick
   end
 end

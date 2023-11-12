@@ -153,6 +153,12 @@
         <None Include="recursiveList.h">
             <BuildOrder>4</BuildOrder>
         </None>
+        <CppCompile Include="RegExManager.cpp">
+            <BuildOrder>10</BuildOrder>
+        </CppCompile>
+        <None Include="RegExManager.h">
+            <BuildOrder>11</BuildOrder>
+        </None>
         <CppCompile Include="SortBenchMark.cpp">
             <BuildOrder>8</BuildOrder>
         </CppCompile>

@@ -101,6 +101,19 @@
 		return 0;
 	}
 	//
+	int Algorithm::DeleteFile(const char* filePath)
+	{
+		// Attempt to delete the file
+		if (std::remove(filePath) != 0) {
+			std::cerr << "Error deleting file: " << filePath << std::endl;
+			return 1; // Return an error code
+		}
+		//
+		std::cout << "File deleted successfully: " << filePath << std::endl;
+		//
+		return 0;
+	}
+	//
 	vector<int> Algorithm::FisherYates(int count)
 	{
 	   //

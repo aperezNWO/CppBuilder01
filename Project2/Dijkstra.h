@@ -31,10 +31,10 @@
 		  string          GenerateRandomMatrix(const char* vertexString, int p_vertexSize);
 		  string          GetRandomPoints(int p_vertexSize, int p_sourcePoint);
 	  public :
-		  vector<int>    dist;        // The output array.  dist[i] will hold the shortest
-		  vector<string> path;
+		  vector<int>         dist;
+		  vector<string>      path;
 		  vector<vector<int>> graph;
 		  //
-		  std::mt19937       mt_3;
+		  std::mt19937        mt_3;
    };
 
