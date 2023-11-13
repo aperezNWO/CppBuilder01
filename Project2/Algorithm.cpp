@@ -28,6 +28,12 @@
 		std::ostringstream encoded;
 		//
 		for (char c : input) {
+			//
+			if (std::isspace(c))
+			{
+				encoded << "&nbsp;";
+			}
+			//
 			switch (c) {
 				case '&': encoded << "&amp;";
 					break;
@@ -46,8 +52,6 @@
 				case '[': encoded << "<mark>";
 					break;
 				case ']': encoded << "</mark>";
-					break;
-				case '~': encoded << "&nbsp;";
 					break;
 				default: encoded << c;
 			}
