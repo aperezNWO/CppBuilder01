@@ -33,9 +33,6 @@
 			return 1;
 		}
 
-		// Create a map to store key-value pairs
-		// std::map<std::string, std::string> configMap;
-
 		// Read the file line by line
 		std::string line;
 		while (std::getline(configFile, line)) {
@@ -47,7 +44,8 @@
 			// Split the line into key and value
 			std::istringstream iss(line);
 			std::string key, value;
-			if (std::getline(iss, key, '=') && std::getline(iss, value)) {
+			if (std::getline(iss, key, '=') && std::getline(iss, value))
+			{
 				// Trim leading and trailing whitespaces from key and value
 				key.erase(0, key.find_first_not_of(" \t"));
 				key.erase(key.find_last_not_of(" \t") + 1);
@@ -62,24 +60,23 @@
 		// Close the configuration file
 		configFile.close();
 
-		// Print the key-value pairs from the map
-		/*
-		std::cout << "Configuration values:" << std::endl;
-		for (const auto& pair : configMap) {
-			//
-			stringstream  ss;
-			//
-			ss     << pair.first
-				   <<" = "
-				   << pair.second;
-			//
-			string p_value = ss.str();
-			//
-			this->SaveToFile(p_value,"Algorithm_ini_KeyPairs.txt");
-		}*/
-
+		//
 		return 0;
 	}
+	//
+	string Algorithm::StringTrim(const std::string& str)
+	{
+        //
+		size_t start = str.find_first_not_of(" \t\n\r");   // Find the first non-whitespace character
+		size_t end   = str.find_last_not_of(" \t\n\r");    // Find the last non-whitespace character
+		//
+		if (start == std::string::npos || end == std::string::npos) {
+			// The string is empty or contains only whitespaces
+			return "";
+		}
+		//
+		return str.substr(start, end - start + 1);
+	};
 	//
 	vector<string> Algorithm::StringSplit(const char* p_inputString, std::string p_delimiter)
 	{

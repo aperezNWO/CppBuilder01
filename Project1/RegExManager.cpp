@@ -18,12 +18,7 @@ RegExManager::~RegExManager()
 //
 int RegExManager::GetXml()
 {
-	// C:\Users\pablo.perez\dev\iis\mcsd\wwwroot\xml\cdcatalog.xml
-	// Specify the relative path to the file in the subdirectory
-	// std::string filePath = "subdirectory/myfile.txt";
-	// string filePath      = "wwwroot/xml/cdcatalog.xml";
-	// string filePath      = "cdcatalog.xml";
-
+	//
 	string filePath        = this->configMap["XMLPATH"];
 
 	// Open the file
@@ -45,45 +40,59 @@ int RegExManager::GetXml()
 	// Close the file
 	inputFile.close();
 
+	//
 	return 0;
 }
 //
 string RegExManager::RegExEval(char* p_tagSearch, char* p_textSearch)
 {
 		//
+		int matchCount        = 0;
+		std::string textMatch = "";
+		string _p_tagSearch   = StringTrim(p_tagSearch);
+		string _p_textSearch  = StringTrim(p_textSearch);
+		//
 		this->DeleteFile("cdCatalog_1.xml");
 		//
-		for (auto _xmlItem = this->xmlItems.begin(); _xmlItem != this->xmlItems.end(); ++_xmlItem) {
-			  //
-			  stringstream  ss;
-			  //
-			  ss << *_xmlItem;
-			  //
-			  this->SaveToFile(ss.str(),"cdCatalog_1.xml");
-		}
-
-	//
-	std::string text = "<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<country>UK</country>";
-	//
-	std::regex countryRegex(R"((<country.*>)(.*UK.*)(<\/country>))");
-	//
-	std::smatch countryMatch;
-	//
-	string textMatch = "";
-	//
-	if (std::regex_search(text, countryMatch, countryRegex)) {
+		//std::regex countryRegex(R"((<country.*>)(.*UK.*)(<\/country>))");
 		//
-		for (auto _textMatch = countryMatch.begin(); _textMatch != countryMatch.end(); ++_textMatch) {
-			  //
-			  stringstream  ss;
-			  //
-			  ss << *_textMatch << ((_textMatch != countryMatch.end())? "¦" : "");
-			  //
-			  string _tempValues  = ss.str();
-			  //
-			  textMatch          += _tempValues;
+		//((<" + _p_tagSearch + ".*>)(.*" + _p_textSearch + ".*)(<\/" + _p_tagSearch + ">))
+		std::ostringstream oss_regex;
+		//
+		oss_regex << "((<" << _p_tagSearch << ".*>)(.*" << _p_textSearch + ".*)(<\/" << _p_tagSearch << ">))";
+		//
+		string strRegex    = oss_regex.str();
+		//
+		this->DeleteFile("strRegex.txt");
+		this->SaveToFile(strRegex,"strRegex.txt");
+		//
+		std::regex regexExp(strRegex);
+		//
+		std::smatch regexMatch;
+		//
+		for (auto _xmlItem = this->xmlItems.begin(); _xmlItem != this->xmlItems.end(); ++_xmlItem) {
+			//
+			stringstream  ss;
+			//
+			ss << *_xmlItem;
+			//
+			string xmlItem     = ss.str();
+			//
+			if (std::regex_search(xmlItem, regexMatch, regexExp)) {
+				//
+				string openingTag = "<"  + _p_tagSearch + ">";
+				string closingTag = "</" + _p_tagSearch + ">";
+				//
+				xmlItem.replace(xmlItem.find(openingTag) ,openingTag.length(), "<mark>" + openingTag);
+				xmlItem.replace(xmlItem.find(closingTag) ,closingTag.length(), closingTag + "</mark>");
+				//
+				matchCount++;
+			}
+			//
+			textMatch += xmlItem + "\n";
 		}
-	}
 	//
-	return textMatch;
+	this->SaveToFile(textMatch,"cdCatalog_1.xml");
+	//
+	return std::to_string(matchCount);
 }

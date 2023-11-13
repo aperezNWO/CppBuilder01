@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'ALGORIITMOS DE DISTANCIA MAS CORTA'
-  ClientHeight = 220
-  ClientWidth = 885
+  ClientHeight = 189
+  ClientWidth = 881
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

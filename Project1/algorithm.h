@@ -16,6 +16,7 @@
 #include <random>
 #include <regex>
 #include <map>
+#include <cctype>
 
 #define DLL_EXPORT __declspec(dllexport) __stdcall
 #pragma once
@@ -31,6 +32,7 @@ class Algorithm
 			Algorithm();
 			~Algorithm();
 			int            ReadConfigFile();
+            string         StringTrim(const std::string& str);
 			vector<string> StringSplit(const char* p_inputString, std::string p_delimiter);
 			int            SaveToFile(string p_value, const char* filename);
 			int            SetFile_int(int* array, int arraySize, char* fileName);

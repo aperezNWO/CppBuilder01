@@ -168,8 +168,8 @@ void __fastcall TForm1::cmdRegExManagerClick(TObject *Sender)
 	   std::unique_ptr<RegExManager> uniquePtr = std::make_unique<RegExManager>(
 	   );
 	   //
-	   char *p_tagSearch  = (char*)"Company";
-	   char *p_textSearch = (char*)"BMG";
+	   char *p_tagSearch  = (char*)"country";
+	   char *p_textSearch = (char*)"UK";
 	   string result = uniquePtr->RegExEval(p_tagSearch, p_textSearch);
 	   //
 	   this->lblRegExManager->Caption = result.c_str();
@@ -196,8 +196,8 @@ void __fastcall TForm1::cmdRegExManagerDLLClick(TObject *Sender)
 	else
 	{
 	   //
-	   char *p_tagSearch  = (char*)"Company";
-	   char *p_textSearch = (char*)"BMG";
+	   char *p_tagSearch  = (char*)"year";
+	   char *p_textSearch = (char*)"1998";
 	   //
 	   string result = fRegExEval(p_tagSearch, p_textSearch);
 	   //
