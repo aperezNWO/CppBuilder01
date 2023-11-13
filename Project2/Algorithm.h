@@ -31,6 +31,7 @@ class Algorithm
 	   public:
 			Algorithm();
 			~Algorithm();
+			string         HtmlEncode(const std::string& input);
 			int            ReadConfigFile();
             string         StringTrim(const std::string& str);
 			vector<string> StringSplit(const char* p_inputString, std::string p_delimiter);

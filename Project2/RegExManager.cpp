@@ -32,8 +32,9 @@ int RegExManager::GetXml()
 
 	// Read and print the contents of the file
 	std::string line;
-	while (std::getline(inputFile, line)) {
-		//std::cout << line << std::endl;
+	while (std::getline(inputFile, line))
+	{
+		//
 		this->xmlItems.push_back(line);
 	}
 
@@ -52,7 +53,7 @@ string RegExManager::RegExEval(char* p_tagSearch, char* p_textSearch)
 		string _p_tagSearch   = StringTrim(p_tagSearch);
 		string _p_textSearch  = StringTrim(p_textSearch);
 		//
-		this->DeleteFile("cdCatalog_1.xml");
+		//this->DeleteFile("cdCatalog_1.xml");
 		//
 		std::ostringstream oss_regex;
 		//
@@ -60,8 +61,8 @@ string RegExManager::RegExEval(char* p_tagSearch, char* p_textSearch)
 		//
 		string strRegex    = oss_regex.str();
 		//
-		this->DeleteFile("strRegex.txt");
-		this->SaveToFile(strRegex,"strRegex.txt");
+		//this->DeleteFile("strRegex.txt");
+		//this->SaveToFile(strRegex,"strRegex.txt");
 		//
 		std::regex regexExp(strRegex, std::regex_constants::icase);
 		//
@@ -86,16 +87,16 @@ string RegExManager::RegExEval(char* p_tagSearch, char* p_textSearch)
 				matchCount++;
 			}
 			//
-			textMatch += xmlItem + "\n";
+			textMatch += (xmlItem + '\n');
 		}
-
 	//
-	this->SaveToFile(textMatch,"cdCatalog_1.xml");
-
+	//this->SaveToFile(textMatch,"cdCatalog_1.xml");
+	//
+	string encodedTextMatch = HtmlEncode(textMatch);
 	//
 	std::ostringstream oss_result;
-	oss_result << std::to_string(matchCount) << "|" << textMatch + "|" << strRegex << std::endl;
-
+	//
+	oss_result << std::to_string(matchCount) << "|" << encodedTextMatch << "|" << strRegex << std::endl;
 	//
 	return oss_result.str();
 }

@@ -170,7 +170,7 @@ void __fastcall TForm1::cmdRegExManagerClick(TObject *Sender)
 	   //
 	   char *p_tagSearch  = (char*)"country";
 	   char *p_textSearch = (char*)"UK";
-	   string result = uniquePtr->RegExEval(p_tagSearch, p_textSearch);
+	   string result      = uniquePtr->RegExEval(p_tagSearch, p_textSearch);
 	   //
 	   this->lblRegExManager->Caption = result.c_str();
 }

@@ -22,6 +22,33 @@
 		//
 	}
 	//
+	string Algorithm::HtmlEncode(const std::string& input)
+	{
+		//
+		std::ostringstream encoded;
+		//
+		for (char c : input) {
+			switch (c) {
+				case '&': encoded << "&amp;";
+					break;
+				case '<': encoded << "&lt;";
+					break;
+				case '>': encoded << "&gt;";
+					break;
+				case '\"': encoded << "&quot;";
+					break;
+				case '\'': encoded << "&apos;";
+					break;
+				case '\n': encoded << "<br/>";
+					break;
+				case '\t': encoded << "&nbsp;";
+					break;
+				default: encoded << c;
+			}
+		}
+		return encoded.str();
+	}
+	//
 	int Algorithm::ReadConfigFile()
 	{
 		 // Open the configuration file
@@ -173,14 +200,13 @@
 	vector<int> Algorithm::FisherYates(int count)
 	{
 	   //
-	   //int* deck    = new int[count];
 	   vector<int> deck;
 
+	   //
 	   for (short i = 0; i < count; i++)
 	   {
 			deck.push_back(i);
 	   }
-
 
 	   //
 	   for (short i = 0; i <= count - 2; i++)
@@ -189,12 +215,7 @@
 		   std::random_device rd_1;    // Seed the generator with a random value om a hardware device
 		   this->mt_1               = std::mt19937(rd_1());
 		   std::uniform_int_distribution<int> dist(0, count - i);
-		   int j              = dist(mt_1); /*rand.Next(count - i)*/;
-
-		   //
-		   //std::default_random_engine gen(std::chrono::system_clock::now().time_since_epoch().count());
-		   //std::uniform_int_distribution<int> distribution(0, count - i);
-		   //int j = distribution(gen);
+		   int j                    = dist(mt_1);
 
 		   //
 		   if (j > 0)
