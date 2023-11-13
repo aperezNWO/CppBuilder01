@@ -81,11 +81,13 @@ string RegExManager::RegExEval(char* p_tagSearch, char* p_textSearch)
 				string openingTag = "<"  + _p_tagSearch + ">";
 				string closingTag = "</" + _p_tagSearch + ">";
 				//
-				xmlItem.replace(xmlItem.find(openingTag) ,openingTag.length(), "<mark>" + openingTag);
-				xmlItem.replace(xmlItem.find(closingTag) ,closingTag.length(), closingTag + "</mark>");
+				xmlItem.replace(xmlItem.find(openingTag) ,openingTag.length(), "[" + openingTag);
+				xmlItem.replace(xmlItem.find(closingTag) ,closingTag.length(), closingTag + "]");
 				//
 				matchCount++;
 			}
+			//
+			//xmlItem.replace(xmlItem.find(' '),1, "~");
 			//
 			textMatch += (xmlItem + '\n');
 		}

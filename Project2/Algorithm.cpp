@@ -43,6 +43,12 @@
 					break;
 				case '\t': encoded << "&nbsp;";
 					break;
+				case '[': encoded << "<mark>";
+					break;
+				case ']': encoded << "</mark>";
+					break;
+				case '~': encoded << "&nbsp;";
+					break;
 				default: encoded << c;
 			}
 		}
