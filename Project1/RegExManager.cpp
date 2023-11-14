@@ -54,16 +54,11 @@ string RegExManager::RegExEval(char* p_tagSearch, char* p_textSearch)
 		string _p_tagSearch   = StringTrim(p_tagSearch);
 		string _p_textSearch  = StringTrim(p_textSearch);
 		//
-		//this->DeleteFile("cdCatalog_1.xml");
-		//
 		std::ostringstream oss_regex;
 		//
 		oss_regex << "((<" << _p_tagSearch << ".*>)(.*" << _p_textSearch << ".*)(<\/" << _p_tagSearch << ">))";
 		//
 		string strRegex    = oss_regex.str();
-		//
-		//this->DeleteFile("strRegex.txt");
-		//this->SaveToFile(strRegex,"strRegex.txt");
 		//
 		std::regex regexExp(strRegex, std::regex_constants::icase);
 		//
@@ -88,12 +83,8 @@ string RegExManager::RegExEval(char* p_tagSearch, char* p_textSearch)
 				matchCount++;
 			}
 			//
-			//xmlItem.replace(xmlItem.find(' '),1, "~");
-			//
 			textMatch += (xmlItem + '\n');
 		}
-	//
-	//this->SaveToFile(textMatch,"cdCatalog_1.xml");
 	//
 	string encodedTextMatch = HtmlEncode(textMatch);
 	//
