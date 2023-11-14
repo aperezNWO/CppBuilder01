@@ -7,6 +7,7 @@
 //
 RegExManager::RegExManager()
 {
+	//
 	this->ReadConfigFile();
 	this->GetXml();
 }
