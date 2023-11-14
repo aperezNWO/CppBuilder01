@@ -46,307 +46,8 @@
         -- [x] /*
                 [Microsoft.AspNetCore.Mvc.HttpGet("GenerateRandomVertex")]
                 public string GenerateRandomVertex(ushort p_vertexSize, ushort p_sourcePoint)
-                {
-                    //
-                    ushort p_sampleSize = 23;
-                    string status = string.Empty;
-
-                    //
-                    status = AlgorithmManager.GenerateRandomPoints(p_vertexSize, p_sampleSize, p_sourcePoint);
-
-                    //
-                    return status;
-                }
-
+                { .. }
                */
-         -- [_] /*
-
-                   public static string GenerateRandomPoints(int vertexSize, int sampleSize, int sourcePoint)
-                   {
-                       //
-                       int[,] graph         = new int[vertexSize, vertexSize];
-                       //
-                       string statusMessage = string.Empty;
-                       DateTime dt          = DateTime.Now;
-                       //
-                       Random rand_x = new Random(dt.Millisecond / 2);
-                       Random rand_y = new Random(dt.Millisecond * 2);
-                       //
-                       int[] vertex_X            = FisherYates(sampleSize, rand_x);
-                       int[] vertex_Y            = FisherYates(sampleSize, rand_y);
-                       List<string> vertexArray  = new List<string>();
-                       //
-                       for (int index = 0; index < vertexSize; index++)
-                       {
-                           //
-                           string separator_1 = (index < vertexSize - 1) ? "|" : "";
-                           //
-                           vertexArray.Add(string.Format("[{0},{1}]{2}", vertex_X[index], vertex_Y[index], separator_1));
-                       }
-                       //
-                       StringBuilder vertexArrayString = new StringBuilder();
-                       //
-                       for (int index = 0; index < vertexSize; index++)
-                       {
-                           vertexArrayString.Append(vertexArray[index]);
-                       }
-                       //
-                       string separator_2  = "■";
-                       //
-                       string vertexMatrix = GenerateRandomMatrix(vertexArray, graph,vertexSize);
-                       //
-                       string vertexList   = Dijkstra(vertexArray, graph, vertexSize, sampleSize, sourcePoint);
-                       //
-                       string sortedListEncoded = string.Empty;
-                       sortedListEncoded = HttpUtility.HtmlEncode(vertexList);
-                       sortedListEncoded = sortedListEncoded.Replace(@",", @"<br/>");
-                       sortedListEncoded = sortedListEncoded.Replace(@"\t", @"&nbsp;");
-                       //
-                       statusMessage = string.Format("{0}{1}{2}{1}{3}", vertexArrayString, separator_2, vertexMatrix, sortedListEncoded);
-                       //
-                       //LogModel.Log(string.Format("DIJSTRA_DEMO. GENERATE_RANDOM_VERTEX : {0}", statusMessage));
-                       //
-                       return statusMessage;
-                   }
-                */
-
-           -- [_] /*
-
-               public static int[] FisherYates(int count, Random rand)
-               {
-                   //
-                   int[] deck = new int[count];
-                   //
-                   for (byte i = 0; i < count; i++)
-                       deck[i] = i;
-                   //
-                   for (byte i = 0; i <= count - 2; i++)
-                   {
-                       int j = rand.Next(count - i);
-                       if (j > 0)
-                       {
-                           int curVal = deck[i];
-                           deck[i] = deck[i + j];
-                           deck[i + j] = curVal;
-                       }
-                   }
-                   //
-                   for (int i = count - 1; i >= 1; i--)
-                   {
-                       int j = rand.Next(i + 1);
-                       if (j != i)
-                       {
-                           int curVal = deck[i];
-                           deck[i] = deck[j];
-                           deck[j] = curVal;
-                       }
-                   }
-                   //
-                   return deck;
-               }
-           */
-
-       -- [_] /*
-
-        public static string GenerateRandomMatrix(List<string> vertexString, int[,] graph, int vertexSize)
-        {
-            //--------------------------------------------------------------
-            // DECLARACION DE VARIABLES
-            //--------------------------------------------------------------
-            StringBuilder statusMessage = new StringBuilder();
-            //
-            //--------------------------------------------------------------
-            // LA PARTE DIAGONAL DE LA MATRIZ SIEMPRE SERA 0
-            //--------------------------------------------------------------
-            for (int index = 0; index < vertexSize; index++)
-            {
-                graph[index, index] = 0;
-            }
-            //--------------------------------------------------------------
-            // LLENAR EL RESTO DE LA MATRIZ DE FORMA ALEATORIA
-            //--------------------------------------------------------------
-            //
-            DateTime dt = DateTime.Now;
-            Random rnd  = new Random(dt.Millisecond * 3);
-            //
-            for (int index_x = 0; index_x < vertexSize; index_x++)
-            {
-
-                //
-                for (int index_y = (index_x + 1); index_y < vertexSize; index_y++)
-                {
-                    //
-                    double randomValue = rnd.Next(0, 2);
-
-                    //--------------------------------------------------------------
-                    // EN VALORES POSITIVOS LLENAR LA MATRIZ CON DISTANCIAS
-                    //--------------------------------------------------------------
-
-                    if (randomValue == 1)
-                    {
-                        //
-                        randomValue = GetHipotemuza(vertexString, index_x, index_y);
-                    }
-
-                    //
-                    graph[index_x, index_y] = Convert.ToInt32(randomValue);
-                    graph[index_y, index_x] = Convert.ToInt32(randomValue);
-                }
-            }
-
-            //----------------------------------------------------
-            // GARANTIZAR CONECTIVIDAD DE AL MENOS UN PUNTO
-            //----------------------------------------------------
-            for (int index_x = 0; index_x < vertexSize; index_x++)
-            {
-                //
-                int zeroCount = 0;
-
-                //
-                for (int index_y = 0; index_y < vertexSize; index_y++)
-                {
-                    // DESCARTA DIAGONAL Y VERIFICAR EXISTENCIA DE VALOR "CERO"
-                    if ((index_x != index_y) && (graph[index_x,index_y] == 0))
-                    {
-                        //
-                        zeroCount++;
-
-                        // GARANTIZAR CONECTIVIDAD DE AL MENOS UN PUNTO
-                        if (zeroCount == (vertexSize - 1))
-                        {
-                            //
-                            int hipotemuza          = Convert.ToInt32(GetHipotemuza(vertexString, index_x, index_y));
-                            graph[index_x, index_y] = hipotemuza;
-                            graph[index_y, index_x] = hipotemuza;
-                        }
-                    }
-                }
-            }
-
-
-            //--------------------------------------------------------------------
-            // REPRESENTAR MATRIZ EN CADENA
-            //--------------------------------------------------------------------
-            //
-            for (int index_x = 0; index_x < vertexSize; index_x++)
-            {
-                //
-                string separator_1 = (index_x < vertexSize - 1) ? "|" : "";
-                //
-                StringBuilder stringArray = new StringBuilder();
-                //
-                string stringArrayValues = string.Empty;
-                //
-                for (int index_y = 0; index_y < vertexSize; index_y++)
-                {
-                    //
-                    string separator_2 = (index_y < vertexSize - 1) ? "," : "";
-                    //
-                    stringArray.Append(string.Format("{0}{1}", graph[index_x, index_y].ToString(), separator_2));
-                }
-                //
-                stringArrayValues = string.Format("{{{0}}}", stringArray.ToString());
-                //
-                //LogModel.Log(string.Format("DIJSTRA_DEMO. GENERATE_RANDOM_MATRIX : {0}|{1} ", index_x, stringArrayValues));
-                //
-                statusMessage.Append(string.Format(@"{0}{1}", stringArrayValues, separator_1));
-            }
-            return statusMessage.ToString();
-        }
-
-        */
-
-        -- [_] /*
-
-        private static double Pitagorean(double coord_x, double coord_y)
-        {
-            //
-            double pitagorean = 0;
-            double power      = 2;
-
-            pitagorean        = Math.Sqrt(
-                                                    Math.Pow(coord_x, power)
-                                                    +
-                                                    Math.Pow(coord_y, power)
-                                         );
-
-            //
-            return pitagorean;
-        }
-
-        private static double GetHipotemuza(List<string> vertexString, int index_x, int index_y)
-        {
-            //
-            string[] coord_source = vertexString[index_y].Replace("|", "").Replace("[", "").Replace("]", "").Split(',');
-            string[] coord_dest   = vertexString[index_x].Replace("|", "").Replace("[", "").Replace("]", "").Split(',');
-
-            //
-            double coord_source_x = Convert.ToDouble(coord_source[0]);
-            double coord_source_y = Convert.ToDouble(coord_source[1]);
-            double coord_dest_x = Convert.ToDouble(coord_dest[0]);
-            double coord_dest_y = Convert.ToDouble(coord_dest[1]);
-            double coord_x = Math.Abs(coord_dest_x - coord_source_x);
-            double coord_y = Math.Abs(coord_dest_y - coord_source_y);
-            //
-            double hipotemuza = Pitagorean(coord_x, coord_y);
-            //
-            // LogModel.Log(string.Format("DIJSTRA_DEMO. GENERATE_RANDOM_MATRIX : ({0},{1}) ({2}, {3}) = {4} ", coord_source[0], coord_source[1], coord_dest[0], coord_dest[1], hipotemuza));
-            //
-
-            return hipotemuza;
-        }
-
-
-        public static string Dijkstra(List<string> vertex, int[,] graph, int vertexSize, int sampleSize, int sourcePoint)
-        {
-            // Driver Code
-            GFG t = new GFG();
-            t.Dijkstra(graph, sourcePoint, vertexSize);
-
-            //
-            string integerFormat = @"00";
-            StringBuilder status = new StringBuilder();
-
-            //
-            for (int index = 0; index < t.dist.Length; index++)
-            {
-                // CORREGIR VALORES
-                if (t.dist[index] >= Int32.MaxValue)
-                {
-                    t.dist[index] = 0;
-                }
-
-                //
-                string separator = (index < (t.dist.Length - 1)) ? "," : string.Empty;
-                //
-                status.Append
-                (
-                        string.Format(@"{0}<{1}>-{2}-{3}{4}"
-                                    , index.ToString(integerFormat)
-                                    , vertex[index].Replace(",", ";").Replace("|", "")
-                                    , t.dist[index].ToString(integerFormat)
-                                    , t.path[index].Replace(",", ";")
-                                    , separator
-                        )
-                );
-            }
-
-            //
-            return status.ToString();
-        }
-        */
-
-        -- [_] cpp winform
-
-        -- [_] https://en.cppreference.com/w/cpp/container    (with examples)
-
-        -- [_] https://cplusplus.com/reference/stl/           (with examples)
-
-	-- [_] Don't forget to deallocate the memory when you're done
-
-     	-- [_] upgrade to c++.
-
-               -- [_] matrices as vectores.
 
 ////////////////////////////////////////////////////////////////////////////////
 -- [_] C++ TIC TAC TOE
@@ -374,7 +75,27 @@
 -- [_] C++ REGEX
 ////////////////////////////////////////////////////////////////////////////////
 
--- [_] cpp config.
+-- [X] cpp config.
+
+////////////////////////////////////////////////////////////////////////////////
+-- [_] TODO GENERAL
+////////////////////////////////////////////////////////////////////////////////
+
+        -- [_] ENGLISH VERSION.
+
+        -- [_] README FILE.
+
+        -- [_] cpp winform
+
+        -- [_] https://en.cppreference.com/w/cpp/container    (with examples)
+
+        -- [_] https://cplusplus.com/reference/stl/           (with examples)
+
+	-- [_] Don't forget to deallocate the memory when you're done
+
+     	-- [_] upgrade to c++.
+
+               -- [_] matrices as vectores.
 
 ////////////////////////////////////////////////////////////////////////////////
 
