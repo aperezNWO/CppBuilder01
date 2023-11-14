@@ -168,17 +168,18 @@
         <None Include="SortBenchMark.h">
             <BuildOrder>14</BuildOrder>
         </None>
+        <CppCompile Include="TicTacToeManager.cpp">
+            <BuildOrder>17</BuildOrder>
+        </CppCompile>
+        <None Include="TicTacToeManager.h">
+            <BuildOrder>18</BuildOrder>
+        </None>
         <CppCompile Include="Unit1.cpp">
             <Form>Form1</Form>
             <FormType>dfm</FormType>
             <DependentOn>Unit1.h</DependentOn>
             <BuildOrder>2</BuildOrder>
         </CppCompile>
-        <None Include="..\Project2\Win32\Debug\Algothtm.Library.lib" Condition="'$(Platform)'=='Win32'">
-            <Exclude>True</Exclude>
-            <BuildOrder>3</BuildOrder>
-            <IgnorePath>true</IgnorePath>
-        </None>
         <FormResources Include="Unit1.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
@@ -271,12 +272,6 @@
                     </Platform>
                 </DeployFile>
                 <DeployFile LocalName="..\Project2\Win32\Debug\Algothtm.Library.lib" Configuration="Debug" Class="ProjectFile"/>
-                <DeployFile LocalName="..\Project2\Win32\Debug\Algothtm.Library.lib" Configuration="Debug" Class="ProjectFile">
-                    <Platform Name="Win32">
-                        <RemoteDir>.\</RemoteDir>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
                 <DeployFile LocalName=".\Win32\Debug\Algorithm.WinForm.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployFile LocalName=".\Win32\Debug\Algorithm.WinForm.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
