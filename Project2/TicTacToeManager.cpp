@@ -8,7 +8,6 @@
 // A function to show the current board status
 void TicTacToeManager::showBoard(char board[][SIDE])
 {
-
 	printf("\t\t\t %c | %c | %c \n", board[0][0], board[0][1], board[0][2]);
 	printf("\t\t\t-----------\n");
 	printf("\t\t\t %c | %c | %c \n", board[1][0], board[1][1], board[1][2]);
@@ -19,7 +18,6 @@ void TicTacToeManager::showBoard(char board[][SIDE])
 void TicTacToeManager::showInstructions()
 {
 	printf("\nChoose a cell numbered from 1 to 9 as below and play\n\n");
-
 	printf("\t\t\t 1 | 2 | 3 \n");
 	printf("\t\t\t-----------\n");
 	printf("\t\t\t 4 | 5 | 6 \n");
@@ -44,7 +42,6 @@ void TicTacToeManager::declareWinner(int whoseTurn)
 	else
 		printf("HUMAN has won\n");
 }
-
 // A function that returns true if any of the row
 // is crossed with the same player's move
 bool TicTacToeManager::rowCrossed(char board[][SIDE])
@@ -79,12 +76,10 @@ bool TicTacToeManager::diagonalCrossed(char board[][SIDE])
 		board[1][1] == board[2][2] &&
 		board[0][0] != ' ')
 		return(true);
-
 	if (board[0][2] == board[1][1] &&
 		board[1][1] == board[2][0] &&
 		board[0][2] != ' ')
 		return(true);
-
 	return(false);
 }
 // A function that returns true if the game is over
@@ -188,10 +183,8 @@ void TicTacToeManager::playTicTacToe(int whoseTurn)
 {
 	char board[SIDE][SIDE];
 	int moveIndex = 0, x = 0, y = 0;
-
 	initialise(board);
 	showInstructions();
-
 	// Keep playing till the game is over or it is a draw
 	while (gameOver(board) == false && moveIndex != SIDE*SIDE)
 	{
@@ -207,7 +200,6 @@ void TicTacToeManager::playTicTacToe(int whoseTurn)
 			moveIndex ++;
 			whoseTurn = HUMAN;
 		}
-
 		else if (whoseTurn == HUMAN)
 		{
 			printf("You can insert in the following positions : ");
@@ -238,7 +230,6 @@ void TicTacToeManager::playTicTacToe(int whoseTurn)
 			}
 		}
 	}
-
 	// If the game has drawn
 	if (gameOver(board) == false && moveIndex == SIDE * SIDE)
 		printf("It's a draw\n");
@@ -249,7 +240,6 @@ void TicTacToeManager::playTicTacToe(int whoseTurn)
 			whoseTurn = HUMAN;
 		else if (whoseTurn == HUMAN)
 			whoseTurn = COMPUTER;
-
 		declareWinner(whoseTurn);
 	}
 }
@@ -264,14 +254,12 @@ int TicTacToeManager::Run()
 		char choice;
 	 	printf("Do you want to start first?(y/n) : ");
 	 	scanf(" %c", &choice);
-
 		if(choice=='n')
 			playTicTacToe(COMPUTER);
 		else if(choice=='y')
 			playTicTacToe(HUMAN);
 		else
 			printf("Invalid choice\n");
-
 		printf("\nDo you want to quit(y/n) : ");
        		scanf(" %c", &cont);
 	} while(cont=='n');
