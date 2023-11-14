@@ -88,7 +88,7 @@
 				key.erase(key.find_last_not_of(" \t") + 1);
 				value.erase(0, value.find_first_not_of(" \t"));
 				value.erase(value.find_last_not_of(" \t") + 1);
-
+	
 				// Insert key-value pair into the map
 				this->configMap[key] = value;
 			}
@@ -215,7 +215,8 @@
 	   //
 	   for (short i = 0; i < count; i++)
 	   {
-			deck.push_back(i);
+		//   
+		deck.push_back(i);
 	   }
 
 	   //
