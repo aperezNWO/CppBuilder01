@@ -283,7 +283,7 @@
 			return uniquePtr->GetSort(p_sortAlgoritm).c_str();
 		};
 		// http://localhost:83/demos/_RegExEval?p_tagSearch=company&p_textSearch=bmg
-        // REGULAR EXPRESSIONS
+                // REGULAR EXPRESSIONS
 		DLL_EXPORT const char*  RegExManager_RegExEval(char* p_tagSearch, char* p_textSearch)
 		{
 			//
