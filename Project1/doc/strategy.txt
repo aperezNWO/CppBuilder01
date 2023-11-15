@@ -95,9 +95,11 @@
 
 	-- [_] Don't forget to deallocate the memory when you're done
 
-     	-- [_] upgrade to c++.
+     	-- [_] c++.
 
-               -- [_] matrices as vectores.
+	       -- [_] software architecture and patterns.
+
+               -- [_] libraries.
 
 ////////////////////////////////////////////////////////////////////////////////
 
