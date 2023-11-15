@@ -139,6 +139,7 @@
             <BuildOrder>0</BuildOrder>
             <PCH>true</PCH>
         </PCHCompile>
+        <None Include="cdCatalog.xml"/>
         <CppCompile Include="Dijkstra.cpp">
             <BuildOrder>6</BuildOrder>
         </CppCompile>

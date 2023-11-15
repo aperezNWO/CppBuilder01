@@ -14,7 +14,7 @@ RegExManager::RegExManager()
 //
 RegExManager::~RegExManager()
 {
-        //
+	//
 }
 //
 int RegExManager::GetXml()

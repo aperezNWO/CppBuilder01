@@ -59,6 +59,101 @@
 		return encoded.str();
 	}
 	//
+	string Algorithm::StringTrim(const std::string& str)
+	{
+		//
+		size_t start = str.find_first_not_of(" \t\n\r");   // Find the first non-whitespace character
+		size_t end   = str.find_last_not_of(" \t\n\r");    // Find the last non-whitespace character
+		//
+		if (start == std::string::npos || end == std::string::npos) {
+			// The string is empty or contains only whitespaces
+			return "";
+		}
+		//
+		return str.substr(start, end - start + 1);
+	};
+	//
+	vector<string> Algorithm::StringSplit(const char* p_inputString, std::string p_delimiter)
+	{
+		//
+		std::string s(p_inputString);
+		//
+		std::vector<std::string> outputArr;
+		size_t pos = 0;
+		std::string token;
+		//
+		while ((pos = s.find(p_delimiter)) != std::string::npos) {
+			token = s.substr(0, pos);
+			s.erase(0, pos + p_delimiter.length());
+			outputArr.push_back(token);
+		}
+		outputArr.push_back(s);
+		//
+		return outputArr;
+	};
+	//
+	int Algorithm::SaveLineToFile(string p_value, const char* filename)
+	{
+			// Open the file for appending
+			std::ofstream outputFile;
+			outputFile.open(filename, std::ios::app);
+
+			if (!outputFile.is_open()) {
+				std::cerr << "Error opening file for appending." << std::endl;
+				return 1;
+			}
+
+			// Write some content to the file
+			outputFile << p_value << "\n";
+
+			// Close the file
+			outputFile.close();
+
+			return 0;
+	}
+	//
+	template <typename T> int Algorithm::SaveVectorToFile(vector<T> array, const char* fileName)
+	{
+			// Open the file for appending
+			std::ofstream outputFile;
+			outputFile.open(fileName, std::ios::app);
+
+			if (!outputFile.is_open()) {
+				std::cerr << "Error opening file for appending." << std::endl;
+				return 1;
+			}
+
+			// Write some content to the file
+			for (auto _Item = array.begin(); _Item != array.end(); ++_Item)
+			{
+				//
+				stringstream  ss;
+				//
+				ss << *_Item;
+				//
+				string Item     = ss.str();
+		     	// Write some content to the file
+				outputFile << Item << "\n";
+			}
+			// Close the file
+			outputFile.close();
+
+			return 0;
+	}
+	//
+	int Algorithm::DeleteFile(const char* filePath)
+	{
+		// Attempt to delete the file
+		if (std::remove(filePath) != 0) {
+			std::cerr << "Error deleting file: " << filePath << std::endl;
+			return 1; // Return an error code
+		}
+		//
+		std::cout << "File deleted successfully: " << filePath << std::endl;
+		//
+		return 0;
+	}
+	//
 	int Algorithm::ReadConfigFile()
 	{
 		 // Open the configuration file
@@ -101,112 +196,6 @@
 		return 0;
 	}
 	//
-	string Algorithm::StringTrim(const std::string& str)
-	{
-        //
-		size_t start = str.find_first_not_of(" \t\n\r");   // Find the first non-whitespace character
-		size_t end   = str.find_last_not_of(" \t\n\r");    // Find the last non-whitespace character
-		//
-		if (start == std::string::npos || end == std::string::npos) {
-			// The string is empty or contains only whitespaces
-			return "";
-		}
-		//
-		return str.substr(start, end - start + 1);
-	};
-	//
-	vector<string> Algorithm::StringSplit(const char* p_inputString, std::string p_delimiter)
-	{
-		//
-		std::string s(p_inputString);
-		//
-		std::vector<std::string> outputArr;
-		size_t pos = 0;
-		std::string token;
-		//
-		while ((pos = s.find(p_delimiter)) != std::string::npos) {
-			token = s.substr(0, pos);
-			s.erase(0, pos + p_delimiter.length());
-			outputArr.push_back(token);
-		}
-		outputArr.push_back(s);
-		//
-		return outputArr;
-	};
-	//
-	int Algorithm::SaveToFile(string p_value, const char* filename)
-	{
-			// Open the file for appending
-			std::ofstream outputFile;
-			outputFile.open(filename, std::ios::app);
-
-			if (!outputFile.is_open()) {
-				std::cerr << "Error opening file for appending." << std::endl;
-				return 1;
-			}
-
-			// Write some content to the file
-			outputFile << p_value << "\n";
-
-			// Close the file
-			outputFile.close();
-
-			//std::cout << "Content appended to the file." << std::endl;
-
-			return 0;
-	}
-	//
-	int Algorithm::SetFile_int(int* array, int arraySize, char* fileName)
-	{
-		// declaration of file pointer
-		FILE* fp = NULL;
-		// declaration of variable
-		int x;
-		// opening of file
-		fopen_s(&fp, fileName, "w+");
-		// checking of error
-		if (!fp)
-			return 1;
-		// giving content
-		for (int i = 0; i < arraySize; i++)
-			fprintf(fp, "%d\n", array[i]);
-		// closing of file
-		fclose(fp);
-		//
-		return 0;
-	}
-	//
-	int Algorithm::SetFile_char(char** array, int arraySize, char* fileName)
-	{
-		// declaration of file pointer
-		FILE* fp = NULL;
-		// opening of file
-		fopen_s(&fp, fileName, "w+");
-		// checking of error
-		if (!fp)
-			return 1;
-		// giving content
-		for (int i = 0; i < arraySize; i++)
-			fprintf(fp, "%s\n", array[i]);
-		// closing of file
-		fclose(fp);
-		//
-		return 0;
-	}
-	//
-	int Algorithm::DeleteFile(const char* filePath)
-	{
-		// Attempt to delete the file
-		if (std::remove(filePath) != 0) {
-			std::cerr << "Error deleting file: " << filePath << std::endl;
-			return 1; // Return an error code
-		}
-		//
-		std::cout << "File deleted successfully: " << filePath << std::endl;
-		//
-		return 0;
-	}
-	//
 	vector<int> Algorithm::FisherYates(int count)
 	{
 	   //
@@ -215,7 +204,8 @@
 	   //
 	   for (short i = 0; i < count; i++)
 	   {
-			deck.push_back(i);
+		//   
+		deck.push_back(i);
 	   }
 
 	   //
@@ -269,7 +259,6 @@
 			return uniquePtr->GetRandomPoints(p_vertexSize, p_sourcePoint).c_str();
 		};
 
-		//"http://localhost:83/demos/_GetSort?p_sortAlgoritm=1&p_unsortedList=13|3|9|10|19|16|0|2|18|20|24|23|7|5|12|1|21|4|22|15|6|8|14|11|17" succeeded in 143 ms.
 		// SORT BENCHMARK
 		DLL_EXPORT const char* SortBenchMark_GetSort_CPP(int p_sortAlgoritm, char* p_unsortedList)
 		{
@@ -282,8 +271,8 @@
 			);
 			return uniquePtr->GetSort(p_sortAlgoritm).c_str();
 		};
-		// http://localhost:83/demos/_RegExEval?p_tagSearch=company&p_textSearch=bmg
-        // REGULAR EXPRESSIONS
+
+                // REGULAR EXPRESSIONS
 		DLL_EXPORT const char*  RegExManager_RegExEval(char* p_tagSearch, char* p_textSearch)
 		{
 			//

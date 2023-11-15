@@ -74,7 +74,8 @@
 				  sortedList          += _tempValues;
 
 		}
-
+		//
+		//Algorithm::SaveVectorToFile(this->sortSteps,"cdCatalog_1.xml");
 		//
 		return sortedList;
 	};

@@ -139,6 +139,7 @@
             <BuildOrder>1</BuildOrder>
             <PCH>true</PCH>
         </PCHCompile>
+        <None Include="cdCatalog.xml"/>
         <CppCompile Include="Dijkstra.cpp">
             <BuildOrder>10</BuildOrder>
         </CppCompile>
@@ -287,6 +288,12 @@
                     </Platform>
                 </DeployFile>
                 <DeployFile LocalName="Algorithm.ini" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="cdCatalog.xml" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>

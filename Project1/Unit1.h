@@ -22,7 +22,6 @@ __published:	// IDE-managed Components
 	TButton *cmdRegExManagerDLL;
 	TButton *cmdRegExManager;
 	void __fastcall FormCreate(TObject *Sender);
-	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall cmdGetRandomVertexClick(TObject *Sender);
 	void __fastcall cmdCallDLLClick(TObject *Sender);
 	void __fastcall cmdSortBenchMarkClick(TObject *Sender);

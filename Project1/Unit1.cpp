@@ -4,8 +4,7 @@
 #pragma hdrstop
 
 #include "Unit1.h"
-#include <iostream>
-#include <string>
+#include "Algorithm.h"
 #include "Dijkstra.h"
 #include "SortBenchMark.h"
 #include "RegExManager.h"
@@ -27,35 +26,6 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 void __fastcall TForm1::FormCreate(TObject *Sender)
 {
 	  //
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TForm1::Button1Click(TObject *Sender)
-{
-	HINSTANCE CppMyDll;
-	typedef char*(__stdcall * pfSum)(int, int, char*);
-	pfSum Sum;
-
-	if ((CppMyDll = LoadLibraryW(L"Algothtm.Library.dll")) == NULL) {
-		ShowMessage(L"Cannot load DLL!");
-		return;
-	}
-	if ((Sum = (pfSum)GetProcAddress(CppMyDll, "Run")) == NULL) {
-		ShowMessage(L"Cannot find DLL function!");
-		return;
-	}  else
-	{
-	   //
-	   int param_1   = 1;
-	   int param_2   = 2;
-	   char *param_3 = (char*)"OK";
-	   //
-	   char* result = Sum(param_1, param_2,param_3);
-	   //
-	   //lblSum->Caption = UnicodeString(result).c_str();
-	   //
-	   FreeLibrary(CppMyDll);
-	}
 }
 //---------------------------------------------------------------------------
 
@@ -168,11 +138,13 @@ void __fastcall TForm1::cmdRegExManagerClick(TObject *Sender)
 	   std::unique_ptr<RegExManager> uniquePtr = std::make_unique<RegExManager>(
 	   );
 	   //
-	   char *p_tagSearch  = (char*)"country";
-	   char *p_textSearch = (char*)"UK";
-	   string result      = uniquePtr->RegExEval(p_tagSearch, p_textSearch);
+	   char *p_tagSearch      = (char*)"country";
+	   char *p_textSearch     = (char*)"UK";
+	   string result          = uniquePtr->RegExEval(p_tagSearch, p_textSearch);
+	   vector<string> results = Algorithm::StringSplit(result.c_str(),"|");
+	   //Algorithm::SaveVectorToFile(results,"cdCatalog_1.xml");
 	   //
-	   this->lblRegExManager->Caption = result.c_str();
+	   this->lblRegExManager->Caption = results[0].c_str();
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::cmdRegExManagerDLLClick(TObject *Sender)
@@ -196,12 +168,14 @@ void __fastcall TForm1::cmdRegExManagerDLLClick(TObject *Sender)
 	else
 	{
 	   //
-	   char *p_tagSearch  = (char*)"year";
-	   char *p_textSearch = (char*)"1998";
+	   char *p_tagSearch  = (char*)"country";
+	   char *p_textSearch = (char*)"UK";
 	   //
-	   string result = fRegExEval(p_tagSearch, p_textSearch);
+	   string result          = fRegExEval(p_tagSearch, p_textSearch);
+	   vector<string> results = Algorithm::StringSplit(result.c_str(),"|");
+	   //Algorithm::SaveVectorToFile(results,"cdCatalog_1.xml");
 	   //
-	   this->lblRegExManager->Caption = result.c_str();
+	   this->lblRegExManager->Caption = results[0].c_str();
 	   //
 	   FreeLibrary(CppMyDll);
 	 }

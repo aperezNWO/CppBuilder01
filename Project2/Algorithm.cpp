@@ -59,51 +59,9 @@
 		return encoded.str();
 	}
 	//
-	int Algorithm::ReadConfigFile()
-	{
-		 // Open the configuration file
-		std::ifstream configFile("Algorithm.ini");
-
-		// Check if the file is opened successfully
-		if (!configFile.is_open()) {
-			std::cerr << "Error opening the configuration file." << std::endl;
-			return 1;
-		}
-
-		// Read the file line by line
-		std::string line;
-		while (std::getline(configFile, line)) {
-			// Skip empty lines or lines starting with '#' (comments)
-			if (line.empty() || line[0] == '#') {
-				continue;
-			}
-
-			// Split the line into key and value
-			std::istringstream iss(line);
-			std::string key, value;
-			if (std::getline(iss, key, '=') && std::getline(iss, value))
-			{
-				// Trim leading and trailing whitespaces from key and value
-				key.erase(0, key.find_first_not_of(" \t"));
-				key.erase(key.find_last_not_of(" \t") + 1);
-				value.erase(0, value.find_first_not_of(" \t"));
-				value.erase(value.find_last_not_of(" \t") + 1);
-	
-				// Insert key-value pair into the map
-				this->configMap[key] = value;
-			}
-		}
-
-		// Close the configuration file
-		configFile.close();
-
-		//
-		return 0;
-	}
-	//
 	string Algorithm::StringTrim(const std::string& str)
 	{
-        //
+		//
 		size_t start = str.find_first_not_of(" \t\n\r");   // Find the first non-whitespace character
 		size_t end   = str.find_last_not_of(" \t\n\r");    // Find the last non-whitespace character
 		//
@@ -134,7 +92,7 @@
 		return outputArr;
 	};
 	//
-	int Algorithm::SaveToFile(string p_value, const char* filename)
+	int Algorithm::SaveLineToFile(string p_value, const char* filename)
 	{
 			// Open the file for appending
 			std::ofstream outputFile;
@@ -151,47 +109,36 @@
 			// Close the file
 			outputFile.close();
 
-			//std::cout << "Content appended to the file." << std::endl;
-
 			return 0;
 	}
 	//
-	int Algorithm::SetFile_int(int* array, int arraySize, char* fileName)
+	template <typename T> int Algorithm::SaveVectorToFile(vector<T> array, const char* fileName)
 	{
-		// declaration of file pointer
-		FILE* fp = NULL;
-		// declaration of variable
-		int x;
-		// opening of file
-		fopen_s(&fp, fileName, "w+");
-		// checking of error
-		if (!fp)
-			return 1;
-		// giving content
-		for (int i = 0; i < arraySize; i++)
-			fprintf(fp, "%d\n", array[i]);
-		// closing of file
-		fclose(fp);
-		//
-		return 0;
-	}
-	//
-	int Algorithm::SetFile_char(char** array, int arraySize, char* fileName)
-	{
-		// declaration of file pointer
-		FILE* fp = NULL;
-		// opening of file
-		fopen_s(&fp, fileName, "w+");
-		// checking of error
-		if (!fp)
-			return 1;
-		// giving content
-		for (int i = 0; i < arraySize; i++)
-			fprintf(fp, "%s\n", array[i]);
-		// closing of file
-		fclose(fp);
-		//
-		return 0;
+			// Open the file for appending
+			std::ofstream outputFile;
+			outputFile.open(fileName, std::ios::app);
+
+			if (!outputFile.is_open()) {
+				std::cerr << "Error opening file for appending." << std::endl;
+				return 1;
+			}
+
+			// Write some content to the file
+			for (auto _Item = array.begin(); _Item != array.end(); ++_Item)
+			{
+				//
+				stringstream  ss;
+				//
+				ss << *_Item;
+				//
+				string Item     = ss.str();
+		     	// Write some content to the file
+				outputFile << Item << "\n";
+			}
+			// Close the file
+			outputFile.close();
+
+			return 0;
 	}
 	//
 	int Algorithm::DeleteFile(const char* filePath)
@@ -203,6 +150,48 @@
 		}
 		//
 		std::cout << "File deleted successfully: " << filePath << std::endl;
+		//
+		return 0;
+	}
+	//
+	int Algorithm::ReadConfigFile()
+	{
+		 // Open the configuration file
+		std::ifstream configFile("Algorithm.ini");
+
+		// Check if the file is opened successfully
+		if (!configFile.is_open()) {
+			std::cerr << "Error opening the configuration file." << std::endl;
+			return 1;
+		}
+
+		// Read the file line by line
+		std::string line;
+		while (std::getline(configFile, line)) {
+			// Skip empty lines or lines starting with '#' (comments)
+			if (line.empty() || line[0] == '#') {
+				continue;
+			}
+
+			// Split the line into key and value
+			std::istringstream iss(line);
+			std::string key, value;
+			if (std::getline(iss, key, '=') && std::getline(iss, value))
+			{
+				// Trim leading and trailing whitespaces from key and value
+				key.erase(0, key.find_first_not_of(" \t"));
+				key.erase(key.find_last_not_of(" \t") + 1);
+				value.erase(0, value.find_first_not_of(" \t"));
+				value.erase(value.find_last_not_of(" \t") + 1);
+
+				// Insert key-value pair into the map
+				this->configMap[key] = value;
+			}
+		}
+
+		// Close the configuration file
+		configFile.close();
+
 		//
 		return 0;
 	}

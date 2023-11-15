@@ -12,7 +12,7 @@
     <cd>
         <title>Hide your heart</title>
         <artist>Bonnie Tyler</artist>
-        <country>UK</country>
+        <mark><country>UK</country></mark>
         <company>CBS Records</company>
         <price>9.90</price>
         <year>1988</year>
@@ -28,7 +28,7 @@
     <cd>
         <title>Still got the blues</title>
         <artist>Gary Moore</artist>
-        <country>UK</country>
+        <mark><country>UK</country></mark>
         <company>Virgin records</company>
         <price>10.20</price>
         <year>1990</year>
@@ -44,7 +44,7 @@
     <cd>
         <title>One night only</title>
         <artist>Bee Gees</artist>
-        <country>UK</country>
+        <mark><country>UK</country></mark>
         <company>Polydor</company>
         <price>10.90</price>
         <year>1998</year>
@@ -52,7 +52,7 @@
     <cd>
         <title>Sylvias Mother</title>
         <artist>Dr.Hook</artist>
-        <country>UK</country>
+        <mark><country>UK</country></mark>
         <company>CBS</company>
         <price>8.10</price>
         <year>1973</year>
@@ -60,7 +60,7 @@
     <cd>
         <title>Maggie May</title>
         <artist>Rod Stewart</artist>
-        <country>UK</country>
+        <mark><country>UK</country></mark>
         <company>Pickwick</company>
         <price>8.50</price>
         <year>1990</year>
@@ -100,7 +100,7 @@
     <cd>
         <title>For the good times</title>
         <artist>Kenny Rogers</artist>
-        <country>UK</country>
+        <mark><country>UK</country></mark>
         <company>Mucik Master</company>
         <price>8.70</price>
         <year>1995</year>
@@ -116,7 +116,7 @@
     <cd>
         <title>Tupelo Honey</title>
         <artist>Van Morrison</artist>
-        <country>UK</country>
+        <mark><country>UK</country></mark>
         <company>Polydor</company>
         <price>8.20</price>
         <year>1971</year>
@@ -132,7 +132,7 @@
     <cd>
         <title>The very best of</title>
         <artist>Cat Stevens</artist>
-        <country>UK</country>
+        <mark><country>UK</country></mark>
         <company>Island</company>
         <price>8.90</price>
         <year>1990</year>
@@ -140,7 +140,7 @@
     <cd>
         <title>Stop</title>
         <artist>Sam Brown</artist>
-        <country>UK</country>
+        <mark><country>UK</country></mark>
         <company>A and M</company>
         <price>8.90</price>
         <year>1988</year>
@@ -148,7 +148,7 @@
     <cd>
         <title>Bridge of Spies</title>
         <artist>T`Pau</artist>
-        <country>UK</country>
+        <mark><country>UK</country></mark>
         <company>Siren</company>
         <price>7.90</price>
         <year>1987</year>
@@ -156,7 +156,7 @@
     <cd>
         <title>Private Dancer</title>
         <artist>Tina Turner</artist>
-        <country>UK</country>
+        <mark><country>UK</country></mark>
         <company>Capitol</company>
         <price>8.90</price>
         <year>1983</year>
@@ -172,7 +172,7 @@
     <cd>
         <title>Pavarotti Gala Concert</title>
         <artist>Luciano Pavarotti</artist>
-        <country>UK</country>
+        <mark><country>UK</country></mark>
         <company>DECCA</company>
         <price>9.90</price>
         <year>1991</year>
@@ -196,7 +196,7 @@
     <cd>
         <title>Red</title>
         <artist>The Communards</artist>
-        <country>UK</country>
+        <mark><country>UK</country></mark>
         <company>London</company>
         <price>7.80</price>
         <year>1987</year>
@@ -210,4 +210,5 @@
         <year>1987</year>
     </cd>
 </catalog>
+
 
