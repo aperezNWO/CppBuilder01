@@ -35,7 +35,6 @@ using namespace std;
 		 //
 	}
 	//
-	//
 	vector<string> Dijkstra::StringSplit(const char* p_inputString, std::string p_delimiter, bool adjust)
 	{
 		//
