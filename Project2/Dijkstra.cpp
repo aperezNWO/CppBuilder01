@@ -2,11 +2,12 @@
 // DIJTRA ALGORITHM
 ///////////////////////////////////////////////////////////////////////////
 
-
 ///////////////////////////////////////////////////////////////////////////
 // SOURCES:
 // https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
@@ -108,13 +109,13 @@ using namespace std;
 			std::string formattedDist  = oss_dist.str();
 			//
 			stringstream  ss;
-			ss     << formattedIndex                                                /*.ToString(integerFormat)*/
+			ss     << formattedIndex
 				   <<"&lt;"
-				   << vertexIndex                                                   /*.Replace(",", ";").Replace("|", "")*/
+				   << vertexIndex
 				   << "&gt;-"
-				   << formattedDist                                                 /*.ToString(integerFormat)*/
+				   << formattedDist
 				   << "-"
-				   << path[index]                                                   /*.Replace(",", ";")*/
+				   << path[index]
 				   << separator;
 			//
 			string statusItem = ss.str();
@@ -183,10 +184,10 @@ using namespace std;
 		double power      = 2;
 
 		pitagorean        = sqrt(
-												std::pow(coord_x, power)
-												+
-												std::pow(coord_y, power)
-								);
+						std::pow(coord_x, power)
+						+
+						std::pow(coord_y, power)
+		);
 
 		//
 		return pitagorean;
@@ -259,11 +260,6 @@ using namespace std;
 				this->mt_3           = std::mt19937(rd_3());
 				std::uniform_int_distribution<int> distribution(0, 1);
 				int randomValue      = distribution(mt_3);
-
-				// Create a random number generator engine
-				//std::default_random_engine gen(std::chrono::system_clock::now().time_since_epoch().count());
-				//std::uniform_int_distribution<int> distribution(0, 1);
-				//int randomValue      = distribution(gen);
 
 				//
 				int hipotemuza       = 0;
@@ -355,8 +351,6 @@ using namespace std;
 		int  p_sampleSize      = 23;
 		vector<int> vertex_X   = FisherYates(p_sampleSize);
 		vector<int> vertex_Y   = FisherYates(p_sampleSize);
-
-		// c++ diagnostics
 
 		//
 		string _vertexArrayString = "";
