@@ -112,7 +112,7 @@
 			return 0;
 	}
 	//
-	template <typename T> int Algorithm::SaveVectorToFile(vector<T> array, const char* fileName)
+	template <typename U> int Algorithm::SaveVectorToFile(vector<U> array, const char* fileName)
 	{
 			// Open the file for appending
 			std::ofstream outputFile;

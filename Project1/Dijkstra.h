@@ -16,8 +16,8 @@
 #include <cstdlib>
 #include "Algorithm.h"
 
-  class Dijkstra  :
-			public Algorithm
+   class Dijkstra  :
+	   public Algorithm
   {
 	   public :
 		  Dijkstra();

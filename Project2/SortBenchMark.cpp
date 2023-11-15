@@ -1,6 +1,5 @@
 ﻿#include "SortBenchMark.h"
 
-
 	//
 	SortBenchMark::SortBenchMark(char* p_randomValues, int p_arraySize)
 	{
@@ -16,6 +15,12 @@
 			//
 			this->arreglo.push_back( std::stoi(this->arreglo_str[i] ) );
 		}
+
+		//
+		//std::unique_ptr<Algorithm> uniquePtr = std::make_unique<Algorithm>();
+		//
+		//uniquePtr->SaveVectorToFile(this->arreglo,"Array.txt");
+
 	};
 	//
 	SortBenchMark::~SortBenchMark()
@@ -63,7 +68,7 @@
 		string sortedList = "";
 		// Using iterators
 		for (auto sortStep = this->sortSteps.begin(); sortStep != this->sortSteps.end(); ++sortStep) {
-				  //std::cout << "Element: " << *it << std::endl;
+				  //
 				  stringstream  ss;
 				  //
 				  string separator = "~";
@@ -75,7 +80,9 @@
 
 		}
 		//
-		//Algorithm::SaveVectorToFile(this->sortSteps,"cdCatalog_1.xml");
+		//std::unique_ptr<Algorithm> uniquePtr = std::make_unique<Algorithm>();
+		//
+		//uniquePtr->SaveVectorToFile(this->sortSteps,"SortedArray.txt");
 		//
 		return sortedList;
 	};

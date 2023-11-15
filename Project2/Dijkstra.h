@@ -17,7 +17,7 @@
 #include "Algorithm.h"
 
    class Dijkstra  :
-			public Algorithm
+	   public Algorithm
   {
 	   public :
 		  Dijkstra();

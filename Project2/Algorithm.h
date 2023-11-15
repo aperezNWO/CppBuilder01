@@ -21,11 +21,14 @@
 #define DLL_EXPORT __declspec(dllexport) __stdcall
 #pragma once
 
+//
 using namespace std;
+
 
 #pragma hdrstop
 #pragma argsused
 
+//
 class Algorithm
 {
 	   public :
@@ -33,13 +36,12 @@ class Algorithm
 			Algorithm();
 			~Algorithm();
 			//
-			static string         HtmlEncode(const std::string& input);
-			static string         StringTrim(const std::string& str);
-			static vector<string> StringSplit(const char* p_inputString, std::string p_delimiter);
-			static int            SaveLineToFile(string p_value, const char* filename);
-			template <typename T>
-			static int            SaveVectorToFile(vector<T> array, const char* fileName);
-			static int            DeleteFile(const char* filePath);
+			static string             HtmlEncode(const std::string& input);
+			static string             StringTrim(const std::string& str);
+			static vector<string>     StringSplit(const char* p_inputString, std::string p_delimiter);
+			static int                SaveLineToFile(string p_value, const char* filename);
+			template <typename U> int SaveVectorToFile(vector<U> array, const char* fileName);
+			static int                DeleteFile(const char* filePath);
 			//
 			int            ReadConfigFile();
 			vector<int>    FisherYates(int count);
