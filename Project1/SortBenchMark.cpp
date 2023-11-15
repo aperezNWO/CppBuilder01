@@ -66,13 +66,10 @@
 				  //std::cout << "Element: " << *it << std::endl;
 				  stringstream  ss;
 				  //
-				  //string separator = "■";
 				  string separator = "~";
 				  ss << separator << "<br/>" << *sortStep << "<br/>";
 				  //
 				  string _tempValues  = ss.str();
-				  //
-				  //this->SaveToFile(_tempValues.c_str(),"SortBenchMark.txt");
 				  //
 				  sortedList          += _tempValues;
 
@@ -159,7 +156,7 @@
 	//
 	void SortBenchMark::BubbleSort()
 	{
-		//
+	   //
 	   int temp = 0;
 	   //
 	   for (int write = 0; write < this->arraySize; write++)
