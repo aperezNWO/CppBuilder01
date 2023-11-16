@@ -27,7 +27,6 @@ class SortBenchMark	 :
 	   void           BubbleSort();
 	public  :
 	   vector<int>      arreglo;
-	   vector<string>   arreglo_str;
 	   vector<string>   sortSteps;
 	   char* randomValues;
 	   int   arraySize;

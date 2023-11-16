@@ -10,10 +10,11 @@
 		//-----------------------------------------------------
 		// INICIAR ARREGLO
 		//-----------------------------------------------------
-		this->arreglo_str = StringSplit(p_randomValues,"|");
+		vector<string>   arreglo_str = StringSplit(p_randomValues,"|");
+        //
 		for (int i = 0; i < this->arraySize; i++) {
 			//
-			this->arreglo.push_back( std::stoi(this->arreglo_str[i] ) );
+			this->arreglo.push_back( std::stoi(arreglo_str[i] ) );
 		}
 
 		//
