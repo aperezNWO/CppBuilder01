@@ -90,7 +90,7 @@ void __fastcall TForm1::cmdSortBenchMarkClick(TObject *Sender)
 		ShowMessage(L"Cannot load DLL!");
 		return;
 	}
-	if ((fGetSort = (pfGetSort)GetProcAddress(CppMyDll, "SortBenchMark_GetSort")) == NULL) {
+	if ((fGetSort = (pfGetSort)GetProcAddress(CppMyDll, "SortBenchMark_GetSort_CPP")) == NULL) {
 		//
 		ShowMessage(L"Cannot find DLL function!");
 		return;
@@ -172,7 +172,6 @@ void __fastcall TForm1::cmdRegExManagerDLLClick(TObject *Sender)
 	   //
 	   string result          = fRegExEval(p_tagSearch, p_textSearch);
 	   vector<string> results = Algorithm::StringSplit(result.c_str(),"|");
-	   //Algorithm::SaveVectorToFile(results,"cdCatalog_1.xml");
 	   //
 	   this->lblRegExManager->Caption = results[0].c_str();
 	   //

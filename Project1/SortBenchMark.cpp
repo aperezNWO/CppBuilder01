@@ -17,9 +17,7 @@
 		}
 
 		//
-		//std::unique_ptr<Algorithm<int>> uniquePtr = std::make_unique<Algorithm>();
-		//
-		//uniquePtr->SaveVectorToFile(this->arreglo,"Array.txt");
+		SaveVectorToFile(this->arreglo,"Array.txt");
 
 	};
 	//
@@ -82,7 +80,7 @@
 		//
 		//std::unique_ptr<Algorithm> uniquePtr = std::make_unique<Algorithm>();
 		//
-		//uniquePtr->SaveVectorToFile(this->sortSteps,"SortedArray.txt");
+		SaveVectorToFile(this->sortSteps,"SortedArray.txt");
 		//
 		return sortedList;
 	};
