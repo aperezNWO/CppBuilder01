@@ -18,6 +18,7 @@
 		}
 
 		//
+		DeleteFile("Array.txt");
 		SaveVectorToFile(this->arreglo,"Array.txt");
 
 	};
@@ -79,6 +80,7 @@
 
 		}
 		//
+		DeleteFile("SortedArray.txt");
 		SaveVectorToFile(this->sortSteps,"SortedArray.txt");
 		//
 		return sortedList;
