@@ -78,8 +78,6 @@
 
 		}
 		//
-		//std::unique_ptr<Algorithm> uniquePtr = std::make_unique<Algorithm>();
-		//
 		SaveVectorToFile(this->sortSteps,"SortedArray.txt");
 		//
 		return sortedList;
