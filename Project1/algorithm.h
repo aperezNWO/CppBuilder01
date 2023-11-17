@@ -29,6 +29,7 @@ using namespace std;
 #pragma argsused
 
 //
+
 class Algorithm
 {
 	   public :
@@ -53,33 +54,33 @@ class Algorithm
 		  std::map<std::string, std::string> configMap;
 };
 
-//
-template <typename U> int SaveVectorToFile(vector<U> array, const char* fileName)
-{
-	// Open the file for appending
-	std::ofstream outputFile;
-	outputFile.open(fileName, std::ios::app);
-
-	if (!outputFile.is_open()) {
-		std::cerr << "Error opening file for appending." << std::endl;
-		return 1;
-	}
-
-	// Write some content to the file
-	for (auto _Item = array.begin(); _Item != array.end(); ++_Item)
+          	//
+	template <class T> int SaveVectorToFile(vector<T> array, const char* fileName)
 	{
-		//
-		stringstream  ss;
-		//
-		ss << *_Item;
-		//
-		string Item     = ss.str();
-		// Write some content to the file
-		outputFile << Item << "\n";
-	}
-	// Close the file
-	outputFile.close();
+		// Open the file for appending
+		std::ofstream outputFile;
+		outputFile.open(fileName, std::ios::app);
 
-	return 0;
-}
+		if (!outputFile.is_open()) {
+			std::cerr << "Error opening file for appending." << std::endl;
+			return 1;
+		}
+
+		// Write some content to the file
+		for (auto _Item = array.begin(); _Item != array.end(); ++_Item)
+		{
+			//
+			stringstream  ss;
+			//
+			ss << *_Item;
+			//
+			string Item     = ss.str();
+			// Write some content to the file
+			outputFile << Item << "\n";
+		}
+		// Close the file
+		outputFile.close();
+
+		return 0;
+	};
 
