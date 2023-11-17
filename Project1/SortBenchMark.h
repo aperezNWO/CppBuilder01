@@ -7,6 +7,7 @@
 #endif
 
 #include "algorithm.h"
+#include "TFileManager.h"
 
 using namespace std;
 
@@ -28,6 +29,7 @@ class SortBenchMark	 :
 	public  :
 	   vector<int>      arreglo;
 	   vector<string>   sortSteps;
-	   char* randomValues;
-	   int   arraySize;
+	   char*            randomValues;
+	   int              arraySize;
+	   FileManager      _fileManager;
 };

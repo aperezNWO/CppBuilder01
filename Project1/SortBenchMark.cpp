@@ -1,5 +1,5 @@
 ﻿#include "SortBenchMark.h"
-#include "TFileManager.h"
+
 	//
 	SortBenchMark::SortBenchMark(char* p_randomValues, int p_arraySize)
 	{
@@ -11,16 +11,15 @@
 		// INICIAR ARREGLO
 		//-----------------------------------------------------
 		vector<string>   arreglo_str = StringSplit(p_randomValues,"|");
-        //
+                //
 		for (int i = 0; i < this->arraySize; i++) {
 			//
 			this->arreglo.push_back( std::stoi(arreglo_str[i] ) );
 		}
 
 		//
-		FileManager _fileManager;
-		_fileManager.DeleteFile("Array.txt");
-		_fileManager.SaveVectorToFile(this->arreglo,"Array.txt");
+		this->_fileManager.DeleteFile("Array.txt");
+		this->_fileManager.SaveVectorToFile(this->arreglo,"Array.txt");
 
 	};
 	//
@@ -28,7 +27,7 @@
 	{
 		 //
 	};
-    //
+        //
 	void SortBenchMark::SaveStep(int arr[])
 	{
 		//----------------------------------------------------
@@ -82,9 +81,8 @@
 		}
 
 		//
-		FileManager _fileManager;
-		_fileManager.DeleteFile("SortedArray.txt");
-		_fileManager.SaveVectorToFile(this->sortSteps,"SortedArray.txt");
+		this->_fileManager.DeleteFile("SortedArray.txt");
+		this->_fileManager.SaveVectorToFile(this->sortSteps,"SortedArray.txt");
 
 		//
 		return sortedList;

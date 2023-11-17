@@ -11,7 +11,6 @@
 #include "Dijkstra.h"
 #include "SortBenchMark.h"
 #include "RegExManager.h"
-#include "TFileManager.h"
 
 	Algorithm::Algorithm()
 	{
