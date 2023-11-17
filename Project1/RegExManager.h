@@ -22,5 +22,5 @@ class RegExManager :
 		 int    GetXml();
 		 string RegExEval(char* p_tagSearch, char* p_textSearch);
 	public :
-         vector<string> xmlItems;
+		 vector<string>      xmlItems;
 };

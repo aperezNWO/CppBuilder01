@@ -1,5 +1,5 @@
 ﻿#include "SortBenchMark.h"
-
+#include "TFileManager.h"
 	//
 	SortBenchMark::SortBenchMark(char* p_randomValues, int p_arraySize)
 	{
@@ -18,7 +18,8 @@
 		}
 
 		//
-		DeleteFile("Array.txt");
+		TFileManager fileManager;
+		fileManager.DeleteFile("Array.txt");
 		SaveVectorToFile(this->arreglo,"Array.txt");
 
 	};
@@ -80,7 +81,8 @@
 
 		}
 		//
-		DeleteFile("SortedArray.txt");
+		TFileManager fileManager;
+		fileManager.DeleteFile("SortedArray.txt");
 		SaveVectorToFile(this->sortSteps,"SortedArray.txt");
 		//
 		return sortedList;

@@ -11,10 +11,12 @@
 #include "Dijkstra.h"
 #include "SortBenchMark.h"
 #include "RegExManager.h"
+#include "TFileManager.h"
 
 	Algorithm::Algorithm()
 	{
 		 //
+		 ReadConfigFile();
 	}
 	//
 	Algorithm::~Algorithm()
@@ -92,81 +94,6 @@
 		return outputArr;
 	};
 	//
-	int Algorithm::SaveLineToFile(string p_value, const char* filename)
-	{
-			// Open the file for appending
-			std::ofstream outputFile;
-			outputFile.open(filename, std::ios::app);
-
-			if (!outputFile.is_open()) {
-				std::cerr << "Error opening file for appending." << std::endl;
-				return 1;
-			}
-
-			// Write some content to the file
-			outputFile << p_value << "\n";
-
-			// Close the file
-			outputFile.close();
-
-			return 0;
-	}
-	//
-	int Algorithm::DeleteFile(const char* filePath)
-	{
-		// Attempt to delete the file
-		if (std::remove(filePath) != 0) {
-			std::cerr << "Error deleting file: " << filePath << std::endl;
-			return 1; // Return an error code
-		}
-		//
-		std::cout << "File deleted successfully: " << filePath << std::endl;
-		//
-		return 0;
-	}
-	//
-	int Algorithm::ReadConfigFile()
-	{
-		 // Open the configuration file
-		std::ifstream configFile("Algorithm.ini");
-
-		// Check if the file is opened successfully
-		if (!configFile.is_open()) {
-			std::cerr << "Error opening the configuration file." << std::endl;
-			return 1;
-		}
-
-		// Read the file line by line
-		std::string line;
-		while (std::getline(configFile, line)) {
-			// Skip empty lines or lines starting with '#' (comments)
-			if (line.empty() || line[0] == '#') {
-				continue;
-			}
-
-			// Split the line into key and value
-			std::istringstream iss(line);
-			std::string key, value;
-			if (std::getline(iss, key, '=') && std::getline(iss, value))
-			{
-				// Trim leading and trailing whitespaces from key and value
-				key.erase(0, key.find_first_not_of(" \t"));
-				key.erase(key.find_last_not_of(" \t") + 1);
-				value.erase(0, value.find_first_not_of(" \t"));
-				value.erase(value.find_last_not_of(" \t") + 1);
-
-				// Insert key-value pair into the map
-				this->configMap[key] = value;
-			}
-		}
-
-		// Close the configuration file
-		configFile.close();
-
-		//
-		return 0;
-	}
-	//
 	vector<int> Algorithm::FisherYates(int count)
 	{
 	   //
@@ -215,6 +142,48 @@
 	   }
 	   //
 	   return deck;
+	}
+	//
+	int Algorithm::ReadConfigFile()
+	{
+		 // Open the configuration file
+		std::ifstream configFile("Algorithm.ini");
+
+		// Check if the file is opened successfully
+		if (!configFile.is_open()) {
+			std::cerr << "Error opening the configuration file." << std::endl;
+			return 1;
+		}
+
+		// Read the file line by line
+		std::string line;
+		while (std::getline(configFile, line)) {
+			// Skip empty lines or lines starting with '#' (comments)
+			if (line.empty() || line[0] == '#') {
+				continue;
+			}
+
+			// Split the line into key and value
+			std::istringstream iss(line);
+			std::string key, value;
+			if (std::getline(iss, key, '=') && std::getline(iss, value))
+			{
+				// Trim leading and trailing whitespaces from key and value
+				key.erase(0, key.find_first_not_of(" \t"));
+				key.erase(key.find_last_not_of(" \t") + 1);
+				value.erase(0, value.find_first_not_of(" \t"));
+				value.erase(value.find_last_not_of(" \t") + 1);
+
+				// Insert key-value pair into the map
+				this->configMap[key] = value;
+			}
+		}
+
+		// Close the configuration file
+		configFile.close();
+
+		//
+		return 0;
 	}
 
 	///////////////////////////////////////////////////////////////////////////

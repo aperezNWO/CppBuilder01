@@ -169,6 +169,12 @@
         <None Include="SortBenchMark.h">
             <BuildOrder>14</BuildOrder>
         </None>
+        <CppCompile Include="TFileManager.cpp">
+            <BuildOrder>20</BuildOrder>
+        </CppCompile>
+        <None Include="TFileManager.h">
+            <BuildOrder>21</BuildOrder>
+        </None>
         <CppCompile Include="TicTacToeManager.cpp">
             <BuildOrder>17</BuildOrder>
         </CppCompile>

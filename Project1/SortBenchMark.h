@@ -19,7 +19,7 @@ class SortBenchMark	 :
 	public  :
 	   SortBenchMark(char* p_randomValues, int p_arraySize);
 	   ~SortBenchMark();
-       void           SaveStep(int arr[]);
+	   void           SaveStep(int arr[]);
 	   string	      GetSort(int p_sortAlgoritm);
 	   void           QuickSort();
 	   int            partition(int arr[],int low,int high);
