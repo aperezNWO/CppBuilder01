@@ -18,9 +18,9 @@
 		}
 
 		//
-		TFileManager fileManager;
-		fileManager.DeleteFile("Array.txt");
-		SaveVectorToFile(this->arreglo,"Array.txt");
+		FileManager _fileManager;
+		_fileManager.DeleteFile("Array.txt");
+		_fileManager.SaveVectorToFile(this->arreglo,"Array.txt");
 
 	};
 	//
@@ -80,10 +80,12 @@
 				  sortedList          += _tempValues;
 
 		}
+
 		//
-		TFileManager fileManager;
-		fileManager.DeleteFile("SortedArray.txt");
-		SaveVectorToFile(this->sortSteps,"SortedArray.txt");
+		FileManager _fileManager;
+		_fileManager.DeleteFile("SortedArray.txt");
+		_fileManager.SaveVectorToFile(this->sortSteps,"SortedArray.txt");
+
 		//
 		return sortedList;
 	};

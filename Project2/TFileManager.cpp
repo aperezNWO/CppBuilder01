@@ -1,7 +1,20 @@
 	#include "TFileManager.h"
 
+   	//
+	int FileManager::DeleteFile(const char* filePath)
+	{
+		// Attempt to delete the file
+		if (std::remove(filePath) != 0) {
+			std::cerr << "Error deleting file: " << filePath << std::endl;
+			return 1; // Return an error code
+		}
+		//
+		cout << "File deleted successfully: " << filePath << std::endl;
+		//
+		return 0;
+	}
 	//
-	int TFileManager::SaveLineToFile(string p_value, const char* filename)
+	int FileManager::SaveLineToFile(string p_value, const char* filename)
 	{
 			// Open the file for appending
 			ofstream outputFile;
@@ -19,18 +32,5 @@
 			outputFile.close();
 
 			return 0;
-	}
-	//
-	int TFileManager::DeleteFile(const char* filePath)
-	{
-		// Attempt to delete the file
-		if (std::remove(filePath) != 0) {
-			std::cerr << "Error deleting file: " << filePath << std::endl;
-			return 1; // Return an error code
-		}
-		//
-		cout << "File deleted successfully: " << filePath << std::endl;
-		//
-		return 0;
 	}
 
