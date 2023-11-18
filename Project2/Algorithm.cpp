@@ -203,11 +203,8 @@
 		DLL_EXPORT const char* SortBenchMark_GetSort_CPP(int p_sortAlgoritm, char* p_unsortedList)
 		{
 			//
-			int ARRAY_SIZE      = 25;
-			//
 			std::unique_ptr<SortBenchMark> uniquePtr = std::make_unique<SortBenchMark>(
 					  p_unsortedList
-					, ARRAY_SIZE
 			);
 			return uniquePtr->GetSort(p_sortAlgoritm).c_str();
 		};

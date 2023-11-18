@@ -121,7 +121,6 @@ void __fastcall TForm1::cmdGetSortBenchMarkClick(TObject *Sender)
 	   //
 	   std::unique_ptr<SortBenchMark> uniquePtr = std::make_unique<SortBenchMark>(
 				  p_unsortedList
-				, ARRAY_SIZE
 	   );
 
 	   //

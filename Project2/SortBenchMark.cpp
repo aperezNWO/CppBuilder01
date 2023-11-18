@@ -1,17 +1,17 @@
 ﻿#include "SortBenchMark.h"
 
 	//
-	SortBenchMark::SortBenchMark(char* p_randomValues, int p_arraySize)
+	SortBenchMark::SortBenchMark(char* p_randomValues)
 	{
 		//
 		this->randomValues   = p_randomValues;
-		this->arraySize      = p_arraySize;
+		this->arraySize      = std::stoi(this->configMap["ARRAY_SIZE"]);
 
 		//-----------------------------------------------------
 		// INICIAR ARREGLO
 		//-----------------------------------------------------
 		vector<string>   arreglo_str = StringSplit(p_randomValues,"|");
-                //
+				//
 		for (int i = 0; i < this->arraySize; i++) {
 			//
 			this->arreglo.push_back( std::stoi(arreglo_str[i] ) );
@@ -27,7 +27,7 @@
 	{
 		 //
 	};
-        //
+    //
 	void SortBenchMark::SaveStep(int arr[])
 	{
 		//----------------------------------------------------

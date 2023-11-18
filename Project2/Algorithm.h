@@ -6,12 +6,12 @@
 #define Algorithm_H
 #endif
 
+#include <algorithm>
 #include <string>
 #include <vector>
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <algorithm>
 #include <memory>
 #include <random>
 #include <regex>
@@ -40,13 +40,13 @@ class Algorithm
 			static string             StringTrim(const std::string& str);
 			static vector<string>     StringSplit(const char* p_inputString, std::string p_delimiter);
 			vector<int>               FisherYates(int count);
-                        int                       ReadConfigFile();
+			int                       ReadConfigFile();
 	   public :
 		  //
 		  std::mt19937       mt_1;
 		  //
 		  std::mt19937       mt_2;
-                  //
+		  //
 		  map<string, string> configMap;
 };
 

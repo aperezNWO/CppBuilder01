@@ -18,7 +18,7 @@ class SortBenchMark	 :
 	public Algorithm
 {
 	public  :
-	   SortBenchMark(char* p_randomValues, int p_arraySize);
+	   SortBenchMark(char* p_randomValues);
 	   ~SortBenchMark();
 	   void           SaveStep(int arr[]);
 	   string	      GetSort(int p_sortAlgoritm);
