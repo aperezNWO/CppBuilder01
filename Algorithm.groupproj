@@ -9,6 +9,9 @@
         <Projects Include="Project1\Algorithm.WinForm.cbproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Project3\Algorithm.Console.cbproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -35,14 +38,23 @@
     <Target Name="Algorithm_WinForm:Make">
         <MSBuild Projects="Project1\Algorithm.WinForm.cbproj" Targets="Make"/>
     </Target>
+    <Target Name="Algorithm_Console">
+        <MSBuild Projects="Project3\Algorithm.Console.cbproj"/>
+    </Target>
+    <Target Name="Algorithm_Console:Clean">
+        <MSBuild Projects="Project3\Algorithm.Console.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Algorithm_Console:Make">
+        <MSBuild Projects="Project3\Algorithm.Console.cbproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="Algothtm_Library;Algorithm_WinForm"/>
+        <CallTarget Targets="Algothtm_Library;Algorithm_WinForm;Algorithm_Console"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Algothtm_Library:Clean;Algorithm_WinForm:Clean"/>
+        <CallTarget Targets="Algothtm_Library:Clean;Algorithm_WinForm:Clean;Algorithm_Console:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Algothtm_Library:Make;Algorithm_WinForm:Make"/>
+        <CallTarget Targets="Algothtm_Library:Make;Algorithm_WinForm:Make;Algorithm_Console:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
