@@ -28,9 +28,7 @@ using namespace std;
 	//
 	Dijkstra::Dijkstra()
 	{
-		// Seed the generator with a random value om a hardware device
-		std::random_device rd_3;
-		this->mt_3  = std::mt19937(rd_3());
+			//
 	}
 	//
 	Dijkstra::~Dijkstra()
@@ -255,8 +253,10 @@ using namespace std;
 			//
 			for (int index_y = (index_x + 1); index_y < p_vertexSize; index_y++)
 			{
+				// Seed the generator with a random value om a hardware device
+				std::random_device rd_3;
+				this->mt_3  = std::mt19937(rd_3());
 
-				// Create a random number generator engine
 				std::uniform_int_distribution<int> distribution(0, 1);
 				int randomValue      = distribution(this->mt_3);
 
@@ -359,11 +359,13 @@ using namespace std;
 			vertex_Y.push_back(i);
 		}
 
+		unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+		std::default_random_engine generator(seed);
 		//
-		std::shuffle ( vertex_Y.begin(), vertex_Y.end(),  this->mt_3);
+		std::shuffle ( vertex_Y.begin(), vertex_Y.end() , generator /*this->mt_3*/);
 
 		//
-		std::shuffle ( vertex_X.begin(), vertex_X.end() , this->mt_3);
+		std::shuffle ( vertex_X.begin(), vertex_X.end() , generator/*this->mt_3*/);
 
 		//
 		string _vertexArrayString = "";
