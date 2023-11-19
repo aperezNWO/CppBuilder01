@@ -254,11 +254,12 @@ using namespace std;
 			for (int index_y = (index_x + 1); index_y < p_vertexSize; index_y++)
 			{
 				// Seed the generator with a random value om a hardware device
+				std::mt19937       mt_3;
 				std::random_device rd_3;
-				this->mt_3  = std::mt19937(rd_3());
+				mt_3                 = std::mt19937(rd_3());
 
 				std::uniform_int_distribution<int> distribution(0, 1);
-				int randomValue      = distribution(this->mt_3);
+				int randomValue      = distribution(mt_3);
 
 				//
 				int hipotemuza       = 0;

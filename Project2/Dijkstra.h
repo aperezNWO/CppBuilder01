@@ -34,7 +34,5 @@
 		  vector<int>         dist;
 		  vector<string>      path;
 		  vector<vector<int>> graph;
-		  //
-		  std::mt19937        mt_3;
    };
 
