@@ -113,6 +113,9 @@
             <BuildOrder>0</BuildOrder>
             <PCH>true</PCH>
         </PCHCompile>
+        <CppCompile Include="Hanoi.cpp">
+            <BuildOrder>2</BuildOrder>
+        </CppCompile>
         <CppCompile Include="Main.cpp">
             <BuildOrder>1</BuildOrder>
         </CppCompile>

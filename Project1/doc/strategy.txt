@@ -50,18 +50,7 @@
                */
 
 ////////////////////////////////////////////////////////////////////////////////
--- [_] C++ TIC TAC TOE
-////////////////////////////////////////////////////////////////////////////////
-
--- [_] https://ide.geeksforgeeks.org/online-cpp-compiler.
-
--- [_] https://www.onlinegdb.com/
-
--- [_] https://www.geeksforgeeks.org/finding-optimal-move-in-tic-tac-toe-using-minimax-algorithm-in-game-theory/
-
-
-////////////////////////////////////////////////////////////////////////////////
--- [_] C++ SORT ALGORITHM
+-- [x] C++ SORT ALGORITHM
 ////////////////////////////////////////////////////////////////////////////////
 
 -- [x]  http://localhost:83/demos/_GetSort?p_sortAlgoritm=2&p_unsortedList=22|4|20|0|24|3|7|11|5|9|19|6|2|23|15|1|10|13|17|12|8|16|18|21|14
@@ -72,7 +61,7 @@
 ■<br/>14<br/>4<br/>20<br/>0<br/>22<br/>3<br/>7<br/>11<br/>5<br/>9<br/>19<br/>6<br/>2<br/>23<br/>15<br/>1<br/>10<br/>13<br/>17<br/>12<br/>8<br/>16<br/>18<br/>21<br/>24<br/>
 
 ////////////////////////////////////////////////////////////////////////////////
--- [_] C++ REGEX
+-- [X] C++ REGEX
 ////////////////////////////////////////////////////////////////////////////////
 
 -- [X] cpp config.
@@ -103,7 +92,38 @@
 
                -- [_] SaveToFile <Template>.
 
+
+////////////////////////////////////////////////////////////////////////////////
+-- [_] C++ TIC TAC TOE
 ////////////////////////////////////////////////////////////////////////////////
 
+-- [_] https://ide.geeksforgeeks.org/online-cpp-compiler.
 
+-- [_] https://www.onlinegdb.com/
+
+-- [_] https://www.geeksforgeeks.org/finding-optimal-move-in-tic-tac-toe-using-minimax-algorithm-in-game-theory/
+
+////////////////////////////////////////////////////////////////////////////////
+-- [_] HANOI TOWERS
+////////////////////////////////////////////////////////////////////////////////
+
+-- [_] https://ide.geeksforgeeks.org/online-cpp-compiler.
+
+-- [_] https://freefrontend.com/css-3d-examples/
+
+-- [_] https://www.freecodecamp.org/news/render-3d-objects-in-browser-drawing-a-box-with-threejs/
+
+-- [_] https://threejs.org/examples/#webgl_geometry_shapes
+
+-- [_] https://www.geeksforgeeks.org/animation-of-tower-of-hanoi-using-computer-graphics-in-c-cpp/
+
+-- [_]  https://www.geeksforgeeks.org/animation-of-tower-of-hanoi-using-computer-graphics-in-c-cpp/
+
+-- [_] https://tower-of-hanoi-animation.netlify.app/
+
+-- [_] https://github.com/loganintech/Hanoi
+
+-- [_] https://github.com/wahlephilipp/tower-of-hanoi
+
+////////////////////////////////////////////////////////////////////////////////
 
