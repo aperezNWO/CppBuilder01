@@ -93,26 +93,16 @@
 		return outputArr;
 	};
 	//
-	vector<int> Algorithm::FisherYates(int count)
+	vector<int> Algorithm::FisherYates(int count, vector<int> deck)
 	{
-	   //
-	   vector<int> deck;
-
-	   //
-	   for (short i = 0; i < count; i++)
-	   {
-		//   
-		deck.push_back(i);
-	   }
-
 	   //
 	   for (short i = 0; i <= count - 2; i++)
 	   {
 		   // Create a random number generator engine
-		   std::random_device rd_1;    // Seed the generator with a random value om a hardware device
-		   this->mt_1               = std::mt19937(rd_1());
+		   unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+		   std::default_random_engine generator(seed);
 		   std::uniform_int_distribution<int> dist(0, count - i);
-		   int j                    = dist(mt_1);
+		   int j         = dist(generator);
 
 		   //
 		   if (j > 0)
@@ -126,10 +116,10 @@
 	   for (short i = count - 1; i >= 1; i--)
 	   {
 		   // Seed the generator with a random value om a hardware device
-		   std::random_device rd_2;
-		   this->mt_2         = std::mt19937(rd_2());
+		   unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+		   std::default_random_engine generator(seed);
 		   std::uniform_int_distribution<int> dist(0, i + 1);
-		   int j              = dist(mt_2);
+		   int j              = dist(generator);
 
 		   //
 		   if (j != i)

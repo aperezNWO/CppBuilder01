@@ -125,7 +125,7 @@
 
 -- [_] https://www.geeksforgeeks.org/animation-of-tower-of-hanoi-using-computer-graphics-in-c-cpp/
 
--- [_]  https://www.geeksforgeeks.org/animation-of-tower-of-hanoi-using-computer-graphics-in-c-cpp/
+-- [_] https://www.geeksforgeeks.org/animation-of-tower-of-hanoi-using-computer-graphics-in-c-cpp/
 
 -- [_] https://tower-of-hanoi-animation.netlify.app/
 

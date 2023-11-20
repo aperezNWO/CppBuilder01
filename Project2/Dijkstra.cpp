@@ -345,9 +345,8 @@ using namespace std;
 	{
 		//
 		int  p_sampleSize        = std::stoi(this->configMap["ARRAY_SIZE"]) - 1;
-		vector<int> vertex_X/*   = FisherYates(p_sampleSize)*/;
-		vector<int> vertex_Y/*   = FisherYates(p_sampleSize)*/;
-
+		vector<int>  vertex_X;
+		vector<int>  vertex_Y;
 		//
 		for (short i = 0; i < p_sampleSize; i++)
 		{
@@ -359,10 +358,11 @@ using namespace std;
 		unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
 		std::default_random_engine generator(seed);
 		//
-		std::shuffle ( vertex_Y.begin(), vertex_Y.end() , generator /*this->mt_3*/);
+		std::shuffle ( vertex_Y.begin(), vertex_Y.end() , generator);
+		std::shuffle ( vertex_X.begin(), vertex_X.end() , generator);
 
-		//
-		std::shuffle ( vertex_X.begin(), vertex_X.end() , generator/*this->mt_3*/);
+		vertex_X   = FisherYates(p_sampleSize, vertex_X);
+		vertex_Y   = FisherYates(p_sampleSize, vertex_Y);
 
 		//
 		string _vertexArrayString = "";

@@ -128,7 +128,7 @@
         <CppCompile Include="Algorithm.cpp">
             <BuildOrder>7</BuildOrder>
         </CppCompile>
-        <None Include="algorithm.h">
+        <None Include="Algorithm.h">
             <BuildOrder>8</BuildOrder>
         </None>
         <None Include="Algorithm.ini"/>
