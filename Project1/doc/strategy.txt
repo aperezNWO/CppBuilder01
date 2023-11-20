@@ -92,6 +92,14 @@
 
                -- [_] SaveToFile <Template>.
 
+////////////////////////////////////////////////////////////////////////////////
+-- [_] C++ OCR
+////////////////////////////////////////////////////////////////////////////////
+
+-- [_] Use C++ for Inference: Load the exported model in your C++ application
+       using TensorFlow's C++ API, OpenCV's DNN module,
+       or other libraries that support your model format.
+       Perform inference on new handwritten digit or letter images.
 
 ////////////////////////////////////////////////////////////////////////////////
 -- [_] C++ TIC TAC TOE
