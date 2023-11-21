@@ -116,6 +116,10 @@
 
 -- [_] https://codepen.io/janschreiber/pen/xZbEvM
 
+-- [_] https://react.dev/learn/tutorial-tic-tac-toe
+
+-- [_] https://medium.com/@alialaa/tic-tac-toe-with-javascript-es2015-building-the-user-interface-ecb683dd251d
+
 ////////////////////////////////////////////////////////////////////////////////
 -- [_] HANOI TOWERS
 ////////////////////////////////////////////////////////////////////////////////
