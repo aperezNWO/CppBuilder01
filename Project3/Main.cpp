@@ -251,7 +251,7 @@ void playTicTacToe(int whoseTurn)
 		declareWinner(whoseTurn);
 	}
 }
-/*
+
 //
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -274,4 +274,4 @@ int _tmain(int argc, _TCHAR* argv[])
 	} while(cont=='n');
 	return (0);
 }
-*/
+

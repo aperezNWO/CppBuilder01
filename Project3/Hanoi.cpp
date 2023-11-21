@@ -21,6 +21,7 @@ void towerOfHanoi(int n, char from_rod, char to_rod,
 }
 
 // Driver code
+/*
 int main()
 {
 	int N = 3;
@@ -34,6 +35,7 @@ int main()
 
 	return 0;
 }
+*/
 
 // This is code is contributed by rathbhupendra
 

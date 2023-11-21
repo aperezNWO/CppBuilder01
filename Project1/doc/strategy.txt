@@ -92,6 +92,7 @@
 
                -- [_] SaveToFile <Template>.
 
+        -- [_] https://tower-of-hanoi-animation.netlify.app/
 ////////////////////////////////////////////////////////////////////////////////
 -- [_] C++ OCR
 ////////////////////////////////////////////////////////////////////////////////
@@ -112,6 +113,8 @@
 -- [_] https://www.onlinegdb.com/
 
 -- [_] https://www.geeksforgeeks.org/finding-optimal-move-in-tic-tac-toe-using-minimax-algorithm-in-game-theory/
+
+-- [_] https://codepen.io/janschreiber/pen/xZbEvM
 
 ////////////////////////////////////////////////////////////////////////////////
 -- [_] HANOI TOWERS
