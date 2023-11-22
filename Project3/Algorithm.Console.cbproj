@@ -119,6 +119,14 @@
         <CppCompile Include="Main.cpp">
             <BuildOrder>1</BuildOrder>
         </CppCompile>
+        <CppCompile Include="UnitTesting.cpp">
+            <BuildOrder>3</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="UnitTesting.h">
+            <ContainerId>CCompiler</ContainerId>
+            <Suffix>_0</Suffix>
+            <BuildOrder>4</BuildOrder>
+        </CppCompile>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
