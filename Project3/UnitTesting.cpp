@@ -1,6 +1,7 @@
 #include <iostream>
 #include <tchar.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <Sudoku.cpp>
 
 //
@@ -10,11 +11,20 @@ int _tmain(int argc, _TCHAR* argv[])
 	const static int   N = 9;
 	int                K = 20;
 	int grid[N][N];
+	//
+	char cont='y';
 
 	//
-	SudokuGenerator* sudokuGenerator = new SudokuGenerator(N, K);
-	sudokuGenerator->Run();
+	do {
+		//
+		system("cls");
+		std::cout << "Generated Board : " << endl;
 
+		//
+		SudokuGenerator* sudokuGenerator = new SudokuGenerator(N, K);
+		sudokuGenerator->Run();
+
+		//
 		for (int i = 0; i < N; i++)
 		{
 			//
@@ -22,17 +32,16 @@ int _tmain(int argc, _TCHAR* argv[])
 				   grid[i][j] = sudokuGenerator->mat[i][j];
 			}
 		};
-		
-	// Wait for the user to press Enter
-	std::cout << "Press Enter to continue...";
-	std::cin.get();
 
-	SudokuSolver* sudokuSolver = new SudokuSolver();
-	sudokuSolver->Solve(grid);
+		//
+		SudokuSolver* sudokuSolver = new SudokuSolver();
+		sudokuSolver->Solve(grid);
 
-	// Wait for the user to press Enter
-	std::cout << "Press Enter to continue...";
-	std::cin.get();
+		//
+		cout << endl << "Do you want to quit? (y/n) : ";
+		cin  >> cont;
+
+	}   while(cont=='n');
 
 	//
 	return (0);

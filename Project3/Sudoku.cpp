@@ -88,14 +88,13 @@ public:
 	// Random generator
 	int randomGenerator(int num)
 	{
-		//return (int)floor(
-		//	(float)(rand() / double(RAND_MAX) * num + 1));
+		//
 		unsigned                           seed         = std::chrono::system_clock::now().time_since_epoch().count();
 		std::default_random_engine         generator(seed);
 		std::uniform_int_distribution<int> distribution(1, num);
 		int                                randomValue  = distribution(generator);
 
-        //
+		//
 		return randomValue;
 	}
 	// Check if safe to put in cell
@@ -198,7 +197,7 @@ public:
 				//
 				string cell = std::to_string(mat[i][j]);
 				//
-				cout << cell << "";
+				cout << cell << " ";
 			}
 			//
 			cout << endl;
