@@ -3,6 +3,8 @@
 #include <ostream>
 #include <iostream>
 #include <string>
+#include <chrono>
+#include <random>
 
 using namespace std;
 
@@ -86,8 +88,15 @@ public:
 	// Random generator
 	int randomGenerator(int num)
 	{
-		return (int)floor(
-			(float)(rand() / double(RAND_MAX) * num + 1));
+		//return (int)floor(
+		//	(float)(rand() / double(RAND_MAX) * num + 1));
+		unsigned                           seed         = std::chrono::system_clock::now().time_since_epoch().count();
+		std::default_random_engine         generator(seed);
+		std::uniform_int_distribution<int> distribution(1, num);
+		int                                randomValue  = distribution(generator);
+
+        //
+		return randomValue;
 	}
 	// Check if safe to put in cell
 	bool CheckIfSafe(int i, int j, int num)
@@ -255,6 +264,7 @@ class SudokuSolver
 			}
 			return true; // Number can be placed safely
 		}
+
 		// Recursive function to solve the Sudoku puzzle
 		bool solveSudoku(int grid[N][N]) {
 			int row = -1, col = -1;
@@ -290,6 +300,7 @@ class SudokuSolver
 			}
 			return false; // Backtrack to previous step
 		}
+
 		// Function to print the solved Sudoku grid
 		void printGrid(int grid[N][N]) {
 			for (int i = 0; i < N; ++i) {
@@ -299,6 +310,7 @@ class SudokuSolver
 				cout << endl;
 			}
 		}
+
 		//
 		int Run()
 		{
@@ -313,6 +325,20 @@ class SudokuSolver
 				{0, 3, 2, 0, 0, 1, 0, 7, 4},
 				{7, 1, 4, 2, 0, 6, 9, 3, 8},
 				{0, 8, 0, 7, 4, 0, 1, 2, 6}};
+			//
+			if (solveSudoku(grid)) {
+				cout << "Sudoku solved:\n";
+				printGrid(grid);
+			} else {
+				cout << "No solution exists.\n";
+			}
+			//
+			return 0;
+		};
+
+		//
+		int Solve(int grid[N][N])
+		{
 			//
 			if (solveSudoku(grid)) {
 				cout << "Sudoku solved:\n";
