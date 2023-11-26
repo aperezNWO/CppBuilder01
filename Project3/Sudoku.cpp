@@ -14,6 +14,7 @@ using namespace std;
 class SudokuGenerator {
 
 public:
+	//
 	int** mat;
 	int N;
 	// number of columns/rows.
@@ -24,6 +25,7 @@ public:
 	// Constructor
 	SudokuGenerator(int N, int K)
 	{
+		//
 		this->N = N;
 		this->K = K;
 		// Compute square root of N
@@ -124,8 +126,7 @@ public:
 		}
 		return true;
 	}
-	// A recursive function to fill remaining
-	// matrix
+	// A recursive function to fill remaining matrix
 	bool fillRemaining(int i, int j)
 	{
 		// System.out.println(i+" "+j);
@@ -166,21 +167,19 @@ public:
 		}
 		return false;
 	}
-	// Remove the K no. of digits to
-	// complete game
+	// Remove the K no. of digits to complete game
 	void removeKDigits()
 	{
 		int count = K;
 		while (count != 0) {
 			int cellId = randomGenerator(N * N) - 1;
-			// System.out.println(cellId);
 			// extract coordinates i and j
 			int i = (cellId / N);
 			int j = cellId % N;
 			if (j != 0) {
 				j = j - 1;
 			}
-			// System.out.println(i+" "+j);
+			//
 			if (mat[i][j] != 0) {
 				count--;
 				mat[i][j] = 0;
@@ -207,12 +206,6 @@ public:
 	// Driver code
 	int Run()
 	{
-		//int N = 9;
-		//int K = 20;
-		//SudokuGenerator* sudoku = new SudokuGenerator(N, K);
-		//sudoku->fillValues();
-		//sudoku->printSudoku();
-
 		//
 		this->fillValues();
 		this->printSudoku();
@@ -352,6 +345,8 @@ class SudokuSolver
 
 
 /*
+
+	Generated Board:
 
 	0 4 0 1 0 2 6 5 7
 	2 7 3 6 8 5 4 1 9
