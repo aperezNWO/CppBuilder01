@@ -116,15 +116,17 @@
         <CppCompile Include="Hanoi.cpp">
             <BuildOrder>2</BuildOrder>
         </CppCompile>
-        <CppCompile Include="Main.cpp">
+        <CppCompile Include="Sudoku.cpp">
+            <BuildOrder>5</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="TicTacToe.cpp">
             <BuildOrder>1</BuildOrder>
         </CppCompile>
         <CppCompile Include="UnitTesting.cpp">
+            <Suffix>_0</Suffix>
             <BuildOrder>3</BuildOrder>
         </CppCompile>
         <CppCompile Include="UnitTesting.h">
-            <ContainerId>CCompiler</ContainerId>
-            <Suffix>_0</Suffix>
             <BuildOrder>4</BuildOrder>
         </CppCompile>
         <BuildConfiguration Include="Base">
