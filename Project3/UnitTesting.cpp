@@ -11,7 +11,6 @@ int _tmain(int argc, _TCHAR* argv[])
 	const static int   N = 9;
 	int                K = 20;
 	int grid[N][N];
-	//
 	char cont='y';
 
 	//
