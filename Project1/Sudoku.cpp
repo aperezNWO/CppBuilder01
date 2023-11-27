@@ -188,14 +188,19 @@ public:
 		}
 	}
 	// Print sudoku
-	void printSudoku()
+	string printSudoku()
 	{
+		//
+		string string_matrix     = "";
+
+		//
 		FileManager* fileManager = new FileManager();
 		fileManager->SaveLineToFile("\nSudoku Generated\n","Sudoku.txt");
 
+		//
 		for (int i = 0; i < N; i++)
 		{
-			string row = "";
+			string row = "{";
 			for (int j = 0; j < N; j++)
 			{
 				//
@@ -203,24 +208,35 @@ public:
 				//
 				cout << cell << " ";
 				//
-				row += (cell + " ");
+				row += (cell + ((j < (N-1))?  "," : ""));
 			}
+			//
+			row += ((i < (N-1))?  "}," : "}");
+			//
+			string_matrix += row;
 			//
 			cout << endl;
 			//
 			fileManager->SaveLineToFile(row,"Sudoku.txt");
 		}
+		//
+        string_matrix = "[" + string_matrix  + "]";
+		//
 		cout << endl;
+		//
+		return string_matrix;
 	}
 	// Driver code
-	int Run()
+	string Run()
 	{
 		//
 		this->fillValues();
-		this->printSudoku();
 
 		//
-		return 0;
+		string str_matrix =	this->printSudoku();
+
+		//
+		return str_matrix;
 	}
 };
 

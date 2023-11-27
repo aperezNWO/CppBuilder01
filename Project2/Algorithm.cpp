@@ -11,6 +11,7 @@
 #include "Dijkstra.h"
 #include "SortBenchMark.h"
 #include "RegExManager.h"
+#include "Sudoku.cpp"
 
 	Algorithm::Algorithm()
 	{
@@ -207,4 +208,20 @@
 			//
 			return uniquePtr->RegExEval(p_tagSearch, p_textSearch).c_str();
 		}
+
+		// SUDOKU
+		DLL_EXPORT const char*  Sudoku_Generate_CPP()
+		{
+			//
+			const static int   N = 9;
+			int                K = 20;
+
+			//
+			std::unique_ptr<SudokuGenerator> uniquePtr = std::make_unique<SudokuGenerator>(N, K);
+			string           str_matrix                = uniquePtr->Run();
+
+			//
+			return str_matrix.c_str();
+		}
+
 	}

@@ -208,11 +208,80 @@ void __fastcall TForm1::cmdSudokuClick(TObject *Sender)
 	//
 	this->lblSudoku->Caption = "[Sudoku generated and solved]";
 }
+
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::cmdSudokuDLLClick(TObject *Sender)
+void __fastcall TForm1::cmdSudokuGenerateClick(TObject *Sender)
 {
 	//
+	const static int   N = 9;
+	int                K = 20;
+
+	//
+	SudokuGenerator* sudokuGenerator = new SudokuGenerator(N, K);
+	string           str_matrix      = sudokuGenerator->Run();
+	const  char*     fileName        = "SudokuGenerated.txt";
+
+	//
+	FileManager* fileManager = new FileManager();
+	//fileManager->DeleteFile(fileName);
+	fileManager->SaveLineToFile(str_matrix, fileName);
+
+	//
+	this->lblSudoku->Caption = "[Sudoku generated]";
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::cmdSudokuSolveClick(TObject *Sender)
+{
+	//
+	this->lblSudoku->Caption = "[Sudoku solved]";
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::cmdSudokuGenerateDLLClick(TObject *Sender)
+{
+	//
+	HINSTANCE CppMyDll;
+	typedef char*(__stdcall * pfSudokuGenerate)();
+	pfSudokuGenerate fSudokuGenerate;
+
+	//
+	if ((CppMyDll = LoadLibraryW(L"Algothtm.Library.dll")) == NULL) {
+		//
+		ShowMessage(L"Cannot load DLL!");
+		return;
+	}
+	if ((fSudokuGenerate = (pfSudokuGenerate)GetProcAddress(CppMyDll, "Sudoku_Generate_CPP")) == NULL) {
+		//
+		ShowMessage(L"Cannot find DLL function!");
+		return;
+	}
+	else
+	{
+	   //
+	   string str_matrix        = fSudokuGenerate();
+
+	   //
+	   const  char* fileName    = "SudokuGenerated_DLL.txt";
+	   FileManager* fileManager = new FileManager();
+	   fileManager->SaveLineToFile(str_matrix, fileName);
+
+	   //
+	   this->lblSudoku->Caption = "[Sudoku generated (DLL)]";
+
+	   //
+	   FreeLibrary(CppMyDll);
+	 }
+}
+
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::cmdSudokuDLLSolveClick(TObject *Sender)
+{
+	//
+	this->lblSudoku->Caption = "[Sudoku solved (DLL)]";
+
 }
 //---------------------------------------------------------------------------
 

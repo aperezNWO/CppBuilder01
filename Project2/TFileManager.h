@@ -16,6 +16,7 @@ using namespace std;
 
 #pragma hdrstop
 #pragma argsused
+#pragma once
 
 class FileManager
 {

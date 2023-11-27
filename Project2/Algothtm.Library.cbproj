@@ -167,6 +167,9 @@
         <None Include="SortBenchMark.h">
             <BuildOrder>10</BuildOrder>
         </None>
+        <CppCompile Include="Sudoku.cpp">
+            <BuildOrder>18</BuildOrder>
+        </CppCompile>
         <CppCompile Include="TFileManager.cpp">
             <BuildOrder>16</BuildOrder>
         </CppCompile>

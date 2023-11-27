@@ -22,8 +22,11 @@ __published:	// IDE-managed Components
 	TButton *cmdRegExManagerDLL;
 	TButton *cmdRegExManager;
 	TLabel *lblSudoku;
-	TButton *cmdSudokuDLL;
+	TButton *cmdSudokuGenerateDLL;
 	TButton *cmdSudoku;
+	TButton *cmdSudokuGenerate;
+	TButton *cmdSudokuSolve;
+	TButton *cmdSudokuDLLSolve;
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall cmdGetRandomVertexClick(TObject *Sender);
 	void __fastcall cmdCallDLLClick(TObject *Sender);
@@ -32,7 +35,10 @@ __published:	// IDE-managed Components
 	void __fastcall cmdRegExManagerClick(TObject *Sender);
 	void __fastcall cmdRegExManagerDLLClick(TObject *Sender);
 	void __fastcall cmdSudokuClick(TObject *Sender);
-	void __fastcall cmdSudokuDLLClick(TObject *Sender);
+	void __fastcall cmdSudokuGenerateDLLClick(TObject *Sender);
+	void __fastcall cmdSudokuGenerateClick(TObject *Sender);
+	void __fastcall cmdSudokuSolveClick(TObject *Sender);
+	void __fastcall cmdSudokuDLLSolveClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);

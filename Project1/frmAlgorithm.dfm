@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = '[ALGORITMOS]'
-  ClientHeight = 257
-  ClientWidth = 861
+  ClientHeight = 324
+  ClientWidth = 849
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -100,22 +100,49 @@ object Form1: TForm1
     TabOrder = 5
     OnClick = cmdRegExManagerClick
   end
-  object cmdSudokuDLL: TButton
+  object cmdSudokuGenerateDLL: TButton
     Left = 8
-    Top = 224
+    Top = 256
     Width = 138
     Height = 25
-    Caption = 'Call DLL Sudoku'
+    Caption = 'Call DLL Sudoku Generate'
     TabOrder = 6
-    OnClick = cmdSudokuDLLClick
+    OnClick = cmdSudokuGenerateDLLClick
   end
   object cmdSudoku: TButton
-    Left = 152
-    Top = 225
-    Width = 161
-    Height = 25
+    Left = 8
+    Top = 219
+    Width = 305
+    Height = 22
     Caption = '[Sudoku / Generate && Solve]'
     TabOrder = 7
     OnClick = cmdSudokuClick
+  end
+  object cmdSudokuGenerate: TButton
+    Left = 152
+    Top = 256
+    Width = 161
+    Height = 25
+    Caption = '[Sudoku Generate]'
+    TabOrder = 8
+    OnClick = cmdSudokuGenerateClick
+  end
+  object cmdSudokuSolve: TButton
+    Left = 152
+    Top = 287
+    Width = 161
+    Height = 25
+    Caption = '[Sudoku Solve]'
+    TabOrder = 9
+    OnClick = cmdSudokuSolveClick
+  end
+  object cmdSudokuDLLSolve: TButton
+    Left = 8
+    Top = 287
+    Width = 138
+    Height = 25
+    Caption = 'Call DLL Sudoku Solve'
+    TabOrder = 10
+    OnClick = cmdSudokuDLLSolveClick
   end
 end
