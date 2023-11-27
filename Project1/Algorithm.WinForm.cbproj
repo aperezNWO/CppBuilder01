@@ -152,8 +152,9 @@
             <Form>Form1</Form>
             <FormType>dfm</FormType>
             <DependentOn>frmAlgorithm.h</DependentOn>
-            <BuildOrder>2</BuildOrder>
+            <BuildOrder>23</BuildOrder>
         </CppCompile>
+        <None Include="frmAlgorithm.dfm"/>
         <None Include="iterativeList.h">
             <BuildOrder>8</BuildOrder>
         </None>
@@ -176,7 +177,7 @@
             <BuildOrder>14</BuildOrder>
         </None>
         <CppCompile Include="Sudoku.cpp">
-            <BuildOrder>22</BuildOrder>
+            <BuildOrder>21</BuildOrder>
         </CppCompile>
         <CppCompile Include="TFileManager.cpp">
             <BuildOrder>20</BuildOrder>
@@ -315,6 +316,12 @@
                     </Platform>
                 </DeployFile>
                 <DeployFile LocalName="doc\strategy.txt" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="frmAlgorithm.dfm" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
