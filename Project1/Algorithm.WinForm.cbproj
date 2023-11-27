@@ -148,12 +148,6 @@
         </None>
         <None Include="doc\RegExManager_output.txt"/>
         <None Include="doc\strategy.txt"/>
-        <CppCompile Include="frmAlgorithm.cpp">
-            <Form>Form1</Form>
-            <FormType>dfm</FormType>
-            <DependentOn>frmAlgorithm.h</DependentOn>
-            <BuildOrder>23</BuildOrder>
-        </CppCompile>
         <None Include="frmAlgorithm.dfm"/>
         <None Include="iterativeList.h">
             <BuildOrder>8</BuildOrder>
@@ -176,9 +170,6 @@
         <None Include="SortBenchMark.h">
             <BuildOrder>14</BuildOrder>
         </None>
-        <CppCompile Include="Sudoku.cpp">
-            <BuildOrder>21</BuildOrder>
-        </CppCompile>
         <CppCompile Include="TFileManager.cpp">
             <BuildOrder>20</BuildOrder>
         </CppCompile>
@@ -191,7 +182,6 @@
         <None Include="TicTacToeManager.h">
             <BuildOrder>18</BuildOrder>
         </None>
-        <FormResources Include="frmAlgorithm.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
