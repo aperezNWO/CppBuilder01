@@ -148,7 +148,6 @@
         </None>
         <None Include="doc\RegExManager_output.txt"/>
         <None Include="doc\strategy.txt"/>
-        <None Include="frmAlgorithm.dfm"/>
         <None Include="iterativeList.h">
             <BuildOrder>8</BuildOrder>
         </None>
@@ -306,12 +305,6 @@
                     </Platform>
                 </DeployFile>
                 <DeployFile LocalName="doc\strategy.txt" Configuration="Debug" Class="ProjectFile">
-                    <Platform Name="Win32">
-                        <RemoteDir>.\</RemoteDir>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="frmAlgorithm.dfm" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
