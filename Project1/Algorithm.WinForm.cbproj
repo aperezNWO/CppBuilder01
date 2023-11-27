@@ -148,6 +148,13 @@
         </None>
         <None Include="doc\RegExManager_output.txt"/>
         <None Include="doc\strategy.txt"/>
+        <CppCompile Include="frmAlgorithm.cpp">
+            <Form>Form1</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>frmAlgorithm.h</DependentOn>
+            <BuildOrder>22</BuildOrder>
+        </CppCompile>
+        <None Include="frmAlgorithm.dfm"/>
         <None Include="iterativeList.h">
             <BuildOrder>8</BuildOrder>
         </None>
@@ -169,6 +176,9 @@
         <None Include="SortBenchMark.h">
             <BuildOrder>14</BuildOrder>
         </None>
+        <CppCompile Include="Sudoku.cpp">
+            <BuildOrder>23</BuildOrder>
+        </CppCompile>
         <CppCompile Include="TFileManager.cpp">
             <BuildOrder>20</BuildOrder>
         </CppCompile>
@@ -181,6 +191,7 @@
         <None Include="TicTacToeManager.h">
             <BuildOrder>18</BuildOrder>
         </None>
+        <FormResources Include="frmAlgorithm.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -305,6 +316,12 @@
                     </Platform>
                 </DeployFile>
                 <DeployFile LocalName="doc\strategy.txt" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="frmAlgorithm.dfm" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
