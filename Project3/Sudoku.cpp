@@ -5,6 +5,7 @@
 #include <string>
 #include <chrono>
 #include <random>
+#include "TFileManager.h"
 
 using namespace std;
 
@@ -189,17 +190,25 @@ public:
 	// Print sudoku
 	void printSudoku()
 	{
+		FileManager* fileManager = new FileManager();
+		fileManager->SaveLineToFile("\nSudoku Generated\n","Sudoku.txt");
+
 		for (int i = 0; i < N; i++)
 		{
+			string row = "";
 			for (int j = 0; j < N; j++)
 			{
 				//
 				string cell = std::to_string(mat[i][j]);
 				//
 				cout << cell << " ";
+				//
+				row += (cell + " ");
 			}
 			//
 			cout << endl;
+			//
+			fileManager->SaveLineToFile(row,"Sudoku.txt");
 		}
 		cout << endl;
 	}
@@ -295,11 +304,20 @@ class SudokuSolver
 
 		// Function to print the solved Sudoku grid
 		void printGrid(int grid[N][N]) {
+
+			//
+			FileManager* fileManager = new FileManager();
+			fileManager->SaveLineToFile("\nSudoku Solved\n","Sudoku.txt");
+
 			for (int i = 0; i < N; ++i) {
+				string row = "";
 				for (int j = 0; j < N; ++j) {
 					cout << grid[i][j] << " ";
+					row += (std::to_string(grid[i][j]) + " ");
 				}
 				cout << endl;
+				//
+				fileManager->SaveLineToFile(row,"Sudoku.txt");
 			}
 		}
 
