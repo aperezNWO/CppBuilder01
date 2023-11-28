@@ -1,8 +1,4 @@
 ﻿///////////////////////////////////////////////////////////////////////////
-// CLASS DIJKSTRA - METHOD IMPLEMENTATIONS
-///////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////
 // ALGORITHM.LIBRARY.DLL
 // https://blogs.embarcadero.com/create-and-use-static-library-lib-and-dynamic-dlls-in-c-builder/
 ///////////////////////////////////////////////////////////////////////////
@@ -176,6 +172,17 @@
 		return 0;
 	}
 
+	void Algorithm::ReplaceAll(std::string &str, const std::string &from, const std::string &to) 
+	{
+		//
+		size_t startPos = 0;
+		//
+		while ((startPos = str.find(from, startPos)) != std::string::npos) {
+			str.replace(startPos, from.length(), to);
+			startPos += to.length(); // Move to the next position after replacement
+		}
+	}
+
 	///////////////////////////////////////////////////////////////////////////
 	// ENTRY POINTS
 	///////////////////////////////////////////////////////////////////////////
@@ -227,11 +234,49 @@
 		// SUDOKU
 		DLL_EXPORT const char*  Sudoku_Solve_CPP(char* p_matrix)
 		{
-            //
+			//
 			// [{2,0,8,5,1,3,4,6,7},{0,3,6,2,4,0,1,9,8},{0,0,0,8,6,0,2,5,3},{3,2,5,4,7,6,0,1,9},{0,6,9,1,8,2,3,7,5},{8,7,0,3,0,5,0,0,2},{0,4,7,9,2,8,0,3,1},{1,8,0,7,5,4,0,2,6},{9,5,2,0,0,1,7,0,4}]
+
+			//
+			Algorithm*   algorithm     = new Algorithm();
+			string       str_p_matrix  = p_matrix;
+			FileManager* fileManager   = new FileManager();
+
+			//
+			std::map<std::string, std::string> replaceMap;
+
+			// Inserting values into the map
+			replaceMap["["]      = "";
+			replaceMap["]"]      = "";
+			replaceMap["},"]     = "|";
+			replaceMap["{"]      = "";
+			//replaceMap["}"]      = "";
+	
+			// Iterating through the map
+			for (const auto& pair : replaceMap) {
+				//
+				algorithm->ReplaceAll(str_p_matrix, pair.first, pair.second);
+			}
+			//
+			algorithm->ReplaceAll(str_p_matrix, "}", "");
+	
+			//
+			const char* str_p_matrix_c_str     = str_p_matrix.c_str();
+			fileManager->SaveLineToFile("\nSudoku To Solve\n","Sudoku.txt");
+
 			//
 			const static int   N          = 9;
 			int                grid[N][N] =
+			   {{-1, -1, -1, -1, -1, -1, -1, -1, -1},
+				{-1, -1, -1, -1, -1, -1, -1, -1, -1},
+				{-1, -1, -1, -1, -1, -1, -1, -1, -1},
+				{-1, -1, -1, -1, -1, -1, -1, -1, -1},
+				{-1, -1, -1, -1, -1, -1, -1, -1, -1},
+				{-1, -1, -1, -1, -1, -1, -1, -1, -1},
+				{-1, -1, -1, -1, -1, -1, -1, -1, -1},
+				{-1, -1, -1, -1, -1, -1, -1, -1, -1},
+				{-1, -1, -1, -1, -1, -1, -1, -1, -1}};
+/*
 			   {{0, 4, 0, 1, 0, 2, 6, 5, 7},
 				{2, 7, 3, 6, 8, 5, 4, 1, 9},
 				{0, 6, 0, 9, 0, 4, 2, 8, 3},
@@ -241,6 +286,33 @@
 				{0, 3, 2, 0, 0, 1, 0, 7, 4},
 				{7, 1, 4, 2, 0, 6, 9, 3, 8},
 				{0, 8, 0, 7, 4, 0, 1, 2, 6}};
+*/
+
+			//
+			vector<string>   str_p_matrix_rows = algorithm->StringSplit(str_p_matrix_c_str,"|");
+			//
+			int i = 0;
+            //
+			for (string row : str_p_matrix_rows) {
+				//
+				fileManager->SaveLineToFile(row,"Sudoku.txt");
+				//
+				int j = 0;
+				//				
+				vector<string>   str_p_matrix_cols = algorithm->StringSplit(row.c_str(),",");
+				//
+				for (string col : str_p_matrix_cols) {
+					//
+					int num = stoi(col);
+					//
+					grid[i][j] = num;
+					//
+					j++;	
+				}
+				//
+				i++;
+			}
+
 			//
 			std::unique_ptr<SudokuSolver> uniquePtr = std::make_unique<SudokuSolver>();
 			string           str_matrix             = uniquePtr->Solve(grid);
