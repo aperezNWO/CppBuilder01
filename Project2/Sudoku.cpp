@@ -220,7 +220,7 @@ public:
 			fileManager->SaveLineToFile(row,"Sudoku.txt");
 		}
 		//
-        string_matrix = "[" + string_matrix  + "]";
+		string_matrix = "[" + string_matrix  + "]";
 		//
 		cout << endl;
 		//
@@ -319,22 +319,40 @@ class SudokuSolver
 		}
 
 		// Function to print the solved Sudoku grid
-		void printGrid(int grid[N][N]) {
-
+		string printGrid(int grid[N][N]) {
+			//
+			string string_matrix     = "";
 			//
 			FileManager* fileManager = new FileManager();
 			fileManager->SaveLineToFile("\nSudoku Solved\n","Sudoku.txt");
-
+			//
 			for (int i = 0; i < N; ++i) {
-				string row = "";
+				//
+				string row = "{";
+				//
 				for (int j = 0; j < N; ++j) {
-					cout << grid[i][j] << " ";
-					row += (std::to_string(grid[i][j]) + " ");
+					//
+					string cell = std::to_string(grid[i][j]);
+					//
+					cout << cell << " ";
+					//
+					row += (cell + ((j < (N-1))?  "," : ""));
 				}
+				//
+				row += ((i < (N-1))?  "}," : "}");
+				//
+				string_matrix += row;
+				//
 				cout << endl;
 				//
 				fileManager->SaveLineToFile(row,"Sudoku.txt");
 			}
+			//
+			string_matrix = "[" + string_matrix  + "]";
+			//
+			cout << endl;
+			//
+			return string_matrix;
 		}
 
 		//
@@ -363,17 +381,19 @@ class SudokuSolver
 		};
 
 		//
-		int Solve(int grid[N][N])
+		string Solve(int grid[N][N])
 		{
+			//
+			string str_matrix = "";
 			//
 			if (solveSudoku(grid)) {
 				cout << "Sudoku solved:\n";
-				printGrid(grid);
+				str_matrix = printGrid(grid);
 			} else {
 				cout << "No solution exists.\n";
 			}
 			//
-			return 0;
+			return str_matrix;
 		};
 };
 
