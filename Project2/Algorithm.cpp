@@ -250,7 +250,8 @@
 			replaceMap["]"]      = "";
 			replaceMap["},"]     = "|";
 			replaceMap["{"]      = "";
-			//replaceMap["}"]      = "";
+			//replaceMap["}"]      = "";  // ERROR EN ESTE REEMPLAZO
+            // SE DEBE REEMPLAZAR ESPECIFICMENTE MAS ABAJO
 	
 			// Iterating through the map
 			for (const auto& pair : replaceMap) {
