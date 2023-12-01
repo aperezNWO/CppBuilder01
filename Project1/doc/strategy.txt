@@ -67,38 +67,6 @@
 -- [X] cpp config.
 
 ////////////////////////////////////////////////////////////////////////////////
--- [_] TODO GENERAL
-////////////////////////////////////////////////////////////////////////////////
-
-        -- [_] SOCIAL MEDIA.
-
-        -- [_] ENGLISH VERSION.
-
-        -- [_] README FILE.
-
-        -- [_] cpp winform
-
-        -- [_] https://en.cppreference.com/w/cpp/container    (with examples)
-
-        -- [_] https://cplusplus.com/reference/stl/           (with examples)
-
-	-- [_] Don't forget to deallocate the memory when you're done
-
-     	-- [_] c++.
-
-	       -- [_] software architecture and patterns.
-
-               -- [_] libraries.
-
-               -- [_] SaveToFile <Template>.
-
-        -- [_] Node.js code sandbox.
-
-        -- [_]  TAOCP.
-
-        -- [_]  https://github.com/codespaces
-
-////////////////////////////////////////////////////////////////////////////////
 -- [_] C++ OCR
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -158,5 +126,56 @@
 -- [_]
 
 ////////////////////////////////////////////////////////////////////////////////
+-- [_] c++.
+////////////////////////////////////////////////////////////////////////////////
+
+        -- [_] SOCIAL MEDIA.
+
+        -- [_] ENGLISH VERSION.
+
+        -- [_] README FILE / MD.
+
+        -- [_] cpp winform
+
+        -- [_] https://en.cppreference.com/w/cpp/container    (with examples)
+
+        -- [_] https://cplusplus.com/reference/stl/           (with examples)
+
+	-- [_] Don't forget to deallocate the memory when you're done
+
+        -- [_] software architecture and patterns.
+
+        -- [_] libraries.
+
+        -- [_] SaveToFile <Template>.
 
 
+////////////////////////////////////////////////////////////////////////////////
+-- [_] TODO GENERAL
+////////////////////////////////////////////////////////////////////////////////
+
+-- [_] Algorithms
+
+        -- [_] [TAOCP]
+
+-- [_] Games
+        -- [_] tic tac toe
+        -- [_] hanoi towers
+        -- [_] sudoku
+-- [_] A.I. Apps
+        -- [_] C# Accord
+        -- [_] C++ OpenCV
+        -- [_] Neural Networks
+        -- [_] Machine Learning
+
+-- [_] Backend
+        -- [_] C#
+        -- [_] C++
+        -- [_] Node Js
+        -- [_] Python
+-- [_] Environments
+        -- [_] CodeSandbox
+        -- [_] Git Hub CodeSpaces
+        -- [_] Docker
+
+////////////////////////////////////////////////////////////////////////////////
