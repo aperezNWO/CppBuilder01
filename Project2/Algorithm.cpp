@@ -215,6 +215,20 @@
 			//
 			return uniquePtr->RegExEval(p_tagSearch, p_textSearch).c_str();
 		}
+        // 64 bit version
+		DLL_EXPORT const string  Sudoku_Generate_CPP_str()
+		{
+			//
+			const static int   N = 9;
+			int                K = 20;
+
+			//
+			std::unique_ptr<SudokuGenerator> uniquePtr = std::make_unique<SudokuGenerator>(N, K);
+			string           str_matrix                = uniquePtr->Run();
+
+			//
+			return str_matrix;
+		}
 
 		// SUDOKU
 		DLL_EXPORT const char*  Sudoku_Generate_CPP()
