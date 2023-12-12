@@ -215,7 +215,8 @@
 			//
 			return uniquePtr->RegExEval(p_tagSearch, p_textSearch).c_str();
 		}
-        // 64 bit version
+
+		// SUDOKU - 64 bit version
 		DLL_EXPORT const char* Sudoku_Generate_CPP_64()
 		{
 			//
