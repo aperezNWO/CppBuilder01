@@ -3,9 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <Sudoku.cpp>
-
 //
-int _tmain(int argc, _TCHAR* argv[])
+int TestSudoku()
 {
 	//
 	const static int   N = 9;
@@ -44,4 +43,9 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	//
 	return (0);
+}
+//
+int _tmain(int argc, _TCHAR* argv[])
+{
+    TestSudoku();
 };
