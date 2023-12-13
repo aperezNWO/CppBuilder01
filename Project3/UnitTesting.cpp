@@ -88,7 +88,7 @@ int _tmain(int argc, _TCHAR* argv[])
 			break;
 			case Option::Hanoi :    // hanoi
 				TestGame("Hanoi Towers" , option);
-            break;
+            		break;
 		default:
 			;
 		};
