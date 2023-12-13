@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <Sudoku.cpp>
-
+#include <TicTacToe.cpp>
 //
 int TestGame(string title, int option)
 {
@@ -21,6 +21,8 @@ int TestGame(string title, int option)
 		switch (option) {
 			case 1:
 				SudokuTest();
+			case 2:
+				TicTacToeTest();
 			break;
 		default:
 			;
