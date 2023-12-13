@@ -37,6 +37,7 @@ int TestGame(string title, Option option)
 			break;
 			case Option::Hanoi:
 				HanoiTest();
+            break;
 		default:
 			;
 		};
