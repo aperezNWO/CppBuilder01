@@ -3,43 +3,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <Sudoku.cpp>
+
 //
-int TestSudoku()
+int TestGame(string title, int option)
 {
 	//
-	const static int   N = 9;
-	int                K = 20;
-	int grid[N][N];
 	char cont='y';
 
 	//
-	do {
+	do
+	{
 		//
 		system("cls");
-		std::cout << "Generated Board : " << endl;
+		std::cout << title << endl;
 
 		//
-		SudokuGenerator* sudokuGenerator = new SudokuGenerator(N, K);
-		sudokuGenerator->Run();
-
-		//
-		for (int i = 0; i < N; i++)
-		{
-			//
-			for (int j = 0; j < N; j++) {
-				   grid[i][j] = sudokuGenerator->mat[i][j];
-			}
+		switch (option) {
+			case 1:
+				SudokuTest();
+			break;
+		default:
+			;
 		};
 
 		//
-		SudokuSolver* sudokuSolver = new SudokuSolver();
-		sudokuSolver->Solve(grid);
-
-		//
-		cout << endl << "Do you want to quit? (y/n) : ";
+		cout << endl << "Do you want to continue? (y/n) : ";
 		cin  >> cont;
 
-	}   while(cont=='n');
+	} while (cont == 'y');
+
 
 	//
 	return (0);
@@ -47,5 +39,35 @@ int TestSudoku()
 //
 int _tmain(int argc, _TCHAR* argv[])
 {
-    TestSudoku();
+
+	//
+	int option = 0;
+	//
+	do {
+		//
+		system("cls");
+
+		//
+		cout<<"[UNIT TESTING] "   << endl;
+		//
+		cout << "Choose option :" << endl;
+		cout << endl;
+		cout << "1. Sudoku."      << endl;
+		cout << "2. Tic Tac Toe." << endl;
+		cout << "3. Hanoi."       << endl;
+		cout << "4. Exit."        << endl;
+		cout << "Enter Option : ";
+		cin  >> option;
+
+		//
+		switch (option) {
+			case 1:
+				TestGame("[SUDOKU GAME TEST]",option);
+			break;
+		default:
+			;
+		};
+
+	}   while(option != 4);
+
 };

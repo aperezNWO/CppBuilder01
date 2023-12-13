@@ -215,6 +215,8 @@ public:
 	// Driver code
 	int Run()
 	{
+        //
+		std::cout << "Generated Board :  " << endl;
 		//
 		this->fillValues();
 		this->printSudoku();
@@ -361,6 +363,29 @@ class SudokuSolver
 		};
 };
 
+void SudokuTest()
+{
+		const static int   N = 9;
+		int                K = 20;
+		int grid[N][N];
+
+		//
+		SudokuGenerator* sudokuGenerator = new SudokuGenerator(N, K);
+		sudokuGenerator->Run();
+
+		//
+		for (int i = 0; i < N; i++)
+		{
+			//
+			for (int j = 0; j < N; j++) {
+				   grid[i][j] = sudokuGenerator->mat[i][j];
+			}
+		};
+
+		//
+		SudokuSolver* sudokuSolver = new SudokuSolver();
+		sudokuSolver->Solve(grid);
+}
 
 /*
 
