@@ -5,13 +5,12 @@
 #include <stdio.h>
 
 using namespace std;
-#define COMPUTER 1
-#define HUMAN 2
-#define SIDE 3 // Length of the board
-// Computer will move with 'O'
-// and human with 'X'
-#define COMPUTERMOVE 'O'
-#define HUMANMOVE 'X'
+
+#define COMPUTER      1
+#define HUMAN         2
+#define SIDE          3   // Length of the board
+#define COMPUTERMOVE 'O'  // Computer will move with 'O'
+#define HUMANMOVE    'X'  // and human with 'X'
 
 class TicTacToe
 {
@@ -261,8 +260,8 @@ class TicTacToe
 			printf("\n-------------------------------------------------------------------\n\n");
 			printf("\t\t\t Tic-Tac-Toe\n");
 			printf("\n-------------------------------------------------------------------\n\n");
-			char cont='y';
-			do {
+			//char cont='y';
+			//do {
 				char choice;
 				printf("Do you want to start first?(y/n) : ");
 				scanf(" %c", &choice);
@@ -272,17 +271,16 @@ class TicTacToe
 					playTicTacToe(HUMAN);
 				else
 					printf("Invalid choice\n");
-				printf("\nDo you want to quit(y/n) : ");
-					scanf(" %c", &cont);
-			} while(cont=='n');
+			//	printf("\nDo you want to quit(y/n) : ");
+			//		scanf(" %c", &cont);
+			//} while(cont=='n');
 		 };
 };
-
+//
 void TicTacToeTest()
 {
 	//
 	TicTacToe* ticTacToe = new TicTacToe();
 	ticTacToe->Run();
-
 }
 

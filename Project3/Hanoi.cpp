@@ -24,7 +24,7 @@ class Hanoi
 			<< " to rod " << to_rod << endl;
 		towerOfHanoi(n - 1, aux_rod, to_rod, from_rod);
 	}
-
+public :
 	// Driver code
 	int Run()
 	{
@@ -41,5 +41,11 @@ class Hanoi
 	};
 };
 
+void HanoiTest()
+{
+	//
+	Hanoi* hanoi = new Hanoi();
+	hanoi->Run();
+}
 
 
