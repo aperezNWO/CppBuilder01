@@ -348,7 +348,9 @@ using namespace std;
 	string Dijkstra::GetRandomPoints(int p_vertexSize, int p_sourcePoint)
 	{
 		//
-		int  p_sampleSize        = std::stoi(this->configMap["ARRAY_SIZE"]) - 1;
+		int  p_sampleSize   = std::stoi(this->configMap["ARRAY_SIZE"]) - 1;
+		//
+		p_sampleSize        = p_sampleSize - 2; // remover extremos de coordenadas
 		vector<int> vertex_X;
 		vector<int> vertex_Y;
 
@@ -356,8 +358,8 @@ using namespace std;
 		for (short i = 0; i < p_sampleSize; i++)
 		{
 			//
-			vertex_X.push_back(i);
-			vertex_Y.push_back(i);
+			vertex_X.push_back(i + 1); // remover extremos de coordenadas
+			vertex_Y.push_back(i + 1); // remover extremos de coordenadas
 		}
 
 		unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();

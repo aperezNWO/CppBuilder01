@@ -345,14 +345,15 @@ using namespace std;
 	{
 		//
 		int  p_sampleSize        = std::stoi(this->configMap["ARRAY_SIZE"]) - 1;
+		p_sampleSize             = p_sampleSize - 2;    // remover extremos de coordenadas
 		vector<int>  vertex_X;
 		vector<int>  vertex_Y;
 		//
 		for (short i = 0; i < p_sampleSize; i++)
 		{
 			//
-			vertex_X.push_back(i);
-			vertex_Y.push_back(i);
+			vertex_X.push_back(i + 1); // remover extremos de coordenadas
+			vertex_Y.push_back(i + 1); // remover extremos de coordenadas
 		}
 
 		unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
